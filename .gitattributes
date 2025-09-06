@@ -1,3 +1,5 @@
 model/*.pth filter=lfs diff=lfs merge=lfs -text
 code/rtdetrv2_pytorch/output/rtdetrv2_r50vd_6x_coco/best.pth filter=lfs diff=lfs merge=lfs -text
 code/rtdetrv2_pytorch/tools/model.onnx filter=lfs diff=lfs merge=lfs -text
+code/rtdetrv2_pytorch/tools/model.onnx filter=lfs diff=lfs merge=lfs -text
+code/rtdetrv2_pytorch/output/rtdetrv2_r50vd_6x_coco/best.pth filter=lfs diff=lfs merge=lfs -text
