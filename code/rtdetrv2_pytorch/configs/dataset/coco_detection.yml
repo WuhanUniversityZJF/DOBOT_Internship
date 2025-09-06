@@ -1,0 +1,54 @@
+task: detection
+
+evaluator:
+  type: CocoEvaluator
+  iou_types: ['bbox', ]
+
+# num_classes: 365
+# remap_mscoco_category: False
+
+# num_classes: 91
+# remap_mscoco_category: False
+
+#num_classes: 80
+num_classes: 3
+#remap_mscoco_category: True
+remap_mscoco_category: False
+
+
+train_dataloader: 
+  type: DataLoader
+  dataset: 
+    type: CocoDetection
+    #img_folder: ./dataset/coco/train2017/
+    img_folder: C:\RT-DETR-main\RT-DETR-main\rtdetrv2_pytorch\configs\dataset\coco\train2017
+    #ann_file: ./dataset/coco/annotations/instances_train2017.json
+    ann_file: C:\RT-DETR-main\RT-DETR-main\rtdetrv2_pytorch\configs\dataset\coco\annotations\instances_train2017.json
+    return_masks: False
+    transforms:
+      type: Compose
+      ops: ~
+  shuffle: True
+  num_workers: 4
+  drop_last: True 
+  collate_fn:
+    type: BatchImageCollateFuncion
+
+
+val_dataloader:
+  type: DataLoader
+  dataset: 
+    type: CocoDetection
+    #img_folder: ./dataset/coco/val2017/
+    img_folder: C:\RT-DETR-main\RT-DETR-main\rtdetrv2_pytorch\configs\dataset\coco\val2017
+    #ann_file: ./dataset/coco/annotations/instances_val2017.json
+    ann_file: C:\RT-DETR-main\RT-DETR-main\rtdetrv2_pytorch\configs\dataset\coco\annotations\instances_val2017.json
+    return_masks: False
+    transforms:
+      type: Compose
+      ops: ~ 
+  shuffle: False
+  num_workers: 4
+  drop_last: False
+  collate_fn:
+    type: BatchImageCollateFuncion

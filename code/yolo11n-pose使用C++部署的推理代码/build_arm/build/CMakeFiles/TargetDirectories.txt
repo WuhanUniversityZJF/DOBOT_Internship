@@ -1,0 +1,3 @@
+/home/sunrise/build_arm/build/CMakeFiles/main.dir
+/home/sunrise/build_arm/build/CMakeFiles/edit_cache.dir
+/home/sunrise/build_arm/build/CMakeFiles/rebuild_cache.dir

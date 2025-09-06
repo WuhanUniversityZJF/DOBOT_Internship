@@ -1,0 +1,158 @@
+import cv2
+import numpy as np
+import onnxruntime as ort
+
+
+class YOLOv11PoseDetector:
+    def __init__(self, model_path, conf_thres=0.5, kpt_thres=0.3):
+        self.session = ort.InferenceSession(model_path)
+        self.input_name = self.session.get_inputs()[0].name
+        self.output_names = [output.name for output in self.session.get_outputs()]
+        self.conf_thres = conf_thres
+        self.kpt_thres = kpt_thres
+        self.skeleton = [[16, 14], [14, 12], [17, 15], [15, 13], [12, 13], [6, 12],
+                         [7, 13], [6, 7], [6, 8], [7, 9], [8, 10], [9, 11], [2, 3],
+                         [1, 2], [1, 3], [2, 4], [3, 5], [4, 6], [5, 7]]
+
+    def preprocess(self, img):
+        """改进的预处理：精确记录填充信息"""
+        self.orig_h, self.orig_w = img.shape[:2]
+
+        # 计算缩放比例（保持长宽比）
+        self.scale = min(640 / self.orig_w, 640 / self.orig_h)
+        new_w, new_h = int(self.orig_w * self.scale), int(self.orig_h * self.scale)
+
+        # 执行resize
+        resized = cv2.resize(img, (new_w, new_h))
+
+        # 计算填充量（考虑奇数像素情况）
+        self.pad_x = (640 - new_w) // 2
+        self.pad_y = (640 - new_h) // 2
+        self.pad_x2 = 640 - new_w - self.pad_x  # 右侧/底部可能多1个像素
+        self.pad_y2 = 640 - new_h - self.pad_y
+
+        # 执行填充
+        padded = cv2.copyMakeBorder(resized,
+                                    self.pad_y, self.pad_y2,
+                                    self.pad_x, self.pad_x2,
+                                    cv2.BORDER_CONSTANT, value=(114, 114, 114))
+
+        # 转换为模型输入格式
+        input_tensor = padded.astype(np.float32) / 255.0
+        input_tensor = input_tensor.transpose(2, 0, 1)[None]  # HWC -> NCHW
+
+        return input_tensor
+
+    def postprocess(self, outputs, img_shape):
+        """改进的后处理：精确坐标转换"""
+        pred = outputs[0][0]  # (56,8400)
+        pred = pred.transpose(1, 0)  # (8400,56)
+
+        # 过滤低置信度检测
+        mask = pred[:, 4] > self.conf_thres
+        pred = pred[mask]
+
+        if len(pred) == 0:
+            return [], [], []
+
+        # 解码框坐标 (l,t,r,b) -> (x1,y1,x2,y2)
+        boxes = pred[:, :4].copy()
+        boxes[:, 0] = (boxes[:, 0] + boxes[:, 2]) / 2  # x_center
+        boxes[:, 1] = (boxes[:, 1] + boxes[:, 3]) / 2  # y_center
+        boxes[:, 2] = boxes[:, 2] - boxes[:, 0]  # width
+        boxes[:, 3] = boxes[:, 3] - boxes[:, 1]  # height
+
+        # 解码关键点 (17个点，每个点有x,y,conf)
+        kpts = pred[:, 5:].reshape(-1, 17, 3)
+
+        # 关键改进：精确坐标转换（考虑填充和缩放）
+        def transform_coords(coords):
+            # 减去填充并还原缩放
+            coords[..., 0] = (coords[..., 0] - self.pad_x) / self.scale
+            coords[..., 1] = (coords[..., 1] - self.pad_y) / self.scale
+            # 确保坐标在图像范围内
+            coords[..., 0] = np.clip(coords[..., 0], 0, self.orig_w)
+            coords[..., 1] = np.clip(coords[..., 1], 0, self.orig_h)
+            return coords
+
+        boxes = transform_coords(boxes)
+        kpts = transform_coords(kpts)
+
+        return boxes, pred[:, 4], kpts
+
+    def draw_detections(self, img, boxes, scores, kpts):
+        """改进的可视化：添加调试信息"""
+        # 绘制预处理区域（调试用）
+        debug_img = img.copy()
+        cv2.rectangle(debug_img,
+                      (0, 0),
+                      (self.orig_w, self.orig_h),
+                      (0, 255, 0), 1)
+
+        # 绘制每个检测结果
+        for box, score, kpt in zip(boxes, scores, kpts):
+            x, y, w, h = box.astype(int)
+            x1, y1 = x - w // 2, y - h // 2
+            x2, y2 = x + w // 2, y + h // 2
+
+            # 绘制检测框
+            cv2.rectangle(debug_img, (x1, y1), (x2, y2), (0, 255, 0), 2)
+
+            # 绘制置信度
+            label = f"{score:.2f}"
+            cv2.putText(debug_img, label, (x1, y1 - 10),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 255), 2)
+
+            # 绘制关键点
+            for i, (x, y, conf) in enumerate(kpt):
+                if conf > self.kpt_thres:
+                    cv2.circle(debug_img, (int(x), int(y)), 5, (0, 0, 255), -1)
+
+            # 绘制骨架连线
+            for i, (start, end) in enumerate(self.skeleton):
+                if (kpt[start - 1, 2] > self.kpt_thres and
+                        kpt[end - 1, 2] > self.kpt_thres):
+                    start_pt = (int(kpt[start - 1, 0]), int(kpt[start - 1, 1]))
+                    end_pt = (int(kpt[end - 1, 0]), int(kpt[end - 1, 1]))
+                    cv2.line(debug_img, start_pt, end_pt, (0, 255, 0), 2)
+
+        return debug_img
+
+    def detect(self, img_path):
+        """完整的检测流程"""
+        # 读取图像
+        img = cv2.imread(img_path)
+        if img is None:
+            raise ValueError(f"无法加载图像: {img_path}")
+
+        # 预处理
+        input_tensor = self.preprocess(img)
+
+        # 模型推理
+        outputs = self.session.run(self.output_names, {self.input_name: input_tensor})
+        print("模型输出形状:", [output.shape for output in outputs])
+
+        # 后处理
+        boxes, scores, kpts = self.postprocess(outputs, img.shape)
+        print(f"检测到 {len(boxes)} 个人体")
+
+        # 可视化
+        result_img = self.draw_detections(img, boxes, scores, kpts)
+
+        # 保存结果
+        output_path = img_path.replace(".", "_result.")
+        cv2.imwrite(output_path, result_img)
+        print(f"结果已保存到 {output_path}")
+
+        # 显示结果
+        cv2.imshow("Pose Detection", result_img)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
+
+
+if __name__ == "__main__":
+    # 初始化检测器（调低阈值确保检测）
+    detector = YOLOv11PoseDetector("yolo11n-pose.onnx", conf_thres=0.3)
+
+    # 检测单张图片
+    detector.detect("img.png")  # 替换为你的图片路径

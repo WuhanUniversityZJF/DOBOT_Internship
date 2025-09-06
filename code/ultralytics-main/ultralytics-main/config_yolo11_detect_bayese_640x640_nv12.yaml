@@ -1,0 +1,28 @@
+model_parameters:
+  onnx_model: './models/front_squad.onnx' # docker镜像中你的onnx的路径
+  march: "bayes-e"
+  layer_out_dump: False
+  working_dir: 'home/sunrise/Desktop/yolo11n_detect_bayese_640x640_nv12' # 转换为bin文件后的文件夹名
+  output_model_file_prefix: 'yolo11n_detect_bayese_640x640_nv12' # 转换为bin文件的名称
+  # YOLO11 n, s, m
+  node_info: {"/model.10/m/m.0/attn/Softmax": {'ON': 'BPU','InputType': 'int16','OutputType': 'int16'}}
+  # YOLO11 l, x
+  # node_info: {"/model.10/m/m.0/attn/Softmax": {'ON': 'BPU','InputType': 'int16','OutputType': 'int16'},
+  #             "/model.10/m/m.1/attn/Softmax": {'ON': 'BPU','InputType': 'int16','OutputType': 'int16'}}
+input_parameters:
+  # input_batch: 8
+  input_name: ""
+  input_type_rt: 'nv12'
+  input_type_train: 'rgb'
+  input_layout_train: 'NCHW'
+  norm_type: 'data_scale'
+  scale_value: 0.003921568627451
+calibration_parameters:
+  cal_data_dir: './calibration_images_640' # 校准数据集文件夹
+  cal_data_type: 'float32'
+  # preprocess_on: True
+  # calibration_type: 'default'
+compiler_parameters:
+  compile_mode: 'latency'
+  debug: False
+  optimize_level: 'O3'
