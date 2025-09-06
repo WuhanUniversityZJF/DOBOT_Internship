@@ -1,0 +1,29 @@
+// the test
+digraph model {
+	images [label=images color=black]
+	NV12TOYUV444 [label="name: NV12TOYUV444
+type: BPU" color=black fillcolor=cadetblue shape=box style=filled]
+	torch_jit_subgraph_0 [label="name: torch_jit_subgraph_0
+type: BPU" color=black fillcolor=cadetblue shape=box style=filled]
+	"model.23dflTranspose_output_0_HzDequantize" [label="name: model.23dflTranspose_output_0_HzDequantize
+type: Dequantize" color=black fillcolor=lightgrey shape=box style=filled]
+	"model.23dflSoftmax" [label="name: model.23dflSoftmax
+type: Softmax" color=black fillcolor=lightgrey shape=box style=filled]
+	"model.23dflTranspose_1_output_0_model.23dflTranspose_1_output_0_HzCalibration_HzQuantize" [label="name: model.23dflTranspose_1_output_0_model.23dflTranspose_1_output_0_HzCalibration_HzQuantize
+type: Quantize" color=black fillcolor=lightgrey shape=box style=filled]
+	torch_jit_subgraph_1 [label="name: torch_jit_subgraph_1
+type: BPU" color=black fillcolor=cadetblue shape=box style=filled]
+	output0_HzDequantize [label="name: output0_HzDequantize
+type: Dequantize" color=black fillcolor=lightgrey shape=box style=filled]
+	output0 [label=output0 color=black]
+	images -> NV12TOYUV444 [label="1x640x640x3 / 2, NV12, UINT8" color=red]
+	NV12TOYUV444 -> torch_jit_subgraph_0 [label="1x640x640x3, YUV444, NHWC, INT8" color=red]
+	torch_jit_subgraph_0 -> torch_jit_subgraph_1 [label="1x51x8400, INT16" color=red]
+	torch_jit_subgraph_0 -> "model.23dflTranspose_output_0_HzDequantize" [label="1x8400x4x16, INT16" color=red]
+	torch_jit_subgraph_0 -> torch_jit_subgraph_1 [label="1x1x8400, INT16" color=red]
+	"model.23dflTranspose_output_0_HzDequantize" -> "model.23dflSoftmax" [label="1x8400x4x16, FLOAT32" color=red]
+	"model.23dflSoftmax" -> "model.23dflTranspose_1_output_0_model.23dflTranspose_1_output_0_HzCalibration_HzQuantize" [label="1x8400x4x16, FLOAT32" color=red]
+	"model.23dflTranspose_1_output_0_model.23dflTranspose_1_output_0_HzCalibration_HzQuantize" -> torch_jit_subgraph_1 [label="1x8400x4x16, INT8" color=red]
+	torch_jit_subgraph_1 -> output0_HzDequantize [label="1x56x8400, INT16" color=red]
+	output0_HzDequantize -> output0 [label="1x56x8400, FLOAT32" color=red]
+}

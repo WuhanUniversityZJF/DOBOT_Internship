@@ -1,0 +1,13 @@
+2025-08-25 11:25:36,898 file: tool_utils.py func: tool_utils line No: 77 log will be stored in /open_explorer/hb_perf.log
+2025-08-25 11:25:36,909 file: hb_perf.py func: hb_perf line No: 63 Start hb_perf....
+2025-08-25 11:25:36,910 file: hb_perf.py func: hb_perf line No: 64 hb_perf version 1.24.3
+2025-08-25 11:25:36,923 file: hb_perf.py func: hb_perf line No: 106 * yolo11n_pose_bayese_640x640_nv12_modified perf *
+2025-08-25 11:25:36,953 file: graph_tool.py func: graph_tool line No: 466 When the bin model input type is nv12, the BPU will convert nv12 to yuv444 internally to do the operation. In the drawing process, we use a BPU node to replace this input type conversion process to ensure the correctness of the logical relationships expressed in the diagram, but in fact, this BPU node doesn't exist in the bin model.. We name this BPU node involved in the drawing process NV12TOYUV444 with details ['1x640x640x3 / 2, NV12, UINT8'].
+2025-08-25 11:25:37,257 file: graph_tool.py func: graph_tool line No: 541 draw graph png finished.
+2025-08-25 11:25:37,280 file: hb_perf.py func: hb_perf line No: 114 get bpu model succeeded.
+2025-08-25 11:25:37,590 file: hb_perf.py func: hb_perf line No: 195 FPS=190.46, latency = 5250.6 us, DDR = 14613696 bytes   (see ./hb_perf_result/yolo11n_pose_bayese_640x640_nv12_modified/main_graph_subgraph_0.html)
+2025-08-25 11:25:37,591 file: hb_perf.py func: hb_perf line No: 197 Load/Store with compression is used in your model. Actual latency depends on the data it processed.
+2025-08-25 11:25:37,911 file: hb_perf.py func: hb_perf line No: 122 get perf info succeeded.
+2025-08-25 11:25:37,921 file: report_gen.py func: report_gen line No: 74 generating html...
+2025-08-25 11:25:37,922 file: report_gen.py func: report_gen line No: 106 html generation finished.
+2025-08-25 11:25:37,922 file: report_gen.py func: report_gen line No: 107 file stored at : /open_explorer/hb_perf_result/yolo11n_pose_bayese_640x640_nv12_modified/yolo11n_pose_bayese_640x640_nv12_modified.html

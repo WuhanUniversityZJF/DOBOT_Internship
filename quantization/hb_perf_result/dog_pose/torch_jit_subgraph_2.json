@@ -1,0 +1,130 @@
+{
+    "summary": {
+        "BPU PE number": 1,
+        "BPU core number": 1,
+        "BPU march": "B25E",
+        "DDR bytes per frame": 2407424,
+        "DDR bytes per run": 2407424,
+        "DDR bytes per second": 7083408852,
+        "DDR megabytes per frame": 2.296,
+        "DDR megabytes per run": 2.296,
+        "DDR megabytes per second": 6755.3,
+        "FPS": 2942.32,
+        "HBDK version": "3.49.15",
+        "compiling options": "-f hbir -m /tmp/tmplgy9l69e/torch_jit_subgraph_2.hbir -o /tmp/tmplgy9l69e/torch_jit_subgraph_2.hbm --march bayes-e --progressbar --O3 --debug --core-num 1 --fast --input-layout NHWC --output-layout NHWC --input-source ddr",
+        "frame per run": 1,
+        "frame per second": 2942.32,
+        "input features": [
+            [
+                "input name",
+                "input size"
+            ],
+            [
+                "/model.23/Slice_10_output_0_calibrated_quantized",
+                "1x1x72x8400"
+            ]
+        ],
+        "interval computing unit utilization": [
+            0.033,
+            0.006,
+            0.52,
+            0.382,
+            0.235,
+            0.404,
+            0.301
+        ],
+        "interval computing units utilization": [
+            0.033,
+            0.006,
+            0.52,
+            0.382,
+            0.235,
+            0.404,
+            0.301
+        ],
+        "interval loading bandwidth (megabytes/s)": [
+            6997,
+            6936,
+            6705,
+            6526,
+            6510,
+            6386,
+            4311
+        ],
+        "interval number": 7,
+        "interval storing bandwidth (megabytes/s)": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            966,
+            1933
+        ],
+        "interval time (ms)": 0.05,
+        "latency (ms)": 0.34,
+        "latency (ms) by segments": [
+            0.34
+        ],
+        "latency (us)": 339.9,
+        "layer details": [
+            [
+                "layer",
+                "ops",
+                "original output shape",
+                "aligned output shape",
+                "computing cost (no DDR)",
+                "load/store cost",
+                "active period of time"
+            ],
+            [
+                "/model.23/Slice_10",
+                "0",
+                "[1,1,24,8400]",
+                "[1,1,24,8448]",
+                "4 us (1.1% of model)",
+                "80 us (23.6% of model)",
+                "0 ~ 125 us (125)"
+            ],
+            [
+                "/model.23/Mul_12",
+                "0",
+                "[1,1,24,8400]",
+                "[1,2,24,8400]",
+                "30 us (8.8% of model)",
+                "77 us (22.6% of model)",
+                "40 ~ 170 us (130)"
+            ],
+            [
+                "/model.23/Add_15",
+                "0",
+                "[1,1,24,8400]",
+                "[1,2,24,8400]",
+                "30 us (8.8% of model)",
+                "60 us (17.6% of model)",
+                "107 ~ 263 us (156)"
+            ],
+            [
+                "/model.23/Mul_13",
+                "0",
+                "[1,1,24,8400]",
+                "[1,2,24,8400]",
+                "30 us (8.8% of model)",
+                "122 us (36.0% of model)",
+                "192 ~ 340 us (148)"
+            ]
+        ],
+        "loaded bytes per frame": 2204672,
+        "loaded bytes per run": 2204672,
+        "model json CRC": "4c4910e8",
+        "model json file": "/tmp/tmplgy9l69e/torch_jit_subgraph_2.hbir",
+        "model name": "torch_jit_subgraph_2",
+        "model param CRC": "00000000",
+        "multicore sync time (ms)": 0.0,
+        "run per second": 2942.32,
+        "runtime version": "3.15.55.0",
+        "stored bytes per frame": 202752,
+        "stored bytes per run": 202752,
+        "worst FPS": 2942.32
+    }
+}

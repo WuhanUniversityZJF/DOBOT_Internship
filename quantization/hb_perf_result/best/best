@@ -1,0 +1,27 @@
+// the test
+digraph model {
+	images [label=images color=black]
+	NV12TOYUV444 [label="name: NV12TOYUV444
+type: BPU" color=black fillcolor=cadetblue shape=box style=filled]
+	torch_jit_subgraph_0 [label="name: torch_jit_subgraph_0
+type: BPU" color=black fillcolor=cadetblue shape=box style=filled]
+	"model.23dflSoftmax_output_0_exp_calibrated_HzDequantize" [label="name: model.23dflSoftmax_output_0_exp_calibrated_HzDequantize
+type: Dequantize" color=black fillcolor=lightgrey shape=box style=filled]
+	"model.23dflSoftmax_reducesum_FROM_QUANTIZED_SOFTMAX" [label="name: model.23dflSoftmax_reducesum_FROM_QUANTIZED_SOFTMAX
+type: Reduction" color=black fillcolor=lightgrey shape=box style=filled]
+	"model.23dflSoftmax_output_0_reducesum_model.23dflSoftmax_output_0_reducesum_HzCalibration_HzQuantize" [label="name: model.23dflSoftmax_output_0_reducesum_model.23dflSoftmax_output_0_reducesum_HzCalibration_HzQuantize
+type: Quantize" color=black fillcolor=lightgrey shape=box style=filled]
+	torch_jit_subgraph_1 [label="name: torch_jit_subgraph_1
+type: BPU" color=black fillcolor=cadetblue shape=box style=filled]
+	output0 [label=output0 color=black]
+	images -> NV12TOYUV444 [label="1x640x640x3 / 2, NV12, UINT8" color=red]
+	NV12TOYUV444 -> torch_jit_subgraph_0 [label="1x640x640x3, YUV444, NHWC, INT8" color=red]
+	torch_jit_subgraph_0 -> torch_jit_subgraph_1 [label="1x72x8400, INT8" color=red]
+	torch_jit_subgraph_0 -> torch_jit_subgraph_1 [label="1x4x16x8400, INT8" color=red]
+	torch_jit_subgraph_0 -> "model.23dflSoftmax_output_0_exp_calibrated_HzDequantize" [label="1x8400x4x16, INT8" color=red]
+	torch_jit_subgraph_0 -> torch_jit_subgraph_1 [label="1x1x8400, INT8" color=red]
+	"model.23dflSoftmax_output_0_exp_calibrated_HzDequantize" -> "model.23dflSoftmax_reducesum_FROM_QUANTIZED_SOFTMAX" [label="1x8400x4x16, FLOAT32" color=red]
+	"model.23dflSoftmax_reducesum_FROM_QUANTIZED_SOFTMAX" -> "model.23dflSoftmax_output_0_reducesum_model.23dflSoftmax_output_0_reducesum_HzCalibration_HzQuantize" [label="1x8400x4x1, FLOAT32" color=red]
+	"model.23dflSoftmax_output_0_reducesum_model.23dflSoftmax_output_0_reducesum_HzCalibration_HzQuantize" -> torch_jit_subgraph_1 [label="1x8400x4x1, INT8" color=red]
+	torch_jit_subgraph_1 -> output0 [label="1x77x8400, INT8" color=red]
+}

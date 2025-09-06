@@ -1,0 +1,23 @@
+Horizon OpenExplorer
+├── package # The directory contains some of the base libraries and components that the distribution runs on
+│   ├── board
+│   │   ├── hrt_tools # Includes source code and executable files of hrt_model_exec and hrt_bin_dump
+│   │   └── install.sh # A one-click script that can install the hrt tool to the specified development board with one click.
+│   └── host
+│       ├── ai_toolchain
+│       ├── host_package
+│       ├── hrt_tools
+│       ├── install.sh
+│       └── resolve.sh # For downloading cross-compilation tools, torch and other dependencies
+├── README-CN
+├── README-EN
+├── resolve_all.sh # For downloading all downloadable dependencies in the OE package with one click
+├── run_docker.sh # For starting the docker image
+└── samples
+    ├── ai_benchmark # Provides the common evaluation samples of classification, detection and segmentation, including both performance evaluation and accuracy evaluation
+    ├── ai_toolchain # Provides a series of samples of model algorithm
+    │   ├── horizon_model_convert_sample
+    │   ├── horizon_model_train_sample
+    │   ├── horizon_runtime_sample
+    │   └── model_zoo
+    └── model_zoo -> ai_toolchain/model_zoo

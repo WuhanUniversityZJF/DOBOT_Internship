@@ -1,0 +1,31 @@
+// the test
+digraph model {
+	images [label=images color=black]
+	NV12TOYUV444 [label="name: NV12TOYUV444
+type: BPU" color=black fillcolor=cadetblue shape=box style=filled]
+	main_graph_subgraph_0 [label="name: main_graph_subgraph_0
+type: BPU" color=black fillcolor=cadetblue shape=box style=filled]
+	"model.23cv3.0cv3.0.2Conv_output_0_HzDequantize" [label="name: model.23cv3.0cv3.0.2Conv_output_0_HzDequantize
+type: Dequantize" color=black fillcolor=lightgrey shape=box style=filled]
+	"model.23cv3.1cv3.1.2Conv_output_0_HzDequantize" [label="name: model.23cv3.1cv3.1.2Conv_output_0_HzDequantize
+type: Dequantize" color=black fillcolor=lightgrey shape=box style=filled]
+	"model.23cv3.2cv3.2.2Conv_output_0_HzDequantize" [label="name: model.23cv3.2cv3.2.2Conv_output_0_HzDequantize
+type: Dequantize" color=black fillcolor=lightgrey shape=box style=filled]
+	output0 [label=output0 color=black]
+	480 [label=480 color=black]
+	494 [label=494 color=black]
+	502 [label=502 color=black]
+	516 [label=516 color=black]
+	524 [label=524 color=black]
+	images -> NV12TOYUV444 [label="1x640x640x3 / 2, NV12, UINT8" color=red]
+	NV12TOYUV444 -> main_graph_subgraph_0 [label="1x640x640x3, YUV444, NHWC, INT8" color=red]
+	main_graph_subgraph_0 -> 480 [label="1x80x80x64, INT32, " color=red]
+	main_graph_subgraph_0 -> "model.23cv3.0cv3.0.2Conv_output_0_HzDequantize" [label="1x80x80x80, INT32" color=red]
+	main_graph_subgraph_0 -> 502 [label="1x40x40x64, INT32, " color=red]
+	main_graph_subgraph_0 -> "model.23cv3.1cv3.1.2Conv_output_0_HzDequantize" [label="1x40x40x80, INT32" color=red]
+	main_graph_subgraph_0 -> 524 [label="1x20x20x64, INT32, " color=red]
+	main_graph_subgraph_0 -> "model.23cv3.2cv3.2.2Conv_output_0_HzDequantize" [label="1x20x20x80, INT32" color=red]
+	"model.23cv3.0cv3.0.2Conv_output_0_HzDequantize" -> output0 [label="1x80x80x80, FLOAT32, " color=red]
+	"model.23cv3.1cv3.1.2Conv_output_0_HzDequantize" -> 494 [label="1x40x40x80, FLOAT32, " color=red]
+	"model.23cv3.2cv3.2.2Conv_output_0_HzDequantize" -> 516 [label="1x20x20x80, FLOAT32, " color=red]
+}

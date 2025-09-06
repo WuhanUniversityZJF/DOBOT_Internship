@@ -1,0 +1,46 @@
+// the test
+digraph model {
+	images [label=images color=black]
+	NV12TOYUV444 [label="name: NV12TOYUV444
+type: BPU" color=black fillcolor=cadetblue shape=box style=filled]
+	main_graph_subgraph_0 [label="name: main_graph_subgraph_0
+type: BPU" color=black fillcolor=cadetblue shape=box style=filled]
+	output0_HzDequantize [label="name: output0_HzDequantize
+type: Dequantize" color=black fillcolor=lightgrey shape=box style=filled]
+	"model.23cv4.0cv4.0.2Conv_output_0_HzDequantize" [label="name: model.23cv4.0cv4.0.2Conv_output_0_HzDequantize
+type: Dequantize" color=black fillcolor=lightgrey shape=box style=filled]
+	"520_HzDequantize" [label="name: 520_HzDequantize
+type: Dequantize" color=black fillcolor=lightgrey shape=box style=filled]
+	"model.23cv4.1cv4.1.2Conv_output_0_HzDequantize" [label="name: model.23cv4.1cv4.1.2Conv_output_0_HzDequantize
+type: Dequantize" color=black fillcolor=lightgrey shape=box style=filled]
+	"550_HzDequantize" [label="name: 550_HzDequantize
+type: Dequantize" color=black fillcolor=lightgrey shape=box style=filled]
+	"model.23cv4.2cv4.2.2Conv_output_0_HzDequantize" [label="name: model.23cv4.2cv4.2.2Conv_output_0_HzDequantize
+type: Dequantize" color=black fillcolor=lightgrey shape=box style=filled]
+	output0 [label=output0 color=black]
+	498 [label=498 color=black]
+	506 [label=506 color=black]
+	520 [label=520 color=black]
+	528 [label=528 color=black]
+	536 [label=536 color=black]
+	550 [label=550 color=black]
+	558 [label=558 color=black]
+	566 [label=566 color=black]
+	images -> NV12TOYUV444 [label="1x640x640x3 / 2, NV12, UINT8" color=red]
+	NV12TOYUV444 -> main_graph_subgraph_0 [label="1x640x640x3, YUV444, NHWC, INT8" color=red]
+	main_graph_subgraph_0 -> output0_HzDequantize [label="1x80x80x1, INT32" color=red]
+	main_graph_subgraph_0 -> 498 [label="1x80x80x64, INT32, " color=red]
+	main_graph_subgraph_0 -> "model.23cv4.0cv4.0.2Conv_output_0_HzDequantize" [label="1x80x80x51, INT32" color=red]
+	main_graph_subgraph_0 -> "520_HzDequantize" [label="1x40x40x1, INT32" color=red]
+	main_graph_subgraph_0 -> 528 [label="1x40x40x64, INT32, " color=red]
+	main_graph_subgraph_0 -> "model.23cv4.1cv4.1.2Conv_output_0_HzDequantize" [label="1x40x40x51, INT32" color=red]
+	main_graph_subgraph_0 -> "550_HzDequantize" [label="1x20x20x1, INT32" color=red]
+	main_graph_subgraph_0 -> 558 [label="1x20x20x64, INT32, " color=red]
+	main_graph_subgraph_0 -> "model.23cv4.2cv4.2.2Conv_output_0_HzDequantize" [label="1x20x20x51, INT32" color=red]
+	output0_HzDequantize -> output0 [label="1x80x80x1, FLOAT32, " color=red]
+	"model.23cv4.0cv4.0.2Conv_output_0_HzDequantize" -> 506 [label="1x80x80x51, FLOAT32, " color=red]
+	"520_HzDequantize" -> 520 [label="1x40x40x1, FLOAT32, " color=red]
+	"model.23cv4.1cv4.1.2Conv_output_0_HzDequantize" -> 536 [label="1x40x40x51, FLOAT32, " color=red]
+	"550_HzDequantize" -> 550 [label="1x20x20x1, FLOAT32, " color=red]
+	"model.23cv4.2cv4.2.2Conv_output_0_HzDequantize" -> 566 [label="1x20x20x51, FLOAT32, " color=red]
+}

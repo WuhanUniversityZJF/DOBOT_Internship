@@ -1,0 +1,174 @@
+2025-08-21 09:23:35,589 file: tool_utils.py func: tool_utils line No: 77 log will be stored in /open_explorer/model_output/hb_model_modifier.log
+2025-08-21 09:23:35,683 file: hb_model_modifier.py func: hb_model_modifier line No: 395 storing info of model: best.bin
+2025-08-21 09:23:35,684 file: hb_model_modifier.py func: hb_model_modifier line No: 398 --------input----------
+2025-08-21 09:23:35,684 file: hb_model_modifier.py func: hb_model_modifier line No: 400 name: "images"
+type {
+  elem_type: INT8
+  dim: 1
+  dim: 640
+  dim: 640
+  dim: 3
+}
+
+2025-08-21 09:23:35,684 file: hb_model_modifier.py func: hb_model_modifier line No: 401 --------output----------
+2025-08-21 09:23:35,684 file: hb_model_modifier.py func: hb_model_modifier line No: 403 name: "output0"
+type {
+  elem_type: FLOAT
+  dim: 1
+  dim: 77
+  dim: 8400
+}
+
+2025-08-21 09:23:35,684 file: hb_model_modifier.py func: hb_model_modifier line No: 404 --------value_info----------
+2025-08-21 09:23:35,684 file: hb_model_modifier.py func: hb_model_modifier line No: 406 name: "/model.23/dfl/Softmax_output_0_reducesum_calibrated_quantized"
+type {
+  elem_type: INT8
+  dim: 1
+  dim: 8400
+  dim: 4
+  dim: 1
+}
+
+2025-08-21 09:23:35,684 file: hb_model_modifier.py func: hb_model_modifier line No: 406 name: "/model.23/dfl/Softmax_output_0_reducesum"
+type {
+  elem_type: FLOAT
+  dim: 1
+  dim: 8400
+  dim: 4
+  dim: 1
+}
+
+2025-08-21 09:23:35,684 file: hb_model_modifier.py func: hb_model_modifier line No: 406 name: "/model.23/dfl/Softmax_output_0_exp_quantized"
+type {
+  elem_type: INT8
+  dim: 1
+  dim: 4
+  dim: 16
+  dim: 8400
+}
+
+2025-08-21 09:23:35,684 file: hb_model_modifier.py func: hb_model_modifier line No: 406 name: "/model.23/dfl/Softmax_output_0_exp_calibrated"
+type {
+  elem_type: FLOAT
+  dim: 1
+  dim: 8400
+  dim: 4
+  dim: 16
+}
+
+2025-08-21 09:23:35,685 file: hb_model_modifier.py func: hb_model_modifier line No: 406 name: "/model.23/Reshape_7_output_0_quantized"
+type {
+  elem_type: INT8
+  dim: 1
+  dim: 72
+  dim: 8400
+}
+
+2025-08-21 09:23:35,685 file: hb_model_modifier.py func: hb_model_modifier line No: 406 name: "/model.23/dfl/Softmax_exp_FROM_QUANTIZED_SOFTMAX_nhwc2nchw_transposed_output0"
+type {
+  elem_type: INT8
+  dim: 1
+  dim: 8400
+  dim: 4
+  dim: 16
+}
+
+2025-08-21 09:23:35,685 file: hb_model_modifier.py func: hb_model_modifier line No: 406 name: "/model.23/Sigmoid_output_0_calibrated_Requantize_requantized_output"
+type {
+  elem_type: INT8
+  dim: 1
+  dim: 1
+  dim: 8400
+}
+
+2025-08-21 09:23:35,685 file: hb_model_modifier.py func: hb_model_modifier line No: 406 name: "output0_before_quantized"
+type {
+  elem_type: INT8
+  dim: 1
+  dim: 77
+  dim: 8400
+}
+
+2025-08-21 09:23:35,686 file: hb_model_modifier.py func: hb_model_modifier line No: 407 --------node----------
+2025-08-21 09:23:35,686 file: hb_model_modifier.py func: hb_model_modifier line No: 409 input: "images"
+output: "/model.23/Reshape_7_output_0_quantized"
+output: "/model.23/dfl/Softmax_output_0_exp_quantized"
+output: "/model.23/dfl/Softmax_exp_FROM_QUANTIZED_SOFTMAX_nhwc2nchw_transposed_output0"
+output: "/model.23/Sigmoid_output_0_calibrated_Requantize_requantized_output"
+name: "torch_jit_subgraph_0"
+op_type: "BPU"
+
+2025-08-21 09:23:35,686 file: hb_model_modifier.py func: hb_model_modifier line No: 409 input: "/model.23/dfl/Softmax_exp_FROM_QUANTIZED_SOFTMAX_nhwc2nchw_transposed_output0"
+input: "/model.23/dfl/Softmax_output_0_exp_HzCalibration_y_scale"
+output: "/model.23/dfl/Softmax_output_0_exp_calibrated"
+name: "/model.23/dfl/Softmax_output_0_exp_calibrated_HzDequantize"
+op_type: "Dequantize"
+attribute {
+  name: "num_args"
+  type: INT
+  i: 2
+}
+
+2025-08-21 09:23:35,686 file: hb_model_modifier.py func: hb_model_modifier line No: 409 input: "/model.23/dfl/Softmax_output_0_exp_calibrated"
+output: "/model.23/dfl/Softmax_output_0_reducesum"
+name: "/model.23/dfl/Softmax_reducesum_FROM_QUANTIZED_SOFTMAX"
+op_type: "Reduction"
+attribute {
+  name: "reduction_type"
+  type: INT
+  i: 1
+}
+attribute {
+  name: "axes"
+  type: INTS
+  ints: 3
+}
+
+2025-08-21 09:23:35,686 file: hb_model_modifier.py func: hb_model_modifier line No: 409 input: "/model.23/dfl/Softmax_output_0_reducesum"
+input: "/model.23/dfl/Softmax_output_0_reducesum_HzCalibration_y_scale"
+output: "/model.23/dfl/Softmax_output_0_reducesum_calibrated_quantized"
+name: "/model.23/dfl/Softmax_output_0_reducesum_/model.23/dfl/Softmax_output_0_reducesum_HzCalibration_HzQuantize"
+op_type: "Quantize"
+attribute {
+  name: "bits"
+  type: INT
+  i: 8
+}
+attribute {
+  name: "num_args"
+  type: INT
+  i: 2
+}
+
+2025-08-21 09:23:35,686 file: hb_model_modifier.py func: hb_model_modifier line No: 409 input: "/model.23/dfl/Softmax_output_0_reducesum_calibrated_quantized"
+input: "/model.23/dfl/Softmax_output_0_exp_quantized"
+input: "/model.23/Sigmoid_output_0_calibrated_Requantize_requantized_output"
+input: "/model.23/Reshape_7_output_0_quantized"
+output: "output0_before_quantized"
+name: "torch_jit_subgraph_1"
+op_type: "BPU"
+
+2025-08-21 09:23:35,686 file: hb_model_modifier.py func: hb_model_modifier line No: 409 input: "output0_before_quantized"
+input: "output0_before_HzCalibration_y_scale"
+output: "output0"
+name: "output0_HzDequantize"
+op_type: "Dequantize"
+attribute {
+  name: "num_args"
+  type: INT
+  i: 2
+}
+
+2025-08-21 09:23:35,686 file: hb_model_modifier.py func: hb_model_modifier line No: 410 --------input_type----------
+2025-08-21 09:23:35,686 file: hb_model_modifier.py func: hb_model_modifier line No: 412 7
+2025-08-21 09:23:35,686 file: hb_model_modifier.py func: hb_model_modifier line No: 413 --------input_layout----------
+2025-08-21 09:23:35,687 file: hb_model_modifier.py func: hb_model_modifier line No: 415 2
+2025-08-21 09:23:35,687 file: hb_model_modifier.py func: hb_model_modifier line No: 108 Nodes that will be removed from this model: ['output0_HzDequantize']
+2025-08-21 09:23:35,688 file: hb_model_modifier.py func: hb_model_modifier line No: 190 Node 'output0_HzDequantize' found, its OP type is 'Dequantize'
+2025-08-21 09:23:35,688 file: hb_model_modifier.py func: hb_model_modifier line No: 176 node name is output0_HzDequantize, op type is Dequantize, no axis information
+2025-08-21 09:23:35,690 file: model_utils.py func: model_utils line No: 284 replace output name output0_before_quantized with output0
+2025-08-21 09:23:35,698 file: model_utils.py func: model_utils line No: 284 replace output name output0_before_HzCalibration_y_scale with output0
+2025-08-21 09:23:35,699 file: hb_model_modifier.py func: hb_model_modifier line No: 352 scale: output0_before_HzCalibration_y_scale; zero point: 0. node info details are stored in hb_model_modifier log file
+2025-08-21 09:23:35,699 file: hb_model_modifier.py func: hb_model_modifier line No: 389 Node output0_HzDequantize info: 'output0_HzDequantize: scale: [0.007874015718698502]; zero point: {zero_point}'
+2025-08-21 09:23:35,700 file: hb_model_modifier.py func: hb_model_modifier line No: 391 Node 'output0_HzDequantize' is removed
+2025-08-21 09:23:35,808 file: hb_model_modifier.py func: hb_model_modifier line No: 130 modified model saved as best.bin

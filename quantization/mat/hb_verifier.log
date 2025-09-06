@@ -1,0 +1,25 @@
+2025-08-18 16:55:22,274 file: tool_utils.py func: tool_utils line No: 77 log will be stored in /open_explorer/hb_verifier.log
+2025-08-18 16:55:22,281 file: hb_verifier.py func: hb_verifier line No: 25 HB_Verifier Starts...
+2025-08-18 16:55:22,285 file: hb_verifier.py func: hb_verifier line No: 26 verifier tool version 1.24.3
+2025-08-18 16:55:22,286 file: hb_verifier.py func: hb_verifier line No: 28 model: dog_pose.onnx,dog_pose_quantized_model.onnx
+2025-08-18 16:55:22,287 file: hb_verifier.py func: hb_verifier line No: 29 board_ip: None
+2025-08-18 16:55:22,287 file: hb_verifier.py func: hb_verifier line No: 30 input: 2dogs.npy
+2025-08-18 16:55:22,287 file: hb_verifier.py func: hb_verifier line No: 31 run_sim: False
+2025-08-18 16:55:22,287 file: hb_verifier.py func: hb_verifier line No: 32 dump_all_nodes_results: False
+2025-08-18 16:55:22,288 file: hb_verifier.py func: hb_verifier line No: 34 compare_digits: 5
+2025-08-18 16:55:22,288 file: hb_verifier.py func: hb_verifier line No: 36 =============== check params start ===============
+2025-08-18 16:55:24,112 file: tool_utils.py func: tool_utils line No: 135 exception in command: cmd_main
+2025-08-18 16:55:24,127 file: tool_utils.py func: tool_utils line No: 136 Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/horizon_tc_ui/utils/tool_utils.py", line 133, in __decorator
+    func(*args, **kargs)
+  File "/usr/local/lib/python3.10/dist-packages/horizon_tc_ui/hb_verifier.py", line 115, in cmd_main
+    cmd_wrapper(params)
+  File "/usr/local/lib/python3.10/dist-packages/horizon_tc_ui/hb_verifier.py", line 38, in cmd_wrapper
+    params.check_params()
+  File "/usr/local/lib/python3.10/dist-packages/horizon_tc_ui/verifier/param_check.py", line 67, in check_params
+    self.check_input_only_onnx()
+  File "/usr/local/lib/python3.10/dist-packages/horizon_tc_ui/verifier/param_check.py", line 257, in check_input_only_onnx
+    raise ValueError(
+ValueError: When only the onnx model is used for inference, you need to specify the binary input with the .bin suffix
+
+2025-08-18 16:55:24,127 file: tool_utils.py func: tool_utils line No: 137 When only the onnx model is used for inference, you need to specify the binary input with the .bin suffix

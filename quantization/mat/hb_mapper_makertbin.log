@@ -1,0 +1,2791 @@
+2025-08-25 09:12:29,487 file: tool_utils.py func: tool_utils line No: 77 log will be stored in /open_explorer/hb_mapper_makertbin.log
+2025-08-25 09:12:29,489 file: hb_mapper.py func: hb_mapper line No: 132 Start hb_mapper....
+2025-08-25 09:12:29,490 file: hb_mapper.py func: hb_mapper line No: 133 hbdk version 3.49.15
+2025-08-25 09:12:29,490 file: hb_mapper.py func: hb_mapper line No: 134 horizon_nn version 1.1.0
+2025-08-25 09:12:29,490 file: hb_mapper.py func: hb_mapper line No: 135 hb_mapper version 1.24.3
+2025-08-25 09:12:29,491 file: hb_mapper_makertbin.py func: hb_mapper_makertbin line No: 530 Start Model Convert....
+2025-08-25 09:12:29,510 file: mapper_conf_parser.py func: mapper_conf_parser line No: 105 validating model_parameters...
+2025-08-25 09:12:29,510 file: mapper_conf_parser.py func: mapper_conf_parser line No: 1347 Using abs path /open_explorer/yolo11n-pose.onnx
+2025-08-25 09:12:29,511 file: mapper_conf_parser.py func: mapper_conf_parser line No: 260 Using onnx model file: /open_explorer/yolo11n-pose.onnx
+2025-08-25 09:12:29,725 file: onnx_parser.py func: onnx_parser line No: 39 Model input names: ['images']
+2025-08-25 09:12:29,727 file: mapper_conf_parser.py func: mapper_conf_parser line No: 264 Model has 1 inputs according to model file
+2025-08-25 09:12:29,728 file: mapper_conf_parser.py func: mapper_conf_parser line No: 1347 Using abs path /open_explorer/yolo11n_pose_bayese_640x640_nv12
+2025-08-25 09:12:29,728 file: mapper_conf_parser.py func: mapper_conf_parser line No: 438 node_dict: {self.node_dict}
+2025-08-25 09:12:29,730 file: mapper_conf_parser.py func: mapper_conf_parser line No: 119 validating model_parameters finished
+2025-08-25 09:12:29,730 file: mapper_conf_parser.py func: mapper_conf_parser line No: 123 validating input_parameters...
+2025-08-25 09:12:29,730 file: mapper_conf_parser.py func: mapper_conf_parser line No: 492 Model name not given in yaml_file, using model name from model file: ['images']
+2025-08-25 09:12:29,731 file: mapper_conf_parser.py func: mapper_conf_parser line No: 536 Model input shape not given in yaml_file, using shape from model file: [[1, 3, 640, 640]]
+2025-08-25 09:12:29,732 file: mapper_conf_parser.py func: mapper_conf_parser line No: 639 nv12 input type rt received.
+2025-08-25 09:12:29,733 file: mapper_conf_parser.py func: mapper_conf_parser line No: 135 validating input_parameters finished
+2025-08-25 09:12:29,733 file: mapper_conf_parser.py func: mapper_conf_parser line No: 139 validating calibration_parameters...
+2025-08-25 09:12:29,733 file: mapper_conf_parser.py func: mapper_conf_parser line No: 1347 Using abs path /open_explorer/calibration_data_rgb_f32_640
+2025-08-25 09:12:29,733 file: mapper_conf_parser.py func: mapper_conf_parser line No: 1007 The calibration dir name suffix is not the same as the value float32 of the parameter cal_data_type, the parameter setting will prevail
+2025-08-25 09:12:29,734 file: mapper_conf_parser.py func: mapper_conf_parser line No: 155 validating calibration_parameters finished
+2025-08-25 09:12:29,734 file: mapper_conf_parser.py func: mapper_conf_parser line No: 159 validating custom_op...
+2025-08-25 09:12:29,734 file: mapper_conf_parser.py func: mapper_conf_parser line No: 1076 custom_op does not exist, skipped
+2025-08-25 09:12:29,734 file: mapper_conf_parser.py func: mapper_conf_parser line No: 165 validating custom_op finished
+2025-08-25 09:12:29,734 file: mapper_conf_parser.py func: mapper_conf_parser line No: 168 validating compiler_parameters...
+2025-08-25 09:12:29,734 file: mapper_conf_parser.py func: mapper_conf_parser line No: 1157 Input node images's input_source not set, it will be set to pyramid by default
+2025-08-25 09:12:29,734 file: mapper_conf_parser.py func: mapper_conf_parser line No: 183 validating compiler_parameters finished
+2025-08-25 09:12:29,734 file: mapper_conf_parser.py func: mapper_conf_parser line No: 187 validating deprecated parameters...
+2025-08-25 09:12:29,735 file: mapper_conf_parser.py func: mapper_conf_parser line No: 193 validating deprecated parameters finished
+2025-08-25 09:12:29,735 file: hb_mapper_makertbin.py func: hb_mapper_makertbin line No: 54 Dump config:
+2025-08-25 09:12:29,735 file: hb_mapper_makertbin.py func: hb_mapper_makertbin line No: 55 calibration_parameters:
+  cal_data_dir: ./calibration_data_rgb_f32_640
+  cal_data_type: float32
+compiler_parameters:
+  compile_mode: latency
+  debug: false
+  optimize_level: O3
+input_parameters:
+  input_layout_train: NCHW
+  input_name: ''
+  input_type_rt: nv12
+  input_type_train: rgb
+  norm_type: data_scale
+  scale_value: '0.003921568627451'
+model_parameters:
+  layer_out_dump: false
+  march: bayes-e
+  node_info:
+    /model.10/m/m.0/attn/Softmax:
+      InputType: int16
+      'ON': BPU
+      OutputType: int16
+  onnx_model: yolo11n-pose.onnx
+  output_model_file_prefix: yolo11n_pose_bayese_640x640_nv12
+  working_dir: yolo11n_pose_bayese_640x640_nv12
+
+2025-08-25 09:12:29,745 file: hb_mapper_makertbin.py func: hb_mapper_makertbin line No: 60 input 'images' : original model shape: [1, 3, 640, 640]
+2025-08-25 09:12:29,745 file: loader.py func: loader line No: 204 *******************************************
+2025-08-25 09:12:29,746 file: loader.py func: loader line No: 205 First calibration picture name: 000000001848.rgbchw
+2025-08-25 09:12:29,746 file: loader.py func: loader line No: 207 First calibration picture md5:
+2025-08-25 09:12:29,812 file: loader.py func: loader line No: 211 *******************************************
+2025-08-25 09:12:29,814 file: loader.py func: loader line No: 282 created RawImageDirLoader of shape:[1, 3, 640, 640]
+2025-08-25 09:12:29,815 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000001848.rgbchw
+2025-08-25 09:12:30,104 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000002233.rgbchw
+2025-08-25 09:12:30,327 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000002465.rgbchw
+2025-08-25 09:12:30,545 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000003257.rgbchw
+2025-08-25 09:12:30,711 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000004336.rgbchw
+2025-08-25 09:12:30,876 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000005990.rgbchw
+2025-08-25 09:12:31,082 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000006069.rgbchw
+2025-08-25 09:12:31,307 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000007734.rgbchw
+2025-08-25 09:12:31,491 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000007904.rgbchw
+2025-08-25 09:12:31,672 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000008833.rgbchw
+2025-08-25 09:12:31,864 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000008916.rgbchw
+2025-08-25 09:12:32,106 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000009470.rgbchw
+2025-08-25 09:12:32,290 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000013109.rgbchw
+2025-08-25 09:12:32,444 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000013709.rgbchw
+2025-08-25 09:12:32,601 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000014295.rgbchw
+2025-08-25 09:12:32,765 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000014465.rgbchw
+2025-08-25 09:12:32,931 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000016576.rgbchw
+2025-08-25 09:12:33,104 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000017550.rgbchw
+2025-08-25 09:12:33,268 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000017693.rgbchw
+2025-08-25 09:12:33,471 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000018459.rgbchw
+2025-08-25 09:12:33,650 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000019105.rgbchw
+2025-08-25 09:12:33,819 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000019531.rgbchw
+2025-08-25 09:12:33,998 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000021954.rgbchw
+2025-08-25 09:12:34,166 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000022233.rgbchw
+2025-08-25 09:12:34,346 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000023271.rgbchw
+2025-08-25 09:12:34,489 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000023819.rgbchw
+2025-08-25 09:12:34,644 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000025707.rgbchw
+2025-08-25 09:12:34,829 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000026556.rgbchw
+2025-08-25 09:12:34,982 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000026680.rgbchw
+2025-08-25 09:12:35,160 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000026971.rgbchw
+2025-08-25 09:12:35,327 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000026975.rgbchw
+2025-08-25 09:12:35,491 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000031315.rgbchw
+2025-08-25 09:12:35,696 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000032576.rgbchw
+2025-08-25 09:12:35,860 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000032690.rgbchw
+2025-08-25 09:12:36,035 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000033273.rgbchw
+2025-08-25 09:12:36,203 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000033720.rgbchw
+2025-08-25 09:12:36,415 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000036695.rgbchw
+2025-08-25 09:12:36,599 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000036886.rgbchw
+2025-08-25 09:12:36,752 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000037021.rgbchw
+2025-08-25 09:12:36,912 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000038545.rgbchw
+2025-08-25 09:12:37,076 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000039170.rgbchw
+2025-08-25 09:12:37,241 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000040965.rgbchw
+2025-08-25 09:12:37,410 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000041327.rgbchw
+2025-08-25 09:12:37,579 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000042223.rgbchw
+2025-08-25 09:12:37,753 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000043906.rgbchw
+2025-08-25 09:12:37,913 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000044134.rgbchw
+2025-08-25 09:12:38,093 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000044390.rgbchw
+2025-08-25 09:12:38,265 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000047056.rgbchw
+2025-08-25 09:12:38,432 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000049816.rgbchw
+2025-08-25 09:12:38,619 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000050292.rgbchw
+2025-08-25 09:12:38,801 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000050821.rgbchw
+2025-08-25 09:12:38,975 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000051460.rgbchw
+2025-08-25 09:12:39,155 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000052841.rgbchw
+2025-08-25 09:12:39,349 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000052908.rgbchw
+2025-08-25 09:12:39,521 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000053682.rgbchw
+2025-08-25 09:12:39,710 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000054498.rgbchw
+2025-08-25 09:12:39,877 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000055726.rgbchw
+2025-08-25 09:12:40,058 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000056322.rgbchw
+2025-08-25 09:12:40,242 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000057755.rgbchw
+2025-08-25 09:12:40,408 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000058334.rgbchw
+2025-08-25 09:12:40,629 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000060888.rgbchw
+2025-08-25 09:12:40,802 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000061136.rgbchw
+2025-08-25 09:12:40,970 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000062026.rgbchw
+2025-08-25 09:12:41,166 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000062112.rgbchw
+2025-08-25 09:12:41,353 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000062494.rgbchw
+2025-08-25 09:12:41,530 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000064419.rgbchw
+2025-08-25 09:12:41,697 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000065202.rgbchw
+2025-08-25 09:12:41,898 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000068428.rgbchw
+2025-08-25 09:12:42,077 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000070362.rgbchw
+2025-08-25 09:12:42,277 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000070666.rgbchw
+2025-08-25 09:12:42,462 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000070786.rgbchw
+2025-08-25 09:12:42,658 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000073175.rgbchw
+2025-08-25 09:12:42,838 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000074793.rgbchw
+2025-08-25 09:12:42,992 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000075797.rgbchw
+2025-08-25 09:12:43,170 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000075826.rgbchw
+2025-08-25 09:12:43,315 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000076512.rgbchw
+2025-08-25 09:12:43,428 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000077196.rgbchw
+2025-08-25 09:12:43,542 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000077619.rgbchw
+2025-08-25 09:12:43,665 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000078698.rgbchw
+2025-08-25 09:12:43,760 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000079132.rgbchw
+2025-08-25 09:12:43,882 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000080657.rgbchw
+2025-08-25 09:12:44,009 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000081051.rgbchw
+2025-08-25 09:12:44,130 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000084429.rgbchw
+2025-08-25 09:12:44,346 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000084457.rgbchw
+2025-08-25 09:12:44,531 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000086500.rgbchw
+2025-08-25 09:12:44,712 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000087849.rgbchw
+2025-08-25 09:12:44,900 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000088370.rgbchw
+2025-08-25 09:12:45,089 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000090455.rgbchw
+2025-08-25 09:12:45,255 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000090916.rgbchw
+2025-08-25 09:12:45,433 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000091586.rgbchw
+2025-08-25 09:12:45,614 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000092334.rgbchw
+2025-08-25 09:12:45,781 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000093350.rgbchw
+2025-08-25 09:12:45,957 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000094028.rgbchw
+2025-08-25 09:12:46,136 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000095143.rgbchw
+2025-08-25 09:12:46,344 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000096010.rgbchw
+2025-08-25 09:12:46,521 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000096469.rgbchw
+2025-08-25 09:12:46,716 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000096780.rgbchw
+2025-08-25 09:12:46,920 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000097764.rgbchw
+2025-08-25 09:12:47,105 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000097816.rgbchw
+2025-08-25 09:12:47,302 file: loader.py func: loader line No: 287 Read raw file: /open_explorer/calibration_data_rgb_f32_640/000000098660.rgbchw
+2025-08-25 09:12:47,506 file: tool_utils.py func: tool_utils line No: 368 num of calibration data: 100
+2025-08-25 09:12:47,507 file: tool_utils.py func: tool_utils line No: 369 calibration data shape: (1, 3, 640, 640)
+2025-08-25 09:12:47,676 file: hb_mapper_makertbin.py func: hb_mapper_makertbin line No: 519 call build params:
+ {'march': 'bayes-e', 'save_model': True, 'name_prefix': 'yolo11n_pose_bayese_640x640_nv12', 'input_dict': {'images': {'input_shape': [1, 3, 640, 640], 'expected_input_type': 'YUV444_128', 'original_input_type': 'RGB', 'original_input_layout': 'NCHW', 'scales': array([0.00392157], dtype=float32)}}, 'cali_dict': {'calibration_type': 'default', 'calibration_data': {'images': [array([[[[  33.,   33.,   34., ..., -128., -128., -128.],
+         [  34.,   33.,   33., ..., -128., -128., -128.],
+         [  37.,   34.,   32., ..., -128., -128., -128.],
+         ...,
+         [ 126.,  126.,  126., ..., -128., -128., -128.],
+         [ 126.,  126.,  126., ..., -128., -128., -128.],
+         [ 126.,  126.,  126., ..., -128., -128., -128.]],
+
+        [[   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         ...,
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.]],
+
+        [[   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         ...,
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.]]]], dtype=float32), array([[[[ 127.,  127.,  127., ...,  -94.,  -92.,  -94.],
+         [ 127.,  127.,  127., ...,  -94.,  -94.,  -92.],
+         [ 127.,  127.,  127., ...,  -93.,  -94.,  -91.],
+         ...,
+         [ -24.,  -83., -101., ...,  -49.,  -79.,  -52.],
+         [  -5.,  -38.,  -69., ...,  -50.,  -77.,  -57.],
+         [  10.,   21.,  -22., ...,  -50.,  -79.,  -61.]],
+
+        [[   0.,    0.,    0., ...,    0.,    3.,    3.],
+         [   0.,    0.,    0., ...,    0.,    3.,    3.],
+         [   0.,    0.,    0., ...,    4.,    4.,    4.],
+         ...,
+         [   0.,    0.,   13., ...,    4.,    2.,    2.],
+         [  22.,   22.,   11., ...,    4.,    4.,    4.],
+         [  22.,   22.,   11., ...,    4.,    4.,    4.]],
+
+        [[   0.,    0.,    0., ...,   -6.,   -5.,   -5.],
+         [   0.,    0.,    0., ...,   -6.,   -5.,   -5.],
+         [   0.,    0.,    0., ...,   -5.,   -6.,   -6.],
+         ...,
+         [  -8.,   -8.,   -9., ...,  -11.,   -6.,   -6.],
+         [ -26.,  -26.,   -8., ...,  -11.,   -7.,   -7.],
+         [ -26.,  -26.,   -8., ...,  -11.,   -7.,   -7.]]]], dtype=float32), array([[[[-112., -113., -115., ...,  -96.,  -88.,  -95.],
+         [-112., -113., -114., ...,  -90.,  -92.,  -94.],
+         [-112., -113., -114., ...,  -90.,  -98.,  -95.],
+         ...,
+         [-121., -122., -121., ...,  -89.,  -89.,  -85.],
+         [-121., -122., -121., ...,  -88.,  -89.,  -86.],
+         [-120., -122., -122., ...,  -86.,  -88.,  -89.]],
+
+        [[  -6.,   -6.,   -6., ...,   -8.,   -5.,   -5.],
+         [  -6.,   -6.,   -6., ...,   -8.,   -5.,   -5.],
+         [  -6.,   -6.,   -7., ...,   -6.,   -4.,   -4.],
+         ...,
+         [  16.,   16.,   17., ...,   -5.,   -7.,   -7.],
+         [  17.,   17.,   17., ...,   -5.,   -7.,   -7.],
+         [  17.,   17.,   17., ...,   -5.,   -7.,   -7.]],
+
+        [[   6.,    6.,    6., ...,    8.,    7.,    7.],
+         [   6.,    6.,    6., ...,    8.,    7.,    7.],
+         [   5.,    5.,    5., ...,    8.,    7.,    7.],
+         ...,
+         [  -3.,   -3.,   -1., ...,    7.,    7.,    7.],
+         [  -2.,   -2.,   -1., ...,    7.,    7.,    7.],
+         [  -2.,   -2.,   -1., ...,    7.,    7.,    7.]]]], dtype=float32), array([[[[-81., -97., -70., ..., 127., 127., 127.],
+         [-83., -97., -73., ..., 127., 127., 127.],
+         [-82., -96., -76., ..., 127., 127., 127.],
+         ...,
+         [-85., -86., -87., ..., -92., -87., -85.],
+         [-79., -78., -77., ..., -94., -88., -86.],
+         [-67., -65., -62., ..., -96., -90., -88.]],
+
+        [[ 19.,  19.,  22., ...,   0.,   0.,   0.],
+         [ 19.,  19.,  22., ...,   0.,   0.,   0.],
+         [ 19.,  19.,  20., ...,   0.,   0.,   0.],
+         ...,
+         [ 16.,  16.,  16., ...,  13.,  16.,  16.],
+         [ 18.,  18.,  18., ...,  12.,  15.,  15.],
+         [ 18.,  18.,  18., ...,  12.,  15.,  15.]],
+
+        [[-14., -14., -20., ...,   0.,   0.,   0.],
+         [-14., -14., -20., ...,   0.,   0.,   0.],
+         [-15., -15., -19., ...,   0.,   0.,   0.],
+         ...,
+         [-18., -18., -18., ..., -12., -14., -14.],
+         [-24., -24., -24., ..., -11., -14., -14.],
+         [-24., -24., -24., ..., -11., -14., -14.]]]], dtype=float32), array([[[[ -98.,  -93.,  -89., ..., -119., -117., -117.],
+         [ -95.,  -91.,  -86., ..., -121., -120., -119.],
+         [ -92.,  -88.,  -83., ..., -122., -122., -121.],
+         ...,
+         [-122., -124., -125., ..., -104., -105., -112.],
+         [-122., -126., -127., ..., -103., -105., -111.],
+         [-120., -127., -128., ..., -103., -105., -109.]],
+
+        [[   8.,    8.,    7., ...,    5.,    5.,    5.],
+         [   8.,    8.,    7., ...,    5.,    5.,    5.],
+         [   8.,    8.,    7., ...,    6.,    5.,    5.],
+         ...,
+         [   7.,    7.,    7., ...,   24.,   22.,   22.],
+         [   7.,    7.,    4., ...,   23.,   21.,   21.],
+         [   7.,    7.,    4., ...,   23.,   21.,   21.]],
+
+        [[  -3.,   -3.,   -3., ...,   -2.,   -2.,   -2.],
+         [  -3.,   -3.,   -3., ...,   -2.,   -2.,   -2.],
+         [  -3.,   -3.,   -3., ...,   -2.,   -2.,   -2.],
+         ...,
+         [  -3.,   -3.,   -3., ...,  -17.,  -15.,  -15.],
+         [  -3.,   -3.,   -1., ...,  -17.,  -14.,  -14.],
+         [  -3.,   -3.,   -1., ...,  -17.,  -14.,  -14.]]]], dtype=float32), array([[[[102., 112., 112., ..., 110., 109., 108.],
+         [105., 104., 114., ..., 110., 106., 100.],
+         [102., 101., 105., ..., 110., 103.,  99.],
+         ...,
+         [ 92.,  99.,  99., ..., 101.,  99.,  93.],
+         [ 94.,  97.,  95., ...,  97.,  98.,  95.],
+         [101.,  95.,  89., ...,  91.,  96.,  99.]],
+
+        [[  1.,   1.,   1., ...,   1.,   1.,   1.],
+         [  1.,   1.,   1., ...,   1.,   1.,   1.],
+         [  1.,   1.,   1., ...,   1.,   1.,   1.],
+         ...,
+         [  4.,   4.,   4., ...,   5.,   6.,   6.],
+         [  4.,   4.,   4., ...,   6.,   6.,   6.],
+         [  4.,   4.,   4., ...,   6.,   6.,   6.]],
+
+        [[ -5.,  -5.,  -5., ...,  -5.,  -5.,  -5.],
+         [ -5.,  -5.,  -5., ...,  -5.,  -5.,  -5.],
+         [ -5.,  -5.,  -5., ...,  -5.,  -5.,  -5.],
+         ...,
+         [-12., -12., -12., ..., -12., -11., -11.],
+         [-12., -12., -12., ..., -12., -12., -12.],
+         [-12., -12., -12., ..., -12., -12., -12.]]]], dtype=float32), array([[[[  59.,   60.,   60., ...,   61.,   60.,   58.],
+         [  60.,   61.,   62., ...,   63.,   62.,   60.],
+         [  62.,   63.,   64., ...,   64.,   63.,   62.],
+         ...,
+         [-128., -127., -126., ...,  115.,  113.,  113.],
+         [-128., -127., -126., ...,  115.,  113.,  112.],
+         [-128., -126., -125., ...,  114.,  112.,  111.]],
+
+        [[  -4.,   -4.,   -2., ...,   -4.,   -3.,   -3.],
+         [  -4.,   -4.,   -2., ...,   -4.,   -3.,   -3.],
+         [  -1.,   -1.,    1., ...,   -4.,   -3.,   -3.],
+         ...,
+         [   0.,    0.,    0., ...,    0.,    2.,    2.],
+         [   0.,    0.,    0., ...,    0.,    2.,    2.],
+         [   0.,    0.,    0., ...,    0.,    2.,    2.]],
+
+        [[ -33.,  -33.,  -31., ...,  -31.,  -30.,  -30.],
+         [ -33.,  -33.,  -31., ...,  -31.,  -30.,  -30.],
+         [ -34.,  -34.,  -32., ...,  -31.,  -29.,  -29.],
+         ...,
+         [   0.,    0.,    0., ...,   -2.,   -2.,   -2.],
+         [   0.,    0.,    0., ...,   -2.,   -2.,   -2.],
+         [   0.,    0.,    0., ...,   -2.,   -2.,   -2.]]]], dtype=float32), array([[[[-102., -101., -100., ...,  -64.,  -94.,  -92.],
+         [-101., -101., -101., ...,  -67.,  -95.,  -86.],
+         [-105., -102., -102., ...,  -64.,  -89.,  -98.],
+         ...,
+         [-110., -112., -114., ...,  -92.,  -88.,  -82.],
+         [-111., -112., -114., ...,  -85.,  -84.,  -84.],
+         [-112., -112., -113., ...,  -81.,  -82.,  -86.]],
+
+        [[  -2.,   -2.,   -3., ...,    5.,    5.,    5.],
+         [  -2.,   -2.,   -3., ...,    5.,    5.,    5.],
+         [  -1.,   -1.,   -2., ...,    4.,    2.,    2.],
+         ...,
+         [  -3.,   -3.,   -3., ...,    6.,    3.,    3.],
+         [  -3.,   -3.,   -3., ...,    4.,    2.,    2.],
+         [  -3.,   -3.,   -3., ...,    4.,    2.,    2.]],
+
+        [[   2.,    2.,    1., ...,   -2.,    2.,    2.],
+         [   2.,    2.,    1., ...,   -2.,    2.,    2.],
+         [   2.,    2.,    2., ...,   -2.,    1.,    1.],
+         ...,
+         [   2.,    2.,    3., ...,   -6.,   -2.,   -2.],
+         [   2.,    2.,    3., ...,   -3.,   -6.,   -6.],
+         [   2.,    2.,    3., ...,   -3.,   -6.,   -6.]]]], dtype=float32), array([[[[119., 123., 115., ..., 123., 125., 125.],
+         [120., 123., 118., ..., 123., 125., 125.],
+         [123., 121., 123., ..., 122., 124., 125.],
+         ...,
+         [122., 123., 125., ..., 118., 120., 123.],
+         [124., 125., 126., ..., 122., 123., 125.],
+         [125., 126., 126., ..., 125., 125., 126.]],
+
+        [[  0.,   0.,   0., ...,   0.,   0.,   0.],
+         [  0.,   0.,   0., ...,   0.,   0.,   0.],
+         [  0.,   0.,   0., ...,   0.,   0.,   0.],
+         ...,
+         [ -2.,  -2.,  -2., ...,  -1.,   0.,   0.],
+         [ -1.,  -1.,  -1., ...,   0.,   0.,   0.],
+         [ -1.,  -1.,  -1., ...,   0.,   0.,   0.]],
+
+        [[  0.,   0.,  -2., ...,  -3.,  -2.,  -2.],
+         [  0.,   0.,  -2., ...,  -3.,  -2.,  -2.],
+         [  0.,   0.,  -2., ...,  -3.,  -2.,  -2.],
+         ...,
+         [  1.,   1.,   1., ...,  -1.,  -2.,  -2.],
+         [  1.,   1.,   0., ...,   0.,  -1.,  -1.],
+         [  1.,   1.,   0., ...,   0.,  -1.,  -1.]]]], dtype=float32), array([[[[-100.,  -96.,  -99., ...,    1.,  -45.,  -60.],
+         [ -99., -100., -101., ...,    2.,  -51.,  -58.],
+         [ -96., -103., -103., ...,    2.,  -60.,  -53.],
+         ...,
+         [ -16.,  -17.,  -20., ...,  -88.,  -77.,  -89.],
+         [ -18.,  -20.,  -21., ...,  -86.,  -73.,  -85.],
+         [ -18.,  -22.,  -23., ...,  -81.,  -69.,  -83.]],
+
+        [[  13.,   13.,   11., ...,    9.,   28.,   28.],
+         [  13.,   13.,   11., ...,    9.,   28.,   28.],
+         [  12.,   12.,   10., ...,   15.,   21.,   21.],
+         ...,
+         [  57.,   57.,   52., ...,   29.,   33.,   33.],
+         [  54.,   54.,   56., ...,   35.,   29.,   29.],
+         [  54.,   54.,   56., ...,   35.,   29.,   29.]],
+
+        [[ -18.,  -18.,  -11., ...,  -53.,  -55.,  -55.],
+         [ -18.,  -18.,  -11., ...,  -53.,  -55.,  -55.],
+         [ -17.,  -17.,  -14., ...,  -70.,  -33.,  -33.],
+         ...,
+         [ -67.,  -67.,  -77., ...,  -11.,   -7.,   -7.],
+         [ -73.,  -73.,  -72., ...,  -11.,   -8.,   -8.],
+         [ -73.,  -73.,  -72., ...,  -11.,   -8.,   -8.]]]], dtype=float32), array([[[[ -6.,  -5.,  -3., ...,  49.,  47.,  40.],
+         [ -6.,  -6.,  -5., ...,  45.,  42.,  35.],
+         [ -6.,  -6.,  -6., ...,  42.,  39.,  36.],
+         ...,
+         [ 12., -24., -37., ..., -48., -39., -30.],
+         [-15., -29., -34., ..., -43., -52., -59.],
+         [-25., -28., -29., ..., -43., -41., -53.]],
+
+        [[-16., -16., -16., ..., -28., -27., -27.],
+         [-16., -16., -16., ..., -28., -27., -27.],
+         [-16., -16., -16., ..., -26., -25., -25.],
+         ...,
+         [ -2.,  -2.,  -1., ...,  -2.,  -5.,  -5.],
+         [  0.,   0.,  -2., ...,  -1.,  -4.,  -4.],
+         [  0.,   0.,  -2., ...,  -1.,  -4.,  -4.]],
+
+        [[ 18.,  18.,  19., ...,  29.,  29.,  29.],
+         [ 18.,  18.,  19., ...,  29.,  29.,  29.],
+         [ 17.,  17.,  18., ...,  29.,  29.,  29.],
+         ...,
+         [  8.,   8.,  13., ...,  11.,  16.,  16.],
+         [  9.,   9.,  20., ...,  14.,  17.,  17.],
+         [  9.,   9.,  20., ...,  14.,  17.,  17.]]]], dtype=float32), array([[[[-122., -123., -119., ..., -105., -101., -103.],
+         [-123., -124., -122., ..., -105., -102., -106.],
+         [-124., -124., -123., ..., -105., -103., -109.],
+         ...,
+         [ -77., -113., -119., ..., -106., -116., -116.],
+         [ -78., -116., -120., ..., -100., -112., -112.],
+         [ -81., -118., -121., ...,  -96., -109., -110.]],
+
+        [[   0.,    0.,    0., ...,   11.,   15.,   15.],
+         [   0.,    0.,    0., ...,   11.,   15.,   15.],
+         [  -1.,   -1.,   -1., ...,   12.,   12.,   12.],
+         ...,
+         [  -5.,   -5.,   -1., ...,    6.,    0.,    0.],
+         [  -3.,   -3.,    0., ...,    7.,    2.,    2.],
+         [  -3.,   -3.,    0., ...,    7.,    2.,    2.]],
+
+        [[  -5.,   -5.,   -7., ...,  -12.,   -8.,   -8.],
+         [  -5.,   -5.,   -7., ...,  -12.,   -8.,   -8.],
+         [  -2.,   -2.,   -3., ...,   -8.,   -8.,   -8.],
+         ...,
+         [  10.,   10.,    1., ...,   -3.,   -2.,   -2.],
+         [   9.,    9.,    0., ...,   -5.,   -2.,   -2.],
+         [   9.,    9.,    0., ...,   -5.,   -2.,   -2.]]]], dtype=float32), array([[[[-118., -118., -118., ..., -116., -116., -116.],
+         [-118., -118., -117., ..., -116., -116., -116.],
+         [-117., -117., -117., ..., -116., -116., -116.],
+         ...,
+         [-118., -117., -116., ..., -116., -117., -117.],
+         [-118., -116., -116., ..., -116., -117., -117.],
+         [-117., -116., -116., ..., -116., -117., -117.]],
+
+        [[   3.,    3.,    2., ...,    3.,    3.,    3.],
+         [   3.,    3.,    2., ...,    3.,    3.,    3.],
+         [   3.,    3.,    3., ...,    3.,    3.,    3.],
+         ...,
+         [   3.,    3.,    3., ...,    4.,    4.,    4.],
+         [   3.,    3.,    3., ...,    4.,    4.,    4.],
+         [   3.,    3.,    3., ...,    4.,    4.,    4.]],
+
+        [[  -7.,   -7.,   -4., ...,   -3.,   -3.,   -3.],
+         [  -7.,   -7.,   -4., ...,   -3.,   -3.,   -3.],
+         [  -3.,   -3.,   -3., ...,   -2.,   -2.,   -2.],
+         ...,
+         [  -2.,   -2.,   -2., ...,   -2.,   -2.,   -2.],
+         [  -2.,   -2.,   -2., ...,   -2.,   -2.,   -2.],
+         [  -2.,   -2.,   -2., ...,   -2.,   -2.,   -2.]]]], dtype=float32), array([[[[ -32.,  -33.,  -36., ...,  -41.,  -43.,  -43.],
+         [ -32.,  -33.,  -35., ...,  -40.,  -41.,  -42.],
+         [ -31.,  -32.,  -33., ...,  -39.,  -40.,  -40.],
+         ...,
+         [-112., -112., -115., ..., -107., -107., -107.],
+         [-113., -116., -118., ..., -109., -109., -109.],
+         [-115., -118., -117., ..., -107., -106., -106.]],
+
+        [[   3.,    3.,    2., ...,    3.,    5.,    5.],
+         [   3.,    3.,    2., ...,    3.,    5.,    5.],
+         [   0.,    0.,   -1., ...,    4.,    5.,    5.],
+         ...,
+         [  15.,   15.,   13., ...,   14.,   13.,   13.],
+         [  14.,   14.,   11., ...,   12.,   13.,   13.],
+         [  14.,   14.,   11., ...,   12.,   13.,   13.]],
+
+        [[   1.,    1.,    2., ...,   -7.,   -6.,   -6.],
+         [   1.,    1.,    2., ...,   -7.,   -6.,   -6.],
+         [   1.,    1.,    1., ...,   -6.,   -5.,   -5.],
+         ...,
+         [ -12.,  -12.,  -11., ...,  -10.,  -11.,  -11.],
+         [ -11.,  -11.,   -7., ...,  -11.,  -10.,  -10.],
+         [ -11.,  -11.,   -7., ...,  -11.,  -10.,  -10.]]]], dtype=float32), array([[[[-117., -118., -122., ..., -110., -111., -110.],
+         [-119., -119., -121., ..., -111., -112., -111.],
+         [-121., -122., -122., ..., -110., -111., -111.],
+         ...,
+         [-107., -104., -107., ..., -111., -113., -114.],
+         [-105., -102., -106., ..., -113., -113., -114.],
+         [-108., -104., -107., ..., -116., -114., -114.]],
+
+        [[   0.,    0.,    0., ...,    6.,    6.,    6.],
+         [   0.,    0.,    0., ...,    6.,    6.,    6.],
+         [   0.,    0.,    0., ...,    6.,    6.,    6.],
+         ...,
+         [   2.,    2.,    2., ...,    1.,    1.,    1.],
+         [   3.,    3.,    2., ...,    1.,    1.,    1.],
+         [   3.,    3.,    2., ...,    1.,    1.,    1.]],
+
+        [[  -1.,   -1.,   -1., ...,   -6.,   -6.,   -6.],
+         [  -1.,   -1.,   -1., ...,   -6.,   -6.,   -6.],
+         [  -1.,   -1.,   -1., ...,   -6.,   -6.,   -6.],
+         ...,
+         [  -3.,   -3.,   -3., ...,   -3.,   -3.,   -3.],
+         [  -3.,   -3.,   -4., ...,   -3.,   -3.,   -3.],
+         [  -3.,   -3.,   -4., ...,   -3.,   -3.,   -3.]]]], dtype=float32), array([[[[-112., -114., -108., ..., -123., -108.,  -96.],
+         [-114., -117., -112., ..., -118., -100.,  -74.],
+         [-114., -119., -114., ..., -113.,  -92.,  -63.],
+         ...,
+         [  91.,   94.,   94., ...,  -97.,  -13.,  -43.],
+         [  90.,   85.,   89., ...,  -63.,  -46.,  -15.],
+         [  86.,   71.,   79., ...,   27.,  -15.,  -13.]],
+
+        [[  -5.,   -5.,   -1., ...,    0.,   -4.,   -4.],
+         [  -5.,   -5.,   -1., ...,    0.,   -4.,   -4.],
+         [  -5.,   -5.,   -1., ...,   -2.,   -4.,   -4.],
+         ...,
+         [  -1.,   -1.,   -1., ...,    6.,   13.,   13.],
+         [  -1.,   -1.,   -3., ...,    9.,   10.,   10.],
+         [  -1.,   -1.,   -3., ...,    9.,   10.,   10.]],
+
+        [[   0.,    0.,    2., ...,    0.,    2.,    2.],
+         [   0.,    0.,    2., ...,    0.,    2.,    2.],
+         [   1.,    1.,    2., ...,   -1.,    1.,    1.],
+         ...,
+         [   1.,    1.,    1., ...,   -6.,  -12.,  -12.],
+         [   1.,    1.,    0., ...,  -23.,  -13.,  -13.],
+         [   1.,    1.,    0., ...,  -23.,  -13.,  -13.]]]], dtype=float32), array([[[[ -30.,  -37.,  -80., ...,  -54.,  -51.,  -50.],
+         [ -30.,  -62.,  -86., ...,  -51.,  -50.,  -53.],
+         [ -50.,  -84.,  -87., ...,  -45.,  -46.,  -52.],
+         ...,
+         [-107., -107., -106., ...,  -93.,  -92.,  -95.],
+         [-107., -107., -106., ...,  -92.,  -94.,  -95.],
+         [-106., -107., -105., ...,  -93.,  -92.,  -97.]],
+
+        [[  -2.,   -2.,   -2., ...,   -3.,   -4.,   -4.],
+         [  -2.,   -2.,   -2., ...,   -3.,   -4.,   -4.],
+         [  -2.,   -2.,   -2., ...,   -4.,   -4.,   -4.],
+         ...,
+         [   5.,    5.,    5., ...,   23.,   25.,   25.],
+         [   5.,    5.,    5., ...,   25.,   23.,   23.],
+         [   5.,    5.,    5., ...,   25.,   23.,   23.]],
+
+        [[   2.,    2.,    5., ...,  -11.,   -7.,   -7.],
+         [   2.,    2.,    5., ...,  -11.,   -7.,   -7.],
+         [   2.,    2.,    3., ...,  -11.,   -7.,   -7.],
+         ...,
+         [  -5.,   -5.,   -5., ...,    0.,  -12.,  -12.],
+         [  -5.,   -5.,   -5., ...,   -3.,  -14.,  -14.],
+         [  -5.,   -5.,   -5., ...,   -3.,  -14.,  -14.]]]], dtype=float32), array([[[[-103., -102., -102., ...,    3.,    2.,    1.],
+         [-104., -102., -102., ...,   -1.,    0.,    2.],
+         [-103., -101., -101., ...,   -5.,   -1.,    2.],
+         ...,
+         [ -27.,  -34.,  -32., ...,  -73.,  -67.,  -65.],
+         [ -29.,  -36.,  -33., ...,  -74.,  -67.,  -63.],
+         [ -31.,  -37.,  -33., ...,  -74.,  -67.,  -63.]],
+
+        [[  -1.,   -1.,   -1., ...,    0.,    0.,    0.],
+         [  -1.,   -1.,   -1., ...,    0.,    0.,    0.],
+         [  -1.,   -1.,   -1., ...,    0.,    0.,    0.],
+         ...,
+         [ -14.,  -14.,  -16., ...,   15.,   14.,   14.],
+         [ -14.,  -14.,  -17., ...,   19.,   13.,   13.],
+         [ -14.,  -14.,  -17., ...,   19.,   13.,   13.]],
+
+        [[  -4.,   -4.,   -4., ...,   -3.,   -3.,   -3.],
+         [  -4.,   -4.,   -4., ...,   -3.,   -3.,   -3.],
+         [  -3.,   -3.,   -3., ...,   -3.,   -3.,   -3.],
+         ...,
+         [   8.,    8.,    8., ...,  -14.,  -12.,  -12.],
+         [  10.,   10.,    7., ...,  -14.,  -14.,  -14.],
+         [  10.,   10.,    7., ...,  -14.,  -14.,  -14.]]]], dtype=float32), array([[[[-112., -112., -112., ..., -106., -106., -107.],
+         [-112., -112., -112., ..., -106., -107., -107.],
+         [-112., -112., -112., ..., -107., -108., -107.],
+         ...,
+         [  65.,   70.,   74., ...,  -78.,  -80.,  -82.],
+         [  67.,   70.,   73., ...,  -76.,  -79.,  -81.],
+         [  68.,   70.,   72., ...,  -75.,  -78.,  -80.]],
+
+        [[  -3.,   -3.,   -3., ...,   -7.,   -7.,   -7.],
+         [  -3.,   -3.,   -3., ...,   -7.,   -7.,   -7.],
+         [  -3.,   -3.,   -3., ...,   -7.,   -6.,   -6.],
+         ...,
+         [  28.,   28.,   28., ...,   24.,   24.,   24.],
+         [  28.,   28.,   28., ...,   23.,   24.,   24.],
+         [  28.,   28.,   28., ...,   23.,   24.,   24.]],
+
+        [[  -1.,   -1.,   -1., ...,   20.,   18.,   18.],
+         [  -1.,   -1.,   -1., ...,   20.,   18.,   18.],
+         [  -1.,   -1.,   -1., ...,   19.,   16.,   16.],
+         ...,
+         [ -49.,  -49.,  -49., ...,  -27.,  -29.,  -29.],
+         [ -49.,  -49.,  -49., ...,  -25.,  -29.,  -29.],
+         [ -49.,  -49.,  -49., ...,  -25.,  -29.,  -29.]]]], dtype=float32), array([[[[-118., -120., -124., ..., -126., -123., -122.],
+         [-115., -119., -124., ..., -126., -124., -124.],
+         [-116., -120., -124., ..., -126., -124., -124.],
+         ...,
+         [ -81.,  -90.,  -94., ..., -100., -101.,  -95.],
+         [ -85.,  -91.,  -93., ..., -100.,  -98.,  -96.],
+         [ -91.,  -93.,  -92., ..., -101.,  -98.,  -99.]],
+
+        [[  -1.,   -1.,   -1., ...,   -1.,   -1.,   -1.],
+         [  -1.,   -1.,   -1., ...,   -1.,   -1.,   -1.],
+         [  -1.,   -1.,   -1., ...,   -1.,   -1.,   -1.],
+         ...,
+         [  -4.,   -4.,   -3., ...,    0.,    0.,    0.],
+         [  -5.,   -5.,   -5., ...,    0.,   -1.,   -1.],
+         [  -5.,   -5.,   -5., ...,    0.,   -1.,   -1.]],
+
+        [[   1.,    1.,   -1., ...,   -1.,   -1.,   -1.],
+         [   1.,    1.,   -1., ...,   -1.,   -1.,   -1.],
+         [  -1.,   -1.,   -2., ...,    0.,    1.,    1.],
+         ...,
+         [  -4.,   -4.,    0., ...,    0.,    0.,    0.],
+         [  -4.,   -4.,    0., ...,   -3.,   -3.,   -3.],
+         [  -4.,   -4.,    0., ...,   -3.,   -3.,   -3.]]]], dtype=float32), array([[[[-100., -118., -112., ..., -125., -125., -125.],
+         [ -77.,  -81.,  -80., ..., -125., -127., -126.],
+         [ -37.,  -41.,  -50., ..., -125., -126., -126.],
+         ...,
+         [ -29.,   -6.,  -12., ...,  -18.,   -9.,  -11.],
+         [ -20.,   -9.,  -20., ...,  -11.,  -10.,   -7.],
+         [   7.,  -30.,  -27., ...,  -13.,  -16.,   -8.]],
+
+        [[  -7.,   -7.,   -5., ...,    0.,    0.,    0.],
+         [  -7.,   -7.,   -5., ...,    0.,    0.,    0.],
+         [  -6.,   -6.,   -5., ...,    0.,    0.,    0.],
+         ...,
+         [   1.,    1.,    0., ...,    3.,    1.,    1.],
+         [   1.,    1.,    1., ...,    1.,   -1.,   -1.],
+         [   1.,    1.,    1., ...,    1.,   -1.,   -1.]],
+
+        [[ -13.,  -13.,   -4., ...,   -1.,    1.,    1.],
+         [ -13.,  -13.,   -4., ...,   -1.,    1.,    1.],
+         [ -33.,  -33.,  -22., ...,   -1.,    0.,    0.],
+         ...,
+         [ -39.,  -39.,  -38., ...,  -47.,  -44.,  -44.],
+         [ -36.,  -36.,  -38., ...,  -43.,  -48.,  -48.],
+         [ -36.,  -36.,  -38., ...,  -43.,  -48.,  -48.]]]], dtype=float32), array([[[[-117., -118., -116., ...,  127.,  127.,  127.],
+         [-118., -115., -116., ...,  127.,  127.,  127.],
+         [-114., -109., -113., ...,  127.,  127.,  127.],
+         ...,
+         [-114., -125., -119., ...,   30.,   27.,   30.],
+         [ -57.,   26.,   88., ...,   37.,   29.,   24.],
+         [ 119.,   85.,   65., ...,   44.,   39.,   46.]],
+
+        [[  -2.,   -2.,   -2., ...,    0.,    0.,    0.],
+         [  -2.,   -2.,   -2., ...,    0.,    0.,    0.],
+         [  -2.,   -2.,   -2., ...,    0.,    0.,    0.],
+         ...,
+         [  -6.,   -6.,   -5., ...,   -9.,   -9.,   -9.],
+         [  -5.,   -5.,  -12., ...,  -10.,   -9.,   -9.],
+         [  -5.,   -5.,  -12., ...,  -10.,   -9.,   -9.]],
+
+        [[   2.,    2.,    2., ...,    0.,    0.,    0.],
+         [   2.,    2.,    2., ...,    0.,    0.,    0.],
+         [   4.,    4.,    4., ...,    0.,    0.,    0.],
+         ...,
+         [   7.,    7.,   13., ...,   15.,   15.,   15.],
+         [   9.,    9.,    5., ...,   16.,   15.,   15.],
+         [   9.,    9.,    5., ...,   16.,   15.,   15.]]]], dtype=float32), array([[[[  55.,   55.,   56., ...,   47.,   47.,   46.],
+         [  57.,   57.,   57., ...,   50.,   50.,   50.],
+         [  58.,   58.,   58., ...,   50.,   50.,   50.],
+         ...,
+         [ -80.,  -86.,  -93., ...,   91.,   91.,   91.],
+         [ -99.,  -96.,  -94., ...,   91.,   90.,   90.],
+         [-102., -102., -102., ...,   89.,   90.,   90.]],
+
+        [[   5.,    5.,    5., ...,  -49.,  -54.,  -54.],
+         [   5.,    5.,    5., ...,  -49.,  -54.,  -54.],
+         [   5.,    5.,    5., ...,  -51.,  -52.,  -52.],
+         ...,
+         [  -1.,   -1.,   -1., ...,    7.,    7.,    7.],
+         [  -1.,   -1.,   -1., ...,    7.,    7.,    7.],
+         [  -1.,   -1.,   -1., ...,    7.,    7.,    7.]],
+
+        [[  -7.,   -7.,   -7., ...,   30.,   31.,   31.],
+         [  -7.,   -7.,   -7., ...,   30.,   31.,   31.],
+         [  -7.,   -7.,   -7., ...,   33.,   33.,   33.],
+         ...,
+         [  -1.,   -1.,    0., ...,  -12.,  -12.,  -12.],
+         [   1.,    1.,    1., ...,  -14.,  -14.,  -14.],
+         [   1.,    1.,    1., ...,  -14.,  -14.,  -14.]]]], dtype=float32), array([[[[-114.,  -93., -116., ..., -123., -126., -120.],
+         [-120., -107., -120., ..., -123., -125., -119.],
+         [-122., -115., -117., ..., -118., -120., -121.],
+         ...,
+         [  18.,  -11.,   -2., ...,   14.,  -33.,   -4.],
+         [  34.,   -7.,    7., ...,   42.,   17.,    8.],
+         [  56.,   32.,   35., ...,   25.,   61.,   32.]],
+
+        [[   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    1.,    1.],
+         ...,
+         [  10.,   10.,   15., ...,    9.,   14.,   14.],
+         [  13.,   13.,   12., ...,    5.,   13.,   13.],
+         [  13.,   13.,   12., ...,    5.,   13.,   13.]],
+
+        [[  -1.,   -1.,   -1., ...,   -1.,   -2.,   -2.],
+         [  -1.,   -1.,   -1., ...,   -1.,   -2.,   -2.],
+         [  -2.,   -2.,   -2., ...,   -2.,   -3.,   -3.],
+         ...,
+         [ -12.,  -12.,  -16., ...,  -21.,  -22.,  -22.],
+         [ -20.,  -20.,  -23., ...,  -14.,  -25.,  -25.],
+         [ -20.,  -20.,  -23., ...,  -14.,  -25.,  -25.]]]], dtype=float32), array([[[[109., 111., 111., ..., 109., 107., 107.],
+         [108., 105., 107., ..., 108., 107., 107.],
+         [108., 107., 109., ..., 108., 108., 108.],
+         ...,
+         [114., 108., 112., ..., 106., 107., 110.],
+         [113., 116., 118., ..., 107., 110., 111.],
+         [112., 116., 116., ..., 108., 110., 106.]],
+
+        [[ -1.,  -1.,  -1., ...,  -1.,  -1.,  -1.],
+         [ -1.,  -1.,  -1., ...,  -1.,  -1.,  -1.],
+         [ -1.,  -1.,  -1., ...,  -1.,  -1.,  -1.],
+         ...,
+         [  0.,   0.,   0., ...,   0.,   0.,   0.],
+         [  0.,   0.,   0., ...,   0.,   0.,   0.],
+         [  0.,   0.,   0., ...,   0.,   0.,   0.]],
+
+        [[ -1.,  -1.,  -1., ...,  -1.,  -1.,  -1.],
+         [ -1.,  -1.,  -1., ...,  -1.,  -1.,  -1.],
+         [ -1.,  -1.,  -1., ...,  -1.,  -1.,  -1.],
+         ...,
+         [ -1.,  -1.,  -1., ...,   0.,   0.,   0.],
+         [ -1.,  -1.,  -1., ...,   0.,   0.,   0.],
+         [ -1.,  -1.,  -1., ...,   0.,   0.,   0.]]]], dtype=float32), array([[[[ -80.,  -64.,  -31., ...,   54.,   51.,   47.],
+         [ -83.,  -80.,  -62., ...,   54.,   50.,   47.],
+         [ -91.,  -92.,  -85., ...,   51.,   44.,   39.],
+         ...,
+         [ -22.,  -19.,  -20., ..., -124., -122., -124.],
+         [ -23.,  -22.,  -21., ..., -126., -124., -123.],
+         [ -26.,  -25.,  -25., ..., -127., -126., -120.]],
+
+        [[  15.,   15.,   17., ...,   -5.,   -6.,   -6.],
+         [  15.,   15.,   17., ...,   -5.,   -6.,   -6.],
+         [  12.,   12.,   14., ...,   -8.,   -8.,   -8.],
+         ...,
+         [ -25.,  -25.,  -28., ...,   -1.,   -3.,   -3.],
+         [ -22.,  -22.,  -25., ...,   -1.,   -1.,   -1.],
+         [ -22.,  -22.,  -25., ...,   -1.,   -1.,   -1.]],
+
+        [[  -3.,   -3.,   -4., ...,    0.,    0.,    0.],
+         [  -3.,   -3.,   -4., ...,    0.,    0.,    0.],
+         [  -3.,   -3.,   -3., ...,   -2.,   -1.,   -1.],
+         ...,
+         [ -35.,  -35.,  -35., ...,    0.,    0.,    0.],
+         [ -35.,  -35.,  -33., ...,   -1.,   -1.,   -1.],
+         [ -35.,  -35.,  -33., ...,   -1.,   -1.,   -1.]]]], dtype=float32), array([[[[-69., -75., -82., ..., -89., -90., -91.],
+         [-61., -73., -79., ..., -88., -90., -92.],
+         [-49., -67., -75., ..., -87., -89., -92.],
+         ...,
+         [-51., -50., -45., ..., -49., -52., -49.],
+         [-54., -52., -46., ..., -51., -48., -55.],
+         [-55., -51., -46., ..., -52., -41., -59.]],
+
+        [[  1.,   1.,   0., ...,   1.,   0.,   0.],
+         [  1.,   1.,   0., ...,   1.,   0.,   0.],
+         [  0.,   0.,   0., ...,   0.,   0.,   0.],
+         ...,
+         [  7.,   7.,   7., ...,   6.,   6.,   6.],
+         [  7.,   7.,   7., ...,   6.,   6.,   6.],
+         [  7.,   7.,   7., ...,   6.,   6.,   6.]],
+
+        [[ -4.,  -4.,  -4., ..., -10.,  -4.,  -4.],
+         [ -4.,  -4.,  -4., ..., -10.,  -4.,  -4.],
+         [ -3.,  -3.,  -4., ..., -10.,  -6.,  -6.],
+         ...,
+         [-10., -10.,  -9., ...,  -6.,  -6.,  -6.],
+         [ -9.,  -9.,  -9., ...,  -6.,  -6.,  -6.],
+         [ -9.,  -9.,  -9., ...,  -6.,  -6.,  -6.]]]], dtype=float32), array([[[[-23., -22., -21., ...,  28.,  28.,  27.],
+         [-18., -20., -23., ...,  25.,  25.,  25.],
+         [-24., -24., -23., ...,  25.,  25.,  25.],
+         ...,
+         [-66., -66., -65., ..., -75., -75., -74.],
+         [-71., -69., -65., ..., -72., -75., -77.],
+         [-66., -67., -69., ..., -75., -74., -74.]],
+
+        [[  0.,   0.,   0., ...,  -5.,  -5.,  -5.],
+         [  0.,   0.,   0., ...,  -5.,  -5.,  -5.],
+         [ -1.,  -1.,  -1., ...,  -5.,  -6.,  -6.],
+         ...,
+         [ 19.,  19.,  18., ...,   9.,  10.,  10.],
+         [ 19.,  19.,  19., ...,  11.,  11.,  11.],
+         [ 19.,  19.,  19., ...,  11.,  11.,  11.]],
+
+        [[ -3.,  -3.,  -3., ...,   1.,  -1.,  -1.],
+         [ -3.,  -3.,  -3., ...,   1.,  -1.,  -1.],
+         [ -3.,  -3.,  -3., ...,   0.,   1.,   1.],
+         ...,
+         [-27., -27., -26., ..., -13., -12., -12.],
+         [-24., -24., -23., ..., -14., -12., -12.],
+         [-24., -24., -23., ..., -14., -12., -12.]]]], dtype=float32), array([[[[109., 109., 109., ...,  99.,  99.,  99.],
+         [108., 108., 108., ..., 100., 100., 100.],
+         [108., 108., 108., ..., 101., 101., 102.],
+         ...,
+         [-71., -55., -55., ...,   8.,   3.,   0.],
+         [-74., -50., -44., ...,   6.,   5.,   4.],
+         [-76., -49., -45., ...,   7.,   4.,   3.]],
+
+        [[-16., -16., -16., ..., -23., -22., -22.],
+         [-16., -16., -16., ..., -23., -22., -22.],
+         [-16., -16., -16., ..., -23., -20., -20.],
+         ...,
+         [  8.,   8.,   9., ...,  11.,  11.,  11.],
+         [  7.,   7.,   9., ...,  12.,  12.,  12.],
+         [  7.,   7.,   9., ...,  12.,  12.,  12.]],
+
+        [[  8.,   8.,   8., ...,  17.,  16.,  16.],
+         [  8.,   8.,   8., ...,  17.,  16.,  16.],
+         [  8.,   8.,   8., ...,  16.,  16.,  16.],
+         ...,
+         [ -3.,  -3., -12., ..., -10.,  -9.,  -9.],
+         [ -5.,  -5., -11., ..., -10.,  -9.,  -9.],
+         [ -5.,  -5., -11., ..., -10.,  -9.,  -9.]]]], dtype=float32), array([[[[  24.,   24.,   24., ...,  -31.,  -17.,   -7.],
+         [  23.,   23.,   23., ...,  -15.,   -5.,    1.],
+         [  23.,   23.,   23., ...,   -2.,    3.,    4.],
+         ...,
+         [-110., -109., -109., ...,  -16.,   -8.,    1.],
+         [-109., -109., -109., ...,   -4.,    6.,   15.],
+         [-112., -111., -111., ...,   11.,   13.,   11.]],
+
+        [[   7.,    7.,    7., ...,   19.,   20.,   20.],
+         [   7.,    7.,    7., ...,   19.,   20.,   20.],
+         [   7.,    7.,    7., ...,   20.,   20.,   20.],
+         ...,
+         [   0.,    0.,    1., ...,   -1.,   -1.,   -1.],
+         [   0.,    0.,    1., ...,   -1.,   -2.,   -2.],
+         [   0.,    0.,    1., ...,   -1.,   -2.,   -2.]],
+
+        [[ -14.,  -14.,  -14., ...,  -13.,  -16.,  -16.],
+         [ -14.,  -14.,  -14., ...,  -13.,  -16.,  -16.],
+         [ -14.,  -14.,  -14., ...,  -11.,  -13.,  -13.],
+         ...,
+         [  -2.,   -2.,   -3., ...,   -1.,   -2.,   -2.],
+         [  -2.,   -2.,   -3., ...,   -3.,   -3.,   -3.],
+         [  -2.,   -2.,   -3., ...,   -3.,   -3.,   -3.]]]], dtype=float32), array([[[[ -85.,  -73.,  -86., ...,  -86.,  -89.,  -88.],
+         [ -80.,  -77.,  -87., ...,  -94.,  -93.,  -90.],
+         [ -79.,  -81.,  -87., ..., -100.,  -95.,  -90.],
+         ...,
+         [-115., -114., -110., ..., -121., -118., -121.],
+         [-113., -116., -113., ..., -121., -118., -120.],
+         [-113., -118., -116., ..., -119., -117., -120.]],
+
+        [[  21.,   21.,   11., ...,    9.,    7.,    7.],
+         [  21.,   21.,   11., ...,    9.,    7.,    7.],
+         [  19.,   19.,   11., ...,   11.,   14.,   14.],
+         ...,
+         [   0.,    0.,   -4., ...,   -1.,    1.,    1.],
+         [   6.,    6.,   -5., ...,   -1.,    5.,    5.],
+         [   6.,    6.,   -5., ...,   -1.,    5.,    5.]],
+
+        [[   1.,    1.,  -10., ...,  -16.,  -14.,  -14.],
+         [   1.,    1.,  -10., ...,  -16.,  -14.,  -14.],
+         [  -2.,   -2.,  -13., ...,  -21.,  -19.,  -19.],
+         ...,
+         [   3.,    3.,    7., ...,   11.,    9.,    9.],
+         [  16.,   16.,   11., ...,    6.,    9.,    9.],
+         [  16.,   16.,   11., ...,    6.,    9.,    9.]]]], dtype=float32), array([[[[  0.,   4.,  12., ..., 117., 120., 124.],
+         [ -2.,   3.,  11., ...,  94.,  95.,  97.],
+         [ -6.,   0.,   8., ...,  57.,  55.,  52.],
+         ...,
+         [  4.,  -1.,  18., ...,  23.,  21.,  52.],
+         [  0.,   3.,  18., ...,  32.,  37.,  35.],
+         [ -2.,   5.,  17., ...,  38.,  47.,  24.]],
+
+        [[ -6.,  -6.,  -4., ...,  -1.,   0.,   0.],
+         [ -6.,  -6.,  -4., ...,  -1.,   0.,   0.],
+         [ -1.,  -1.,   0., ...,   2.,   2.,   2.],
+         ...,
+         [  1.,   1.,   0., ...,   7.,   7.,   7.],
+         [  0.,   0.,   1., ...,   7.,   7.,   7.],
+         [  0.,   0.,   1., ...,   7.,   7.,   7.]],
+
+        [[ -6.,  -6.,  -5., ...,  -2.,   0.,   0.],
+         [ -6.,  -6.,  -5., ...,  -2.,   0.,   0.],
+         [ -5.,  -5.,  -3., ..., -10.,  -8.,  -8.],
+         ...,
+         [ -5.,  -5.,  -6., ..., -14.,  -8.,  -8.],
+         [ -6.,  -6.,  -6., ..., -16.,  -6.,  -6.],
+         [ -6.,  -6.,  -6., ..., -16.,  -6.,  -6.]]]], dtype=float32), array([[[[-126., -128., -128., ..., -128., -128., -128.],
+         [-127., -122.,  -70., ..., -128., -128., -128.],
+         [-128., -112.,   11., ..., -128., -128., -128.],
+         ...,
+         [-128., -128., -128., ...,  -39., -123., -121.],
+         [-128., -128., -128., ...,  -90., -127., -127.],
+         [-128., -128., -128., ..., -128., -127., -127.]],
+
+        [[   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         ...,
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.]],
+
+        [[   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         ...,
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.]]]], dtype=float32), array([[[[-74., -66., -58., ..., -81., -73., -63.],
+         [-77., -76., -73., ..., -86., -68., -47.],
+         [-74., -72., -71., ..., -78., -83., -88.],
+         ...,
+         [-31.,  -6.,  25., ...,  -1.,   8.,  13.],
+         [-27.,  -5.,  20., ..., -17.,   5.,  25.],
+         [-33.,  -4.,  19., ..., -10.,  16.,  40.]],
+
+        [[ -2.,  -2.,  -2., ...,  -8.,  -5.,  -5.],
+         [ -2.,  -2.,  -2., ...,  -8.,  -5.,  -5.],
+         [ -1.,  -1.,  -6., ...,  -7.,  -4.,  -4.],
+         ...,
+         [-11., -11., -10., ...,  -1.,  -8.,  -8.],
+         [-13., -13., -10., ...,  -3.,  -7.,  -7.],
+         [-13., -13., -10., ...,  -3.,  -7.,  -7.]],
+
+        [[-20., -20., -33., ..., -15., -14., -14.],
+         [-20., -20., -33., ..., -15., -14., -14.],
+         [-21., -21., -19., ..., -18., -19., -19.],
+         ...,
+         [-38., -38., -38., ..., -31., -28., -28.],
+         [-36., -36., -39., ..., -35., -30., -30.],
+         [-36., -36., -39., ..., -35., -30., -30.]]]], dtype=float32), array([[[[  34.,   35.,   38., ...,  -25.,  -11.,   -7.],
+         [  38.,   37.,   38., ...,  -14.,   -3.,  -55.],
+         [  41.,   39.,   38., ...,   -5.,  -23., -100.],
+         ...,
+         [  37.,   37.,   32., ...,   43.,   45.,   45.],
+         [  35.,   35.,   34., ...,   42.,   44.,   44.],
+         [  34.,   33.,   35., ...,   41.,   43.,   43.]],
+
+        [[  18.,   18.,   18., ...,   17.,   12.,   12.],
+         [  18.,   18.,   18., ...,   17.,   12.,   12.],
+         [  18.,   18.,   18., ...,   16.,   10.,   10.],
+         ...,
+         [  17.,   17.,   19., ...,   17.,   18.,   18.],
+         [  18.,   18.,   20., ...,   17.,   18.,   18.],
+         [  18.,   18.,   20., ...,   17.,   18.,   18.]],
+
+        [[ -20.,  -20.,  -18., ...,  -19.,  -12.,  -12.],
+         [ -20.,  -20.,  -18., ...,  -19.,  -12.,  -12.],
+         [ -19.,  -19.,  -17., ...,  -22.,   -9.,   -9.],
+         ...,
+         [ -22.,  -22.,  -25., ...,  -19.,  -17.,  -17.],
+         [ -25.,  -25.,  -27., ...,  -19.,  -17.,  -17.],
+         [ -25.,  -25.,  -27., ...,  -19.,  -17.,  -17.]]]], dtype=float32), array([[[[ 81.,  83.,  84., ...,  92.,  86.,  91.],
+         [ 83.,  82.,  82., ...,  92.,  90.,  92.],
+         [ 84.,  83.,  83., ...,  93.,  91.,  90.],
+         ...,
+         [-30., -35., -51., ..., -65., -32., -67.],
+         [-38., -45., -54., ..., -68., -12., -45.],
+         [-40., -50., -48., ..., -54., -10., -26.]],
+
+        [[ -5.,  -5.,  -6., ...,  -8.,  -7.,  -7.],
+         [ -5.,  -5.,  -6., ...,  -8.,  -7.,  -7.],
+         [ -3.,  -3.,  -2., ...,  -6.,  -7.,  -7.],
+         ...,
+         [ 30.,  30.,  24., ...,  21.,  21.,  21.],
+         [ 26.,  26.,  26., ...,  16.,  24.,  24.],
+         [ 26.,  26.,  26., ...,  16.,  24.,  24.]],
+
+        [[  7.,   7.,   6., ...,   6.,   7.,   7.],
+         [  7.,   7.,   6., ...,   6.,   7.,   7.],
+         [  7.,   7.,   6., ...,   8.,   9.,   9.],
+         ...,
+         [-17., -17., -21., ..., -15., -14., -14.],
+         [-20., -20., -18., ...,  -8., -18., -18.],
+         [-20., -20., -18., ...,  -8., -18., -18.]]]], dtype=float32), array([[[[-121.,  -99., -106., ..., -117., -114., -112.],
+         [-112.,  -99., -106., ..., -106., -112., -112.],
+         [-103., -101., -105., ..., -108., -106., -109.],
+         ...,
+         [ -50.,  -46.,  -45., ...,  -65.,  -65.,  -66.],
+         [ -55.,  -43.,  -45., ...,  -69.,  -65.,  -68.],
+         [ -52.,  -52.,  -47., ...,  -70.,  -72.,  -73.]],
+
+        [[   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         ...,
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.]],
+
+        [[   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         ...,
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.]]]], dtype=float32), array([[[[ 68.,  71.,  75., ...,  86.,  87.,  87.],
+         [ 69.,  72.,  75., ...,  86.,  86.,  86.],
+         [ 71.,  73.,  76., ...,  86.,  86.,  86.],
+         ...,
+         [ 15.,  16.,  19., ..., -63., -62., -63.],
+         [ 14.,  15.,  18., ..., -64., -63., -66.],
+         [ 14.,  15.,  18., ..., -64., -65., -69.]],
+
+        [[ -3.,  -3.,  -3., ...,  -1.,  -1.,  -1.],
+         [ -3.,  -3.,  -3., ...,  -1.,  -1.,  -1.],
+         [ -3.,  -3.,  -3., ...,  -1.,  -1.,  -1.],
+         ...,
+         [ -4.,  -4.,  -3., ...,   6.,   5.,   5.],
+         [ -4.,  -4.,  -3., ...,   3.,   3.,   3.],
+         [ -4.,  -4.,  -3., ...,   3.,   3.,   3.]],
+
+        [[  1.,   1.,   1., ...,   1.,   1.,   1.],
+         [  1.,   1.,   1., ...,   1.,   1.,   1.],
+         [  2.,   2.,   1., ...,   1.,   1.,   1.],
+         ...,
+         [  3.,   3.,   1., ..., -16., -15., -15.],
+         [  3.,   3.,   1., ..., -16., -15., -15.],
+         [  3.,   3.,   1., ..., -16., -15., -15.]]]], dtype=float32), array([[[[-45., -49., -47., ..., -57., -57., -52.],
+         [-46., -48., -45., ..., -57., -56., -53.],
+         [-45., -48., -44., ..., -55., -56., -52.],
+         ...,
+         [ 92.,  92.,  91., ...,   2.,   3.,   3.],
+         [ 91.,  91.,  91., ...,   4.,   6.,   4.],
+         [ 89.,  89.,  89., ...,   3.,   6.,   1.]],
+
+        [[ -4.,  -4.,  -5., ...,  15.,  14.,  14.],
+         [ -4.,  -4.,  -5., ...,  15.,  14.,  14.],
+         [ -5.,  -5.,  -7., ...,  16.,  17.,  17.],
+         ...,
+         [ 11.,  11.,  11., ...,  30.,  29.,  29.],
+         [ 11.,  11.,  11., ...,  29.,  29.,  29.],
+         [ 11.,  11.,  11., ...,  29.,  29.,  29.]],
+
+        [[  6.,   6.,   4., ..., -18., -14., -14.],
+         [  6.,   6.,   4., ..., -18., -14., -14.],
+         [  4.,   4.,   3., ..., -19., -16., -16.],
+         ...,
+         [-16., -16., -18., ..., -28., -28., -28.],
+         [-15., -15., -17., ..., -26., -25., -25.],
+         [-15., -15., -17., ..., -26., -25., -25.]]]], dtype=float32), array([[[[-54., -47., -40., ...,  41.,  41.,  38.],
+         [-58., -52., -44., ...,  42.,  42.,  40.],
+         [-63., -58., -50., ...,  43.,  43.,  42.],
+         ...,
+         [-69., -89., -58., ..., -95., -76., -72.],
+         [-72., -63., -53., ..., -79., -87., -85.],
+         [-69., -38., -56., ..., -64., -92., -97.]],
+
+        [[ -3.,  -3.,  -4., ...,  -9.,  -9.,  -9.],
+         [ -3.,  -3.,  -4., ...,  -9.,  -9.,  -9.],
+         [ -3.,  -3.,  -4., ...,  -9.,  -9.,  -9.],
+         ...,
+         [  6.,   6.,  12., ...,   5.,  14.,  14.],
+         [  8.,   8.,  13., ...,   6.,  10.,  10.],
+         [  8.,   8.,  13., ...,   6.,  10.,  10.]],
+
+        [[  1.,   1.,   4., ...,  10.,   9.,   9.],
+         [  1.,   1.,   4., ...,  10.,   9.,   9.],
+         [  1.,   1.,   4., ...,   9.,   9.,   9.],
+         ...,
+         [ -8.,  -8., -10., ..., -11., -10., -10.],
+         [-11., -11., -12., ..., -13., -10., -10.],
+         [-11., -11., -12., ..., -13., -10., -10.]]]], dtype=float32), array([[[[-69., -66., -68., ..., -76., -70., -66.],
+         [-55., -55., -60., ..., -77., -73., -73.],
+         [-77., -68., -63., ..., -76., -73., -73.],
+         ...,
+         [-13., -17., -18., ..., -14., -13., -13.],
+         [-16., -17., -16., ..., -16., -19., -21.],
+         [-18., -18., -17., ..., -12., -15., -17.]],
+
+        [[  0.,   0.,   0., ...,  -6.,  -3.,  -3.],
+         [  0.,   0.,   0., ...,  -6.,  -3.,  -3.],
+         [ -5.,  -5.,  -4., ...,  -4.,  -1.,  -1.],
+         ...,
+         [ -5.,  -5.,  -5., ...,  -5.,  -5.,  -5.],
+         [ -6.,  -6.,  -6., ...,  -5.,  -3.,  -3.],
+         [ -6.,  -6.,  -6., ...,  -5.,  -3.,  -3.]],
+
+        [[ -3.,  -3.,  -6., ...,   1.,   0.,   0.],
+         [ -3.,  -3.,  -6., ...,   1.,   0.,   0.],
+         [ -4.,  -4.,  -7., ...,  -4.,  -3.,  -3.],
+         ...,
+         [ -8.,  -8.,  -8., ...,  -6.,  -7.,  -7.],
+         [ -9.,  -9.,  -9., ...,  -5.,  -8.,  -8.],
+         [ -9.,  -9.,  -9., ...,  -5.,  -8.,  -8.]]]], dtype=float32), array([[[[-126., -125., -125., ..., -128., -128., -128.],
+         [-126., -125., -125., ..., -128., -128., -128.],
+         [-126., -125., -125., ..., -128., -128., -128.],
+         ...,
+         [-125., -125., -128., ..., -126., -126., -126.],
+         [-125., -125., -128., ..., -126., -126., -126.],
+         [-125., -125., -128., ..., -126., -126., -126.]],
+
+        [[   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         ...,
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.]],
+
+        [[   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         ...,
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.]]]], dtype=float32), array([[[[100., 100., 101., ...,  97.,  97.,  97.],
+         [100., 100., 101., ...,  97.,  97.,  97.],
+         [100., 100., 101., ...,  97.,  97.,  96.],
+         ...,
+         [ 71.,  73.,  69., ...,  71.,  64.,  68.],
+         [ 71.,  72.,  73., ...,  66.,  65.,  66.],
+         [ 72.,  70.,  77., ...,  60.,  67.,  65.]],
+
+        [[ -2.,  -2.,  -2., ...,  -1.,  -1.,  -1.],
+         [ -2.,  -2.,  -2., ...,  -1.,  -1.,  -1.],
+         [ -2.,  -2.,  -2., ...,  -1.,  -1.,  -1.],
+         ...,
+         [ -2.,  -2.,  -2., ...,   0.,   0.,   0.],
+         [ -3.,  -3.,  -2., ...,   1.,   0.,   0.],
+         [ -3.,  -3.,  -2., ...,   1.,   0.,   0.]],
+
+        [[  2.,   2.,   2., ...,   2.,   2.,   2.],
+         [  2.,   2.,   2., ...,   2.,   2.,   2.],
+         [  2.,   2.,   2., ...,   1.,   1.,   1.],
+         ...,
+         [  2.,   2.,   2., ...,  -2.,  -2.,  -2.],
+         [  2.,   2.,   2., ...,  -1.,  -1.,  -1.],
+         [  2.,   2.,   2., ...,  -1.,  -1.,  -1.]]]], dtype=float32), array([[[[ -24.,  -24.,  -24., ...,  -11.,  -12.,  -12.],
+         [ -24.,  -24.,  -24., ...,  -11.,  -11.,  -11.],
+         [ -24.,  -24.,  -23., ...,  -10.,  -11.,  -11.],
+         ...,
+         [ -99.,  -97.,  -97., ...,  -57.,  -58.,  -58.],
+         [ -99.,  -97.,  -98., ...,  -58.,  -59.,  -59.],
+         [-100.,  -97.,  -98., ...,  -58.,  -59.,  -59.]],
+
+        [[   5.,    5.,    5., ...,    5.,    5.,    5.],
+         [   5.,    5.,    5., ...,    5.,    5.,    5.],
+         [   5.,    5.,    5., ...,    5.,    5.,    5.],
+         ...,
+         [   5.,    5.,    5., ...,    3.,    3.,    3.],
+         [   5.,    5.,    5., ...,    3.,    3.,    3.],
+         [   5.,    5.,    5., ...,    3.,    3.,    3.]],
+
+        [[ -19.,  -19.,  -19., ...,  -17.,  -17.,  -17.],
+         [ -19.,  -19.,  -19., ...,  -17.,  -17.,  -17.],
+         [ -19.,  -19.,  -19., ...,  -17.,  -17.,  -17.],
+         ...,
+         [ -11.,  -11.,  -11., ...,  -15.,  -15.,  -15.],
+         [ -11.,  -11.,  -11., ...,  -15.,  -15.,  -15.],
+         [ -11.,  -11.,  -11., ...,  -15.,  -15.,  -15.]]]], dtype=float32), array([[[[ -26.,  -26.,  -26., ..., -124., -123., -123.],
+         [ -30.,  -30.,  -29., ..., -125., -124., -123.],
+         [ -33.,  -33.,  -34., ..., -126., -125., -124.],
+         ...,
+         [-117., -117., -117., ..., -128., -128., -128.],
+         [-120., -121., -123., ..., -128., -128., -128.],
+         [-121., -122., -123., ..., -128., -128., -128.]],
+
+        [[   1.,    1.,    1., ...,   -2.,   -2.,   -2.],
+         [   1.,    1.,    1., ...,   -2.,   -2.,   -2.],
+         [   1.,    1.,    1., ...,   -1.,   -1.,   -1.],
+         ...,
+         [  -2.,   -2.,   -5., ...,    0.,    0.,    0.],
+         [  -2.,   -2.,   -3., ...,    0.,    0.,    0.],
+         [  -2.,   -2.,   -3., ...,    0.,    0.,    0.]],
+
+        [[   1.,    1.,    0., ...,    2.,    2.,    2.],
+         [   1.,    1.,    0., ...,    2.,    2.,    2.],
+         [   2.,    2.,    1., ...,    2.,    2.,    2.],
+         ...,
+         [   4.,    4.,    3., ...,    0.,    0.,    0.],
+         [   2.,    2.,    3., ...,    0.,    0.,    0.],
+         [   2.,    2.,    3., ...,    0.,    0.,    0.]]]], dtype=float32), array([[[[ 41.,  42.,  42., ...,  40.,  40.,  42.],
+         [ 42.,  43.,  44., ...,  40.,  42.,  43.],
+         [ 42.,  43.,  44., ...,  42.,  43.,  45.],
+         ...,
+         [-58., -64., -56., ..., -72., -77., -76.],
+         [-50., -55., -44., ..., -67., -76., -79.],
+         [-48., -46., -35., ..., -65., -74., -80.]],
+
+        [[-12., -12., -13., ..., -13., -11., -11.],
+         [-12., -12., -13., ..., -13., -11., -11.],
+         [-14., -14., -15., ..., -13., -11., -11.],
+         ...,
+         [ -5.,  -5.,  -4., ...,  -2.,  -4.,  -4.],
+         [ -9.,  -9.,  -8., ...,  -6.,  -4.,  -4.],
+         [ -9.,  -9.,  -8., ...,  -6.,  -4.,  -4.]],
+
+        [[ 12.,  12.,  12., ...,  11.,  10.,  10.],
+         [ 12.,  12.,  12., ...,  11.,  10.,  10.],
+         [ 13.,  13.,  13., ...,  11.,   9.,   9.],
+         ...,
+         [  7.,   7.,   5., ...,   2.,   1.,   1.],
+         [  6.,   6.,   5., ...,   2.,   2.,   2.],
+         [  6.,   6.,   5., ...,   2.,   2.,   2.]]]], dtype=float32), array([[[[30., 31., 32., ..., 15., 14., 14.],
+         [30., 31., 31., ..., 15., 14., 14.],
+         [31., 31., 30., ..., 15., 14., 15.],
+         ...,
+         [-2., -1., -1., ..., 27., 27., 27.],
+         [-2., -1., -1., ..., 27., 26., 26.],
+         [-2., -1.,  0., ..., 27., 26., 25.]],
+
+        [[ 0.,  0.,  0., ...,  0.,  0.,  0.],
+         [ 0.,  0.,  0., ...,  0.,  0.,  0.],
+         [ 0.,  0.,  0., ...,  0.,  0.,  0.],
+         ...,
+         [ 0.,  0.,  0., ...,  0.,  0.,  0.],
+         [ 0.,  0.,  0., ...,  0.,  0.,  0.],
+         [ 0.,  0.,  0., ...,  0.,  0.,  0.]],
+
+        [[ 0.,  0.,  0., ...,  0.,  0.,  0.],
+         [ 0.,  0.,  0., ...,  0.,  0.,  0.],
+         [ 0.,  0.,  0., ...,  0.,  0.,  0.],
+         ...,
+         [ 0.,  0.,  0., ...,  0.,  0.,  0.],
+         [ 0.,  0.,  0., ...,  0.,  0.,  0.],
+         [ 0.,  0.,  0., ...,  0.,  0.,  0.]]]], dtype=float32), array([[[[  67.,   66.,   65., ...,   37.,   33.,   30.],
+         [  70.,   69.,   67., ...,   30.,   33.,   34.],
+         [  71.,   70.,   69., ...,   30.,   34.,   35.],
+         ...,
+         [-126., -126., -126., ..., -120., -119., -118.],
+         [-123., -124., -125., ..., -118., -117., -116.],
+         [-119., -122., -126., ..., -118., -118., -117.]],
+
+        [[ -13.,  -13.,  -13., ...,  -12.,  -12.,  -12.],
+         [ -13.,  -13.,  -13., ...,  -12.,  -12.,  -12.],
+         [ -13.,  -13.,  -13., ...,  -13.,  -12.,  -12.],
+         ...,
+         [   1.,    1.,    0., ...,   22.,   21.,   21.],
+         [   8.,    8.,    1., ...,   29.,   30.,   30.],
+         [   8.,    8.,    1., ...,   29.,   30.,   30.]],
+
+        [[   3.,    3.,    3., ...,    4.,    8.,    8.],
+         [   3.,    3.,    3., ...,    4.,    8.,    8.],
+         [   3.,    3.,    3., ...,    3.,    7.,    7.],
+         ...,
+         [  -1.,   -1.,    1., ...,   -4.,   -5.,   -5.],
+         [  -3.,   -3.,    1., ...,   -5.,   -6.,   -6.],
+         [  -3.,   -3.,    1., ...,   -5.,   -6.,   -6.]]]], dtype=float32), array([[[[-47., -32.,   2., ..., 106., 106., 106.],
+         [-43., -36., -20., ..., 106., 106., 106.],
+         [-35., -40., -55., ..., 106., 106., 106.],
+         ...,
+         [-17., -20., -18., ..., -90., -91., -90.],
+         [-18., -24., -49., ..., -89., -90., -91.],
+         [-18., -26., -69., ..., -88., -88., -91.]],
+
+        [[  2.,   2.,   2., ...,   0.,   0.,   0.],
+         [  2.,   2.,   2., ...,   0.,   0.,   0.],
+         [  3.,   3.,   3., ...,   0.,   0.,   0.],
+         ...,
+         [  6.,   6.,   5., ...,  -1.,  -1.,  -1.],
+         [  5.,   5.,   4., ...,  -1.,  -2.,  -2.],
+         [  5.,   5.,   4., ...,  -1.,  -2.,  -2.]],
+
+        [[-17., -17., -17., ...,  -3.,  -3.,  -3.],
+         [-17., -17., -17., ...,  -3.,  -3.,  -3.],
+         [-18., -18., -18., ...,  -3.,  -3.,  -3.],
+         ...,
+         [-34., -34., -33., ...,   5.,   5.,   5.],
+         [-33., -33., -32., ...,   6.,   5.,   5.],
+         [-33., -33., -32., ...,   6.,   5.,   5.]]]], dtype=float32), array([[[[ 41.,  39.,  41., ...,  85.,  84.,  83.],
+         [ 39.,  44.,  41., ...,  84.,  85.,  84.],
+         [ 39.,  49.,  42., ...,  83.,  85.,  84.],
+         ...,
+         [-88., -90., -94., ..., -89., -78., -90.],
+         [-81., -79., -83., ..., -90., -86., -92.],
+         [-78., -73., -77., ..., -92., -93., -93.]],
+
+        [[ -1.,  -1.,  -6., ...,  -1.,  -3.,  -3.],
+         [ -1.,  -1.,  -6., ...,  -1.,  -3.,  -3.],
+         [ -3.,  -3.,  -5., ...,  -1.,  -1.,  -1.],
+         ...,
+         [  5.,   5.,   4., ...,  -2.,  -1.,  -1.],
+         [ -1.,  -1.,  -1., ...,  -2.,   0.,   0.],
+         [ -1.,  -1.,  -1., ...,  -2.,   0.,   0.]],
+
+        [[ 14.,  14.,  18., ...,   7.,   7.,   7.],
+         [ 14.,  14.,  18., ...,   7.,   7.,   7.],
+         [ 16.,  16.,  15., ...,   7.,   7.,   7.],
+         ...,
+         [ -5.,  -5.,  -1., ...,   2.,   5.,   5.],
+         [  3.,   3.,   7., ...,   2.,   3.,   3.],
+         [  3.,   3.,   7., ...,   2.,   3.,   3.]]]], dtype=float32), array([[[[ -96.,  -95.,  -92., ...,  -77.,  -78.,  -79.],
+         [ -95.,  -95.,  -96., ...,  -78.,  -77.,  -76.],
+         [ -97.,  -99., -100., ...,  -74.,  -73.,  -73.],
+         ...,
+         [  -9.,   -5.,    1., ...,  -44.,  -43.,  -42.],
+         [  -9.,   -5.,    1., ...,  -39.,  -42.,  -44.],
+         [ -12.,   -9.,   -4., ...,  -41.,  -44.,  -46.]],
+
+        [[ -10.,  -10.,   -9., ...,   -7.,   -6.,   -6.],
+         [ -10.,  -10.,   -9., ...,   -7.,   -6.,   -6.],
+         [  -8.,   -8.,   -7., ...,   -8.,   -8.,   -8.],
+         ...,
+         [   1.,    1.,    4., ...,   13.,   15.,   15.],
+         [   1.,    1.,    2., ...,   15.,   16.,   16.],
+         [   1.,    1.,    2., ...,   15.,   16.,   16.]],
+
+        [[   2.,    2.,    2., ...,    2.,    1.,    1.],
+         [   2.,    2.,    2., ...,    2.,    1.,    1.],
+         [  -1.,   -1.,    1., ...,    2.,    1.,    1.],
+         ...,
+         [  -7.,   -7.,   -7., ...,   -9.,  -10.,  -10.],
+         [  -9.,   -9.,   -8., ...,   -9.,  -10.,  -10.],
+         [  -9.,   -9.,   -8., ...,   -9.,  -10.,  -10.]]]], dtype=float32), array([[[[-45., -43., -41., ..., -42., -38., -30.],
+         [-54., -53., -53., ..., -50., -40., -27.],
+         [-63., -61., -58., ..., -39., -32., -24.],
+         ...,
+         [ 43.,  43.,  43., ...,  59.,  59.,  60.],
+         [ 43.,  42.,  43., ...,  59.,  60.,  61.],
+         [ 46.,  45.,  44., ...,  59.,  59.,  59.]],
+
+        [[ -9.,  -9.,  -6., ...,  -9.,  -7.,  -7.],
+         [ -9.,  -9.,  -6., ...,  -9.,  -7.,  -7.],
+         [ -6.,  -6.,  -6., ...,  -7.,  -6.,  -6.],
+         ...,
+         [  7.,   7.,   9., ...,   9.,   9.,   9.],
+         [ 10.,  10.,  11., ...,   9.,   9.,   9.],
+         [ 10.,  10.,  11., ...,   9.,   9.,   9.]],
+
+        [[-18., -18., -22., ..., -19., -25., -25.],
+         [-18., -18., -22., ..., -19., -25., -25.],
+         [-21., -21., -19., ..., -22., -26., -26.],
+         ...,
+         [-14., -14., -13., ..., -12., -12., -12.],
+         [-14., -14., -14., ..., -12., -12., -12.],
+         [-14., -14., -14., ..., -12., -12., -12.]]]], dtype=float32), array([[[[ 48.,  49.,  49., ...,  28.,  22.,  19.],
+         [ 48.,  49.,  49., ...,  28.,  28.,  29.],
+         [ 50.,  50.,  50., ...,  28.,  38.,  46.],
+         ...,
+         [121., 121., 120., ..., 119., 120., 122.],
+         [122., 122., 122., ..., 119., 120., 121.],
+         [122., 122., 122., ..., 119., 120., 122.]],
+
+        [[-29., -29., -29., ..., -19., -19., -19.],
+         [-29., -29., -29., ..., -19., -19., -19.],
+         [-27., -27., -27., ..., -19., -19., -19.],
+         ...,
+         [ -8.,  -8.,  -8., ...,  -6.,  -7.,  -7.],
+         [ -8.,  -8.,  -8., ...,  -6.,  -7.,  -7.],
+         [ -8.,  -8.,  -8., ...,  -6.,  -7.,  -7.]],
+
+        [[ 23.,  23.,  23., ...,  17.,  16.,  16.],
+         [ 23.,  23.,  23., ...,  17.,  16.,  16.],
+         [ 22.,  22.,  22., ...,  17.,  16.,  16.],
+         ...,
+         [  4.,   4.,   4., ...,   2.,   2.,   2.],
+         [  3.,   3.,   3., ...,   3.,   2.,   2.],
+         [  3.,   3.,   3., ...,   3.,   2.,   2.]]]], dtype=float32), array([[[[-89., -88., -82., ..., 127., 127., 127.],
+         [-86., -90., -85., ..., 127., 127., 127.],
+         [-78., -88., -87., ..., 127., 127., 127.],
+         ...,
+         [-61., -44., -14., ..., -44., -66., -36.],
+         [-59., -31., -42., ..., -34., -58., -46.],
+         [-56., -20., -63., ..., -27., -42., -54.]],
+
+        [[ -5.,  -5.,  -6., ...,   0.,   0.,   0.],
+         [ -5.,  -5.,  -6., ...,   0.,   0.,   0.],
+         [ -8.,  -8.,  -4., ...,   0.,   0.,   0.],
+         ...,
+         [ 14.,  14.,  -3., ...,  -1., -11., -11.],
+         [ 14.,  14.,  -7., ...,  -7.,  -1.,  -1.],
+         [ 14.,  14.,  -7., ...,  -7.,  -1.,  -1.]],
+
+        [[-13., -13., -14., ...,   0.,   0.,   0.],
+         [-13., -13., -14., ...,   0.,   0.,   0.],
+         [-20., -20., -20., ...,   0.,   0.,   0.],
+         ...,
+         [-18., -18., -26., ..., -23., -25., -25.],
+         [-25., -25., -19., ..., -20., -30., -30.],
+         [-25., -25., -19., ..., -20., -30., -30.]]]], dtype=float32), array([[[[ -65.,  -38.,  -74., ...,  -12.,  -23.,  -93.],
+         [ -50.,  -43.,  -98., ...,   72.,  -15., -108.],
+         [ -41.,  -39.,  -91., ...,   68.,  -52., -116.],
+         ...,
+         [ -14.,  -26.,  -42., ...,    3.,    5.,   -1.],
+         [ -27.,  -37.,  -36., ...,    3.,    9.,   -1.],
+         [ -38.,  -38.,  -21., ...,    0.,   10.,   -3.]],
+
+        [[  -7.,   -7.,   -5., ...,  -14.,    0.,    0.],
+         [  -7.,   -7.,   -5., ...,  -14.,    0.,    0.],
+         [  -3.,   -3.,   -5., ...,  -12.,    6.,    6.],
+         ...,
+         [  -9.,   -9.,  -10., ...,   -4.,   -3.,   -3.],
+         [  -9.,   -9.,  -10., ...,   -3.,   -3.,   -3.],
+         [  -9.,   -9.,  -10., ...,   -3.,   -3.,   -3.]],
+
+        [[  -7.,   -7.,   -6., ...,  -10.,    9.,    9.],
+         [  -7.,   -7.,   -6., ...,  -10.,    9.,    9.],
+         [  -9.,   -9.,  -12., ...,  -11.,    3.,    3.],
+         ...,
+         [   4.,    4.,    2., ...,   -1.,   -2.,   -2.],
+         [   5.,    5.,    2., ...,   -1.,   -2.,   -2.],
+         [   5.,    5.,    2., ...,   -1.,   -2.,   -2.]]]], dtype=float32), array([[[[-115., -113., -114., ...,  -96.,  -76.,  -65.],
+         [-114., -114., -114., ...,  -95.,  -75.,  -65.],
+         [-113., -113., -114., ...,  -94.,  -74.,  -66.],
+         ...,
+         [  22.,   23.,   18., ...,  -47.,  -48.,  -46.],
+         [  25.,   30.,   28., ...,  -49.,  -50.,  -48.],
+         [  37.,   43.,   49., ...,  -47.,  -50.,  -50.]],
+
+        [[   3.,    3.,    2., ...,   -2.,    4.,    4.],
+         [   3.,    3.,    2., ...,   -2.,    4.,    4.],
+         [   2.,    2.,    1., ...,   -1.,    4.,    4.],
+         ...,
+         [  -4.,   -4.,   -1., ...,   -4.,   -4.,   -4.],
+         [  -3.,   -3.,   -4., ...,   -4.,   -4.,   -4.],
+         [  -3.,   -3.,   -4., ...,   -4.,   -4.,   -4.]],
+
+        [[  -2.,   -2.,   -2., ...,    2.,   -3.,   -3.],
+         [  -2.,   -2.,   -2., ...,    2.,   -3.,   -3.],
+         [  -1.,   -1.,   -1., ...,    1.,   -3.,   -3.],
+         ...,
+         [   6.,    6.,    3., ...,    4.,    5.,    5.],
+         [   3.,    3.,    3., ...,    3.,    4.,    4.],
+         [   3.,    3.,    3., ...,    3.,    4.,    4.]]]], dtype=float32), array([[[[  9.,  10.,  10., ...,   7.,   7.,   7.],
+         [ 10.,  10.,  10., ...,   9.,   8.,   7.],
+         [ 10.,  11.,  10., ...,   9.,   9.,   9.],
+         ...,
+         [-85., -86., -88., ...,  90.,  91.,  92.],
+         [-87., -87., -87., ...,  91.,  92.,  92.],
+         [-88., -88., -86., ...,  92.,  92.,  92.]],
+
+        [[-11., -11.,  -9., ..., -10.,  -8.,  -8.],
+         [-11., -11.,  -9., ..., -10.,  -8.,  -8.],
+         [-11., -11.,  -9., ..., -11., -10., -10.],
+         ...,
+         [-13., -13., -10., ...,  -1.,  -1.,  -1.],
+         [-13., -13., -10., ...,  -1.,   0.,   0.],
+         [-13., -13., -10., ...,  -1.,   0.,   0.]],
+
+        [[ 15.,  15.,  16., ...,  15.,  14.,  14.],
+         [ 15.,  15.,  16., ...,  15.,  14.,  14.],
+         [ 15.,  15.,  16., ...,  16.,  16.,  16.],
+         ...,
+         [  3.,   3.,   4., ...,   5.,   5.,   5.],
+         [  2.,   2.,   4., ...,   3.,   4.,   4.],
+         [  2.,   2.,   4., ...,   3.,   4.,   4.]]]], dtype=float32), array([[[[-128., -128., -128., ..., -128., -128., -128.],
+         [-128., -128., -128., ..., -128., -128., -128.],
+         [-128., -128., -128., ..., -128., -128., -128.],
+         ...,
+         [-128., -128., -128., ..., -128., -128., -128.],
+         [-128., -128., -128., ..., -128., -128., -128.],
+         [-128., -128., -128., ..., -128., -128., -128.]],
+
+        [[   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         ...,
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.]],
+
+        [[   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         ...,
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.]]]], dtype=float32), array([[[[ 13.,  12.,  12., ...,  43.,  40.,  37.],
+         [-25., -25., -25., ...,  44.,  41.,  37.],
+         [-33., -31., -30., ...,  43.,  40.,  36.],
+         ...,
+         [-56., -50., -46., ..., -41., -39., -38.],
+         [-45., -43., -40., ..., -36., -40., -45.],
+         [-42., -44., -44., ..., -37., -45., -54.]],
+
+        [[  7.,   7.,   7., ...,  -2.,  -2.,  -2.],
+         [  7.,   7.,   7., ...,  -2.,  -2.,  -2.],
+         [  8.,   8.,   7., ...,  -1.,  -2.,  -2.],
+         ...,
+         [  4.,   4.,   5., ...,   6.,   5.,   5.],
+         [  6.,   6.,   4., ...,   6.,   4.,   4.],
+         [  6.,   6.,   4., ...,   6.,   4.,   4.]],
+
+        [[-39., -39., -39., ...,   2.,   2.,   2.],
+         [-39., -39., -39., ...,   2.,   2.,   2.],
+         [-26., -26., -25., ...,   5.,   5.,   5.],
+         ...,
+         [ -2.,  -2., -12., ...,  -9., -12., -12.],
+         [ -8.,  -8.,  -2., ...,  -6.,  -6.,  -6.],
+         [ -8.,  -8.,  -2., ...,  -6.,  -6.,  -6.]]]], dtype=float32), array([[[[ 18.,  17.,  20., ..., -55., -52., -48.],
+         [ 21.,  16.,  21., ..., -51., -52., -52.],
+         [ 23.,  16.,  22., ..., -47., -51., -55.],
+         ...,
+         [ 28.,  30.,  27., ...,   8.,   8.,  10.],
+         [ 27.,  29.,  27., ...,   8.,   7.,   9.],
+         [ 26.,  29.,  27., ...,   8.,   7.,   9.]],
+
+        [[ -6.,  -6.,  -5., ...,  36.,  36.,  36.],
+         [ -6.,  -6.,  -5., ...,  36.,  36.,  36.],
+         [  0.,   0.,  -2., ...,  36.,  36.,  36.],
+         ...,
+         [ -3.,  -3.,  -3., ...,  -3.,  -3.,  -3.],
+         [ -1.,  -1.,  -4., ...,  -2.,  -3.,  -3.],
+         [ -1.,  -1.,  -4., ...,  -2.,  -3.,  -3.]],
+
+        [[  1.,   1.,   1., ..., -41., -41., -41.],
+         [  1.,   1.,   1., ..., -41., -41., -41.],
+         [  2.,   2.,   2., ..., -41., -41., -41.],
+         ...,
+         [  1.,   1.,   1., ...,   2.,   1.,   1.],
+         [  2.,   2.,   1., ...,   2.,   1.,   1.],
+         [  2.,   2.,   1., ...,   2.,   1.,   1.]]]], dtype=float32), array([[[[  36.,   35.,   35., ...,   40.,   39.,   40.],
+         [  35.,   36.,   36., ...,   39.,   38.,   39.],
+         [  36.,   36.,   37., ...,   39.,   38.,   39.],
+         ...,
+         [ -91.,  -90.,  -90., ..., -111., -106., -107.],
+         [ -91.,  -90.,  -89., ..., -111., -107., -108.],
+         [ -91.,  -89.,  -89., ..., -110., -108., -110.]],
+
+        [[ -44.,  -44.,  -47., ...,  -44.,  -44.,  -44.],
+         [ -44.,  -44.,  -47., ...,  -44.,  -44.,  -44.],
+         [ -46.,  -46.,  -46., ...,  -44.,  -45.,  -45.],
+         ...,
+         [ -14.,  -14.,  -15., ...,   -5.,   -7.,   -7.],
+         [ -15.,  -15.,  -15., ...,   -6.,   -5.,   -5.],
+         [ -15.,  -15.,  -15., ...,   -6.,   -5.,   -5.]],
+
+        [[  40.,   40.,   40., ...,   39.,   39.,   39.],
+         [  40.,   40.,   40., ...,   39.,   39.,   39.],
+         [  40.,   40.,   40., ...,   39.,   39.,   39.],
+         ...,
+         [  12.,   12.,    9., ...,    3.,    2.,    2.],
+         [  11.,   11.,   11., ...,    3.,    3.,    3.],
+         [  11.,   11.,   11., ...,    3.,    3.,    3.]]]], dtype=float32), array([[[[ 38.,  22.,   4., ..., -44., -10.,  15.],
+         [ 56.,  28.,  20., ..., -38., -12.,  17.],
+         [ 62.,  35.,  40., ..., -33.,  -8.,  19.],
+         ...,
+         [  6.,  46.,  45., ...,  -8., -40., -53.],
+         [  8.,  44.,  42., ...,  -1., -41., -56.],
+         [ 11.,  40.,  47., ...,   4., -35., -56.]],
+
+        [[ 13.,  13.,  11., ...,  -6.,  -4.,  -4.],
+         [ 13.,  13.,  11., ...,  -6.,  -4.,  -4.],
+         [ 18.,  18.,  10., ...,  -5.,  -5.,  -5.],
+         ...,
+         [ -5.,  -5.,  -6., ...,   6.,  11.,  11.],
+         [ -6.,  -6.,  -5., ...,   1.,  11.,  11.],
+         [ -6.,  -6.,  -5., ...,   1.,  11.,  11.]],
+
+        [[-38., -38., -46., ..., -50., -62., -62.],
+         [-38., -38., -46., ..., -50., -62., -62.],
+         [-36., -36., -42., ..., -47., -58., -58.],
+         ...,
+         [-84., -84., -90., ..., -56., -32., -32.],
+         [-81., -81., -98., ..., -46., -33., -33.],
+         [-81., -81., -98., ..., -46., -33., -33.]]]], dtype=float32), array([[[[ 50.,  50.,  45., ...,  36.,  40.,  38.],
+         [ 50.,  50.,  46., ...,  38.,  42.,  38.],
+         [ 48.,  50.,  48., ...,  38.,  41.,  39.],
+         ...,
+         [108., 107., 107., ...,  97.,  98.,  95.],
+         [109., 108., 109., ...,  97.,  98.,  96.],
+         [109., 109., 110., ...,  97.,  98.,  97.]],
+
+        [[-21., -21., -21., ..., -21., -21., -21.],
+         [-21., -21., -21., ..., -21., -21., -21.],
+         [-21., -21., -21., ..., -21., -21., -21.],
+         ...,
+         [-14., -14., -14., ..., -12., -12., -12.],
+         [-15., -15., -16., ..., -12., -12., -12.],
+         [-15., -15., -16., ..., -12., -12., -12.]],
+
+        [[ 18.,  18.,  18., ...,  19.,  19.,  19.],
+         [ 18.,  18.,  18., ...,  19.,  19.,  19.],
+         [ 18.,  18.,  18., ...,  18.,  18.,  18.],
+         ...,
+         [ 10.,  10.,  10., ...,   7.,   7.,   7.],
+         [  9.,   9.,  10., ...,   7.,   7.,   7.],
+         [  9.,   9.,  10., ...,   7.,   7.,   7.]]]], dtype=float32), array([[[[-16., -17., -17., ..., -15., -16., -16.],
+         [-18., -19., -18., ..., -16., -16., -17.],
+         [-19., -19., -19., ..., -16., -16., -17.],
+         ...,
+         [-20., -14., -15., ...,  -8., -11.,  -9.],
+         [-17., -14., -16., ...,  -2., -13., -10.],
+         [-14., -14., -14., ...,  11.,  -2.,  -7.]],
+
+        [[-15., -15., -15., ..., -13., -12., -12.],
+         [-15., -15., -15., ..., -13., -12., -12.],
+         [-15., -15., -14., ..., -13., -13., -13.],
+         ...,
+         [ 10.,  10.,  11., ...,   7.,   8.,   8.],
+         [ 11.,  11.,  12., ...,   7.,   8.,   8.],
+         [ 11.,  11.,  12., ...,   7.,   8.,   8.]],
+
+        [[ 15.,  15.,  15., ...,  13.,  12.,  12.],
+         [ 15.,  15.,  15., ...,  13.,  12.,  12.],
+         [ 15.,  15.,  15., ...,  13.,  13.,  13.],
+         ...,
+         [-10., -10., -13., ..., -10., -10., -10.],
+         [-10., -10., -14., ...,  -8.,  -9.,  -9.],
+         [-10., -10., -14., ...,  -8.,  -9.,  -9.]]]], dtype=float32), array([[[[-54., -76., -65., ..., 127., 127., 127.],
+         [-43., -67., -55., ..., 127., 127., 127.],
+         [-43., -63., -53., ..., 127., 127., 127.],
+         ...,
+         [-18., -21., -16., ...,  96.,  92.,  98.],
+         [-13., -21., -20., ...,  95.,  95.,  98.],
+         [ -3., -22., -16., ...,  97.,  99.,  97.]],
+
+        [[ 11.,  11.,   9., ...,   0.,   0.,   0.],
+         [ 11.,  11.,   9., ...,   0.,   0.,   0.],
+         [ 11.,  11.,  10., ...,   0.,   0.,   0.],
+         ...,
+         [ -2.,  -2.,  -2., ...,   2.,   1.,   1.],
+         [ -2.,  -2.,  -2., ...,   2.,   2.,   2.],
+         [ -2.,  -2.,  -2., ...,   2.,   2.,   2.]],
+
+        [[ -6.,  -6.,  -6., ...,   0.,   0.,   0.],
+         [ -6.,  -6.,  -6., ...,   0.,   0.,   0.],
+         [ -5.,  -5.,  -6., ...,   0.,   0.,   0.],
+         ...,
+         [  2.,   2.,   3., ...,  -3.,  -3.,  -3.],
+         [  2.,   2.,   2., ...,  -3.,  -3.,  -3.],
+         [  2.,   2.,   2., ...,  -3.,  -3.,  -3.]]]], dtype=float32), array([[[[-26., -33., -27., ..., -92., -92., -92.],
+         [-28., -30., -28., ..., -94., -92., -92.],
+         [-34., -33., -31., ..., -95., -94., -94.],
+         ...,
+         [ 12.,   7.,   9., ...,   4.,   3.,  -1.],
+         [ 11.,   7.,  12., ...,   2.,   3.,   0.],
+         [ -2.,  -1.,  -1., ...,  -1.,   4.,   6.]],
+
+        [[  0.,   0.,   0., ...,   0.,   0.,   0.],
+         [  0.,   0.,   0., ...,   0.,   0.,   0.],
+         [  0.,   0.,   0., ...,   0.,   0.,   0.],
+         ...,
+         [  0.,   0.,   0., ...,   0.,   0.,   0.],
+         [  0.,   0.,   0., ...,   0.,   0.,   0.],
+         [  0.,   0.,   0., ...,   0.,   0.,   0.]],
+
+        [[  0.,   0.,   0., ...,   0.,   0.,   0.],
+         [  0.,   0.,   0., ...,   0.,   0.,   0.],
+         [  0.,   0.,   0., ...,   0.,   0.,   0.],
+         ...,
+         [  0.,   0.,   0., ...,   0.,   0.,   0.],
+         [  0.,   0.,   0., ...,   0.,   0.,   0.],
+         [  0.,   0.,   0., ...,   0.,   0.,   0.]]]], dtype=float32), array([[[[-127., -126., -112., ..., -114., -117., -110.],
+         [-125., -127., -114., ..., -116., -119., -111.],
+         [-124., -127., -115., ..., -119., -121., -115.],
+         ...,
+         [  16.,   21.,   21., ...,    8.,    6.,    1.],
+         [  17.,   19.,   19., ...,    9.,    8.,    2.],
+         [  17.,   18.,   21., ...,    7.,    7.,    4.]],
+
+        [[   0.,    0.,   -2., ...,    3.,    1.,    1.],
+         [   0.,    0.,   -2., ...,    3.,    1.,    1.],
+         [   0.,    0.,   -2., ...,    4.,    2.,    2.],
+         ...,
+         [   3.,    3.,    2., ...,    1.,    3.,    3.],
+         [   2.,    2.,    3., ...,    1.,    2.,    2.],
+         [   2.,    2.,    3., ...,    1.,    2.,    2.]],
+
+        [[  -2.,   -2.,    2., ...,    3.,    2.,    2.],
+         [  -2.,   -2.,    2., ...,    3.,    2.,    2.],
+         [   1.,    1.,    1., ...,    1.,    2.,    2.],
+         ...,
+         [  -5.,   -5.,   -3., ...,   -3.,   -3.,   -3.],
+         [  -4.,   -4.,   -2., ...,   -3.,   -3.,   -3.],
+         [  -4.,   -4.,   -2., ...,   -3.,   -3.,   -3.]]]], dtype=float32), array([[[[  2.,   1.,  -1., ...,  35.,  31.,  36.],
+         [  1.,   0.,  -1., ...,  34.,  30.,  33.],
+         [ -1.,  -4.,  -2., ...,  30.,  27.,  27.],
+         ...,
+         [-12., -17., -13., ..., -15., -17., -15.],
+         [-10., -16., -12., ..., -18., -21., -15.],
+         [ -9., -15., -12., ..., -19., -23., -15.]],
+
+        [[ 26.,  26.,  27., ...,  23.,  21.,  21.],
+         [ 26.,  26.,  27., ...,  23.,  21.,  21.],
+         [ 26.,  26.,  27., ...,  25.,  24.,  24.],
+         ...,
+         [ 25.,  25.,  26., ...,  33.,  32.,  32.],
+         [ 25.,  25.,  25., ...,  33.,  33.,  33.],
+         [ 25.,  25.,  25., ...,  33.,  33.,  33.]],
+
+        [[-15., -15., -16., ..., -19., -19., -19.],
+         [-15., -15., -16., ..., -19., -19., -19.],
+         [-15., -15., -17., ..., -21., -20., -20.],
+         ...,
+         [-16., -16., -16., ..., -24., -24., -24.],
+         [-16., -16., -15., ..., -23., -23., -23.],
+         [-16., -16., -15., ..., -23., -23., -23.]]]], dtype=float32), array([[[[ 47.,  47.,  47., ...,  48.,  47.,  50.],
+         [ 46.,  46.,  47., ...,  47.,  48.,  49.],
+         [ 45.,  45.,  45., ...,  47.,  49.,  47.],
+         ...,
+         [-18., -12., -16., ...,  -3.,  -3.,  -5.],
+         [  9., -10., -20., ...,  -3.,  -4.,  -5.],
+         [ 51.,  -8., -28., ...,  -4.,  -7.,  -6.]],
+
+        [[ -2.,  -2.,  -3., ...,  -2.,  -3.,  -3.],
+         [ -2.,  -2.,  -3., ...,  -2.,  -3.,  -3.],
+         [ -2.,  -2.,  -3., ...,  -4.,  -3.,  -3.],
+         ...,
+         [ -1.,  -1.,  -1., ...,  -8.,  -9.,  -9.],
+         [ -1.,  -1.,  -1., ...,  -6.,  -8.,  -8.],
+         [ -1.,  -1.,  -1., ...,  -6.,  -8.,  -8.]],
+
+        [[  4.,   4.,   3., ...,   6.,   3.,   3.],
+         [  4.,   4.,   3., ...,   6.,   3.,   3.],
+         [  4.,   4.,   5., ...,   6.,   4.,   4.],
+         ...,
+         [  3.,   3.,   2., ...,   5.,   5.,   5.],
+         [  2.,   2.,   0., ...,   4.,   4.,   4.],
+         [  2.,   2.,   0., ...,   4.,   4.,   4.]]]], dtype=float32), array([[[[-81., -84., -78., ..., 115., 104.,  94.],
+         [-83., -85., -79., ..., 107., 108.,  99.],
+         [-84., -86., -79., ..., 107., 106., 104.],
+         ...,
+         [-83., -88., -90., ...,  68.,  82.,  68.],
+         [-82., -86., -85., ...,  77.,  80.,  67.],
+         [-81., -84., -79., ...,  82.,  82.,  75.]],
+
+        [[  7.,   7.,   2., ...,   0.,   7.,   7.],
+         [  7.,   7.,   2., ...,   0.,   7.,   7.],
+         [  7.,   7.,   2., ...,   3.,   6.,   6.],
+         ...,
+         [  5.,   5.,   4., ...,  -8.,  -7.,  -7.],
+         [  2.,   2.,   0., ...,  -8., -10., -10.],
+         [  2.,   2.,   0., ...,  -8., -10., -10.]],
+
+        [[-10., -10., -11., ...,   1.,   2.,   2.],
+         [-10., -10., -11., ...,   1.,   2.,   2.],
+         [-10., -10., -11., ...,   1.,   2.,   2.],
+         ...,
+         [ -2.,  -2.,  -4., ...,   8.,   9.,   9.],
+         [ -2.,  -2.,  -5., ...,   6.,   6.,   6.],
+         [ -2.,  -2.,  -5., ...,   6.,   6.,   6.]]]], dtype=float32), array([[[[ -38.,  -38.,  -38., ...,  -36.,  -36.,  -36.],
+         [ -38.,  -38.,  -38., ...,  -36.,  -36.,  -36.],
+         [ -38.,  -38.,  -38., ...,  -36.,  -36.,  -36.],
+         ...,
+         [-102., -101., -101., ..., -102., -102., -101.],
+         [-103., -102., -102., ..., -102., -102., -101.],
+         [-103., -102., -102., ..., -102., -101., -100.]],
+
+        [[  -4.,   -4.,   -4., ...,   -4.,   -4.,   -4.],
+         [  -4.,   -4.,   -4., ...,   -4.,   -4.,   -4.],
+         [  -4.,   -4.,   -4., ...,   -4.,   -4.,   -4.],
+         ...,
+         [   1.,    1.,    0., ...,    0.,    0.,    0.],
+         [   1.,    1.,    0., ...,    0.,    0.,    0.],
+         [   1.,    1.,    0., ...,    0.,    0.,    0.]],
+
+        [[   3.,    3.,    3., ...,    3.,    3.,    3.],
+         [   3.,    3.,    3., ...,    3.,    3.,    3.],
+         [   3.,    3.,    3., ...,    3.,    3.,    3.],
+         ...,
+         [  -3.,   -3.,   -3., ...,   -3.,   -3.,   -3.],
+         [  -3.,   -3.,   -3., ...,   -3.,   -3.,   -3.],
+         [  -3.,   -3.,   -3., ...,   -3.,   -3.,   -3.]]]], dtype=float32), array([[[[ -85.,  -95.,  -95., ...,  -73.,  -61.,  -58.],
+         [ -91.,  -96.,  -94., ...,  -72.,  -64.,  -60.],
+         [ -89.,  -90.,  -82., ...,  -74.,  -69.,  -63.],
+         ...,
+         [ -68., -100., -107., ...,  -98., -102.,  -99.],
+         [ -41.,  -94., -107., ...,  -99., -103.,  -97.],
+         [ -23.,  -84.,  -97., ..., -102., -103.,  -99.]],
+
+        [[  39.,   39.,   43., ...,   33.,   32.,   32.],
+         [  39.,   39.,   43., ...,   33.,   32.,   32.],
+         [  40.,   40.,   43., ...,   33.,   33.,   33.],
+         ...,
+         [  28.,   28.,   27., ...,   66.,   64.,   64.],
+         [  26.,   26.,   22., ...,   65.,   63.,   63.],
+         [  26.,   26.,   22., ...,   65.,   63.,   63.]],
+
+        [[ -11.,  -11.,  -16., ...,  -15.,  -14.,  -14.],
+         [ -11.,  -11.,  -16., ...,  -15.,  -14.,  -14.],
+         [ -13.,  -13.,  -17., ...,  -15.,  -14.,  -14.],
+         ...,
+         [ -20.,  -20.,  -17., ...,   -8.,   -8.,   -8.],
+         [ -17.,  -17.,  -12., ...,   -8.,   -9.,   -9.],
+         [ -17.,  -17.,  -12., ...,   -8.,   -9.,   -9.]]]], dtype=float32), array([[[[-56., -41., -44., ...,  35.,  38.,  41.],
+         [-53., -43., -52., ...,  35.,  41.,  44.],
+         [-50., -47., -57., ...,  37.,  41.,  45.],
+         ...,
+         [-37., -40., -52., ...,  25.,  31.,  31.],
+         [-38., -45., -51., ...,  25.,  27.,  28.],
+         [-41., -51., -47., ...,  24.,  23.,  28.]],
+
+        [[ -3.,  -3.,  -4., ...,  -1.,   0.,   0.],
+         [ -3.,  -3.,  -4., ...,  -1.,   0.,   0.],
+         [ -3.,  -3.,  -5., ...,   0.,   0.,   0.],
+         ...,
+         [  4.,   4.,   5., ...,  -3.,  -4.,  -4.],
+         [  4.,   4.,   5., ...,  -2.,  -3.,  -3.],
+         [  4.,   4.,   5., ...,  -2.,  -3.,  -3.]],
+
+        [[  2.,   2.,  -2., ...,  -6.,  -4.,  -4.],
+         [  2.,   2.,  -2., ...,  -6.,  -4.,  -4.],
+         [  1.,   1.,   0., ...,  -6.,  -5.,  -5.],
+         ...,
+         [  0.,   0.,  -2., ...,  -2.,  -1.,  -1.],
+         [ -2.,  -2.,  -2., ...,  -2.,  -1.,  -1.],
+         [ -2.,  -2.,  -2., ...,  -2.,  -1.,  -1.]]]], dtype=float32), array([[[[  34.,   34.,   35., ...,   26.,   25.,   24.],
+         [  38.,   37.,   36., ...,   27.,   26.,   25.],
+         [  41.,   40.,   38., ...,   27.,   26.,   25.],
+         ...,
+         [-128., -125., -122., ...,  -84.,  -84.,  -83.],
+         [-124., -120., -113., ...,  -90.,  -88.,  -87.],
+         [-115., -111., -105., ...,  -91.,  -90.,  -88.]],
+
+        [[ -18.,  -18.,  -18., ...,  -36.,  -35.,  -35.],
+         [ -18.,  -18.,  -18., ...,  -36.,  -35.,  -35.],
+         [ -20.,  -20.,  -20., ...,  -35.,  -34.,  -34.],
+         ...,
+         [   0.,    0.,    0., ...,    2.,    2.,    2.],
+         [   0.,    0.,    0., ...,    5.,    6.,    6.],
+         [   0.,    0.,    0., ...,    5.,    6.,    6.]],
+
+        [[  21.,   21.,   22., ...,   31.,   32.,   32.],
+         [  21.,   21.,   22., ...,   31.,   32.,   32.],
+         [  20.,   20.,   21., ...,   32.,   31.,   31.],
+         ...,
+         [   0.,    0.,    0., ...,   -7.,   -6.,   -6.],
+         [  -1.,   -1.,   -1., ...,   -6.,   -6.,   -6.],
+         [  -1.,   -1.,   -1., ...,   -6.,   -6.,   -6.]]]], dtype=float32), array([[[[ 43.,  43.,  42., ...,  50.,  48.,  53.],
+         [ 39.,  39.,  39., ...,  47.,  45.,  49.],
+         [ 36.,  37.,  37., ...,  45.,  43.,  46.],
+         ...,
+         [-13., -21., -25., ..., -48., -30., -42.],
+         [-15., -21., -31., ..., -27., -50., -58.],
+         [-19., -23., -35., ...,  -2., -50., -80.]],
+
+        [[-38., -38., -38., ..., -33., -34., -34.],
+         [-38., -38., -38., ..., -33., -34., -34.],
+         [-41., -41., -41., ..., -37., -38., -38.],
+         ...,
+         [ 10.,  10.,  10., ...,  24.,  17.,  17.],
+         [  2.,   2.,   3., ...,  21.,  19.,  19.],
+         [  2.,   2.,   3., ...,  21.,  19.,  19.]],
+
+        [[ 38.,  38.,  38., ...,  37.,  37.,  37.],
+         [ 38.,  38.,  38., ...,  37.,  37.,  37.],
+         [ 44.,  44.,  45., ...,  41.,  42.,  42.],
+         ...,
+         [ -9.,  -9.,  -8., ..., -11., -10., -10.],
+         [ -2.,  -2.,   0., ..., -10., -12., -12.],
+         [ -2.,  -2.,   0., ..., -10., -12., -12.]]]], dtype=float32), array([[[[ 125.,  125.,  125., ...,  124.,  124.,  124.],
+         [ 125.,  125.,  125., ...,  124.,  125.,  125.],
+         [ 125.,  125.,  125., ...,  124.,  124.,  125.],
+         ...,
+         [  55.,   56.,   51., ..., -106., -115., -115.],
+         [  52.,   53.,   52., ..., -105., -114., -114.],
+         [  48.,   43.,   46., ..., -105., -114., -116.]],
+
+        [[   0.,    0.,    0., ...,   -1.,   -1.,   -1.],
+         [   0.,    0.,    0., ...,   -1.,   -1.,   -1.],
+         [   0.,    0.,    0., ...,   -1.,   -1.,   -1.],
+         ...,
+         [  19.,   19.,   16., ...,  -12.,   -8.,   -8.],
+         [  21.,   21.,   18., ...,  -13.,   -8.,   -8.],
+         [  21.,   21.,   18., ...,  -13.,   -8.,   -8.]],
+
+        [[  -2.,   -2.,   -2., ...,   -3.,   -3.,   -3.],
+         [  -2.,   -2.,   -2., ...,   -3.,   -3.,   -3.],
+         [  -2.,   -2.,   -2., ...,   -3.,   -3.,   -3.],
+         ...,
+         [ -23.,  -23.,  -24., ...,   15.,   15.,   15.],
+         [ -25.,  -25.,  -25., ...,   14.,   12.,   12.],
+         [ -25.,  -25.,  -25., ...,   14.,   12.,   12.]]]], dtype=float32), array([[[[-128., -128., -128., ..., -127., -127., -127.],
+         [-128., -128., -128., ..., -128., -128., -128.],
+         [-128., -128., -128., ..., -128., -128., -128.],
+         ...,
+         [-119., -119., -120., ..., -122., -121., -120.],
+         [-121., -121., -121., ..., -123., -121., -120.],
+         [-121., -121., -122., ..., -123., -121., -120.]],
+
+        [[   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         ...,
+         [  16.,   16.,   16., ...,    3.,    2.,    2.],
+         [  15.,   15.,   15., ...,    3.,    2.,    2.],
+         [  15.,   15.,   15., ...,    3.,    2.,    2.]],
+
+        [[  -1.,   -1.,   -1., ...,    0.,    0.,    0.],
+         [  -1.,   -1.,   -1., ...,    0.,    0.,    0.],
+         [  -1.,   -1.,   -1., ...,    0.,    0.,    0.],
+         ...,
+         [  -6.,   -6.,   -6., ...,   -2.,   -1.,   -1.],
+         [  -5.,   -5.,   -6., ...,   -2.,   -1.,   -1.],
+         [  -5.,   -5.,   -6., ...,   -2.,   -1.,   -1.]]]], dtype=float32), array([[[[ -71.,  -24.,   55., ..., -110., -111., -101.],
+         [ -60.,  -91.,  -49., ..., -106., -105., -100.],
+         [ -89.,  -55.,  -73., ..., -105., -101., -101.],
+         ...,
+         [ -13.,  -11.,  -10., ...,  -33.,  -60.,  -71.],
+         [ -13.,  -13.,  -13., ...,  -53.,  -65.,  -79.],
+         [  -7.,   -9.,  -15., ...,  -52.,  -67.,  -84.]],
+
+        [[  24.,   24.,   22., ...,    2.,    1.,    1.],
+         [  24.,   24.,   22., ...,    2.,    1.,    1.],
+         [  20.,   20.,   18., ...,    3.,    1.,    1.],
+         ...,
+         [   4.,    4.,    4., ...,    5.,    6.,    6.],
+         [   6.,    6.,    4., ...,    6.,    8.,    8.],
+         [   6.,    6.,    4., ...,    6.,    8.,    8.]],
+
+        [[ -39.,  -39.,  -32., ...,   -3.,   -3.,   -3.],
+         [ -39.,  -39.,  -32., ...,   -3.,   -3.,   -3.],
+         [ -26.,  -26.,  -20., ...,   -5.,   -4.,   -4.],
+         ...,
+         [ -13.,  -13.,  -13., ...,  -11.,  -10.,  -10.],
+         [ -13.,  -13.,  -13., ...,  -11.,  -10.,  -10.],
+         [ -13.,  -13.,  -13., ...,  -11.,  -10.,  -10.]]]], dtype=float32), array([[[[125., 124., 123., ...,  86.,  85.,  85.],
+         [124., 124., 123., ...,  85.,  84.,  84.],
+         [124., 124., 123., ...,  85.,  84.,  84.],
+         ...,
+         [ -4.,   1.,   1., ..., -26., -67., -20.],
+         [ -5.,   0.,   0., ..., -20., -76., -23.],
+         [ -3.,  -1.,   0., ..., -21., -71., -25.]],
+
+        [[ -5.,  -5.,  -5., ..., -19., -21., -21.],
+         [ -5.,  -5.,  -5., ..., -19., -21., -21.],
+         [ -5.,  -5.,  -5., ..., -19., -21., -21.],
+         ...,
+         [ -7.,  -7.,  -9., ...,  -6.,  -2.,  -2.],
+         [ -9.,  -9.,  -9., ...,  -9.,  -3.,  -3.],
+         [ -9.,  -9.,  -9., ...,  -9.,  -3.,  -3.]],
+
+        [[  1.,   1.,   2., ...,  18.,  19.,  19.],
+         [  1.,   1.,   2., ...,  18.,  19.,  19.],
+         [  1.,   1.,   2., ...,  18.,  18.,  18.],
+         ...,
+         [  6.,   6.,   5., ...,   1.,   4.,   4.],
+         [  6.,   6.,   5., ...,   0.,   3.,   3.],
+         [  6.,   6.,   5., ...,   0.,   3.,   3.]]]], dtype=float32), array([[[[-81., -85., -80., ..., -68., -23., -77.],
+         [-77., -82., -79., ..., -92., -51., -76.],
+         [-83., -82., -84., ..., -85., -77., -56.],
+         ...,
+         [ 23.,  29.,  33., ...,  83.,  73.,  38.],
+         [ 24.,  37.,  38., ...,  67.,  74.,  75.],
+         [ 34.,  35.,  37., ...,  65.,  67.,  73.]],
+
+        [[  0.,   0.,   0., ...,   0.,   0.,   0.],
+         [  0.,   0.,   0., ...,   0.,   0.,   0.],
+         [  0.,   0.,   0., ...,   0.,   0.,   0.],
+         ...,
+         [  0.,   0.,   0., ...,   0.,   0.,   0.],
+         [  0.,   0.,   0., ...,   0.,   0.,   0.],
+         [  0.,   0.,   0., ...,   0.,   0.,   0.]],
+
+        [[  0.,   0.,   0., ...,   0.,   0.,   0.],
+         [  0.,   0.,   0., ...,   0.,   0.,   0.],
+         [  0.,   0.,   0., ...,   0.,   0.,   0.],
+         ...,
+         [  0.,   0.,   0., ...,   0.,   0.,   0.],
+         [  0.,   0.,   0., ...,   0.,   0.,   0.],
+         [  0.,   0.,   0., ...,   0.,   0.,   0.]]]], dtype=float32), array([[[[-32., -32., -33., ..., -78., -79., -83.],
+         [-33., -33., -34., ..., -80., -81., -83.],
+         [-33., -33., -34., ..., -82., -83., -82.],
+         ...,
+         [-49., -65., -91., ..., -95., -88., -84.],
+         [-48., -64., -92., ..., -82., -75., -68.],
+         [-47., -63., -92., ..., -66., -58., -50.]],
+
+        [[ 11.,  11.,   9., ...,   3.,   5.,   5.],
+         [ 11.,  11.,   9., ...,   3.,   5.,   5.],
+         [ 12.,  12.,   9., ...,   2.,   3.,   3.],
+         ...,
+         [ -1.,  -1.,  -1., ...,   4.,   3.,   3.],
+         [  0.,   0.,  -1., ...,   4.,   4.,   4.],
+         [  0.,   0.,  -1., ...,   4.,   4.,   4.]],
+
+        [[ -6.,  -6.,  -8., ...,  -3.,  -2.,  -2.],
+         [ -6.,  -6.,  -8., ...,  -3.,  -2.,  -2.],
+         [ -6.,  -6.,  -8., ...,  -3.,  -2.,  -2.],
+         ...,
+         [  2.,   2.,   2., ...,  -4.,  -4.,  -4.],
+         [  2.,   2.,   2., ...,  -3.,  -3.,  -3.],
+         [  2.,   2.,   2., ...,  -3.,  -3.,  -3.]]]], dtype=float32), array([[[[-120., -120., -118., ..., -127., -127., -127.],
+         [-119., -121., -120., ..., -128., -128., -128.],
+         [-118., -121., -121., ..., -128., -128., -128.],
+         ...,
+         [ -90.,  -86.,  -86., ..., -104., -106.,  -98.],
+         [ -88.,  -86.,  -88., ..., -108., -106.,  -99.],
+         [ -86.,  -86.,  -89., ..., -111., -104.,  -98.]],
+
+        [[   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   2.,    2.,    1., ...,    0.,    0.,    0.],
+         ...,
+         [   5.,    5.,    5., ...,    3.,    1.,    1.],
+         [   5.,    5.,    5., ...,    1.,    1.,    1.],
+         [   5.,    5.,    5., ...,    1.,    1.,    1.]],
+
+        [[  -2.,   -2.,   -1., ...,    0.,    0.,    0.],
+         [  -2.,   -2.,   -1., ...,    0.,    0.,    0.],
+         [  -2.,   -2.,   -2., ...,    0.,    0.,    0.],
+         ...,
+         [  -6.,   -6.,   -6., ...,   -7.,   -7.,   -7.],
+         [  -6.,   -6.,   -6., ...,   -7.,   -8.,   -8.],
+         [  -6.,   -6.,   -6., ...,   -7.,   -8.,   -8.]]]], dtype=float32), array([[[[ 76.,  37.,  25., ..., 121., 121., 121.],
+         [ 64.,  41.,  29., ..., 121., 121., 121.],
+         [ 41.,  48.,  37., ..., 121., 121., 121.],
+         ...,
+         [-24., -32., -35., ..., -22., -37., -33.],
+         [-38., -40., -41., ...,  -9., -23., -21.],
+         [-46., -44., -44., ...,  -1., -15., -15.]],
+
+        [[-10., -10., -11., ...,  -8.,  -8.,  -8.],
+         [-10., -10., -11., ...,  -8.,  -8.,  -8.],
+         [-10., -10., -10., ...,  -8.,  -8.,  -8.],
+         ...,
+         [  5.,   5.,   5., ...,  10.,  12.,  12.],
+         [  4.,   4.,   5., ...,   9.,  12.,  12.],
+         [  4.,   4.,   5., ...,   9.,  12.,  12.]],
+
+        [[  5.,   5.,   4., ...,   4.,   4.,   4.],
+         [  5.,   5.,   4., ...,   4.,   4.,   4.],
+         [  2.,   2.,   2., ...,   4.,   4.,   4.],
+         ...,
+         [-32., -32., -32., ..., -29., -28., -28.],
+         [-28., -28., -27., ..., -30., -29., -29.],
+         [-28., -28., -27., ..., -30., -29., -29.]]]], dtype=float32), array([[[[ -12.,  -12.,  -13., ...,  -49.,  -54.,  -62.],
+         [ -10.,  -11.,  -12., ...,  -49.,  -55.,  -63.],
+         [  -7.,   -9.,  -12., ...,  -50.,  -56.,  -64.],
+         ...,
+         [ -29.,  -26.,  -24., ..., -116., -115., -113.],
+         [ -29.,  -27.,  -26., ..., -116., -116., -115.],
+         [ -28.,  -27.,  -27., ..., -117., -117., -116.]],
+
+        [[  11.,   11.,   14., ...,    2.,    0.,    0.],
+         [  11.,   11.,   14., ...,    2.,    0.,    0.],
+         [   9.,    9.,   13., ...,    1.,    0.,    0.],
+         ...,
+         [   9.,    9.,    9., ...,   23.,   27.,   27.],
+         [   8.,    8.,    9., ...,   27.,   30.,   30.],
+         [   8.,    8.,    9., ...,   27.,   30.,   30.]],
+
+        [[  -9.,   -9.,   -6., ...,   -3.,   -3.,   -3.],
+         [  -9.,   -9.,   -6., ...,   -3.,   -3.,   -3.],
+         [  -2.,   -2.,   -4., ...,   -4.,   -3.,   -3.],
+         ...,
+         [  -4.,   -4.,   -2., ...,    2.,    2.,    2.],
+         [  -5.,   -5.,   -3., ...,    1.,    0.,    0.],
+         [  -5.,   -5.,   -3., ...,    1.,    0.,    0.]]]], dtype=float32), array([[[[ 107.,  106.,  105., ...,  -44.,  -46.,  -47.],
+         [ 102.,  101.,  100., ...,  -43.,  -42.,  -42.],
+         [  98.,   98.,   97., ...,  -42.,  -43.,  -43.],
+         ...,
+         [-116., -116., -116., ...,   62.,   60.,   59.],
+         [-115., -115., -116., ...,   38.,   37.,   37.],
+         [-112., -113., -114., ...,    3.,    0.,    0.]],
+
+        [[  -1.,   -1.,   -1., ...,   22.,   22.,   22.],
+         [  -1.,   -1.,   -1., ...,   22.,   22.,   22.],
+         [   0.,    0.,    0., ...,   22.,   22.,   22.],
+         ...,
+         [  11.,   11.,   11., ...,   -1.,   -1.,   -1.],
+         [  11.,   11.,   12., ...,   -4.,   -4.,   -4.],
+         [  11.,   11.,   12., ...,   -4.,   -4.,   -4.]],
+
+        [[  -1.,   -1.,   -1., ...,  -36.,  -36.,  -36.],
+         [  -1.,   -1.,   -1., ...,  -36.,  -36.,  -36.],
+         [  -3.,   -3.,   -3., ...,  -36.,  -36.,  -36.],
+         ...,
+         [  -5.,   -5.,   -6., ...,    1.,    1.,    1.],
+         [  -6.,   -6.,   -5., ...,    6.,    6.,    6.],
+         [  -6.,   -6.,   -5., ...,    6.,    6.,    6.]]]], dtype=float32), array([[[[108., 108., 107., ...,  79.,  79.,  73.],
+         [108., 105., 104., ...,  77.,  76.,  70.],
+         [103.,  98.,  98., ...,  72.,  70.,  75.],
+         ...,
+         [ -7.,  -5.,  -5., ..., -86., -88., -89.],
+         [ -7.,  -8.,  -8., ..., -84., -87., -87.],
+         [ -8., -11., -13., ..., -87., -88., -87.]],
+
+        [[-42., -42., -45., ..., -56., -54., -54.],
+         [-42., -42., -45., ..., -56., -54., -54.],
+         [-46., -46., -46., ..., -54., -54., -54.],
+         ...,
+         [-17., -17., -17., ..., -23., -23., -23.],
+         [-17., -17., -18., ..., -23., -23., -23.],
+         [-17., -17., -18., ..., -23., -23., -23.]],
+
+        [[  8.,   8.,   8., ...,  30.,  29.,  29.],
+         [  8.,   8.,   8., ...,  30.,  29.,  29.],
+         [ 12.,  12.,  12., ...,  25.,  31.,  31.],
+         ...,
+         [ 36.,  36.,  35., ...,  22.,  21.,  21.],
+         [ 38.,  38.,  37., ...,  22.,  22.,  22.],
+         [ 38.,  38.,  37., ...,  22.,  22.,  22.]]]], dtype=float32), array([[[[ 10.,   2.,  -1., ...,  20.,  22.,  27.],
+         [  6.,  -2.,  -4., ...,  17.,  18.,  23.],
+         [  1.,  -7.,  -9., ...,  11.,  13.,  18.],
+         ...,
+         [-13., -15., -16., ...,  34.,  37.,  43.],
+         [ -4.,  -8., -11., ...,  38.,  40.,  46.],
+         [  3.,  -3.,  -7., ...,  40.,  42.,  48.]],
+
+        [[  5.,   5.,   5., ...,  -2.,  -2.,  -2.],
+         [  5.,   5.,   5., ...,  -2.,  -2.,  -2.],
+         [  5.,   5.,   5., ...,  -2.,  -2.,  -2.],
+         ...,
+         [  6.,   6.,   2., ...,   4.,   4.,   4.],
+         [  5.,   5.,   2., ...,   4.,   4.,   4.],
+         [  5.,   5.,   2., ...,   4.,   4.,   4.]],
+
+        [[  5.,   5.,   5., ...,  11.,  11.,  11.],
+         [  5.,   5.,   5., ...,  11.,  11.,  11.],
+         [  5.,   5.,   5., ...,  10.,  11.,  11.],
+         ...,
+         [  4.,   4.,   6., ...,   5.,   5.,   5.],
+         [  5.,   5.,   7., ...,   5.,   5.,   5.],
+         [  5.,   5.,   7., ...,   5.,   5.,   5.]]]], dtype=float32), array([[[[  37.,   37.,   38., ...,   24.,   24.,   24.],
+         [  37.,   37.,   38., ...,   24.,   24.,   23.],
+         [  37.,   37.,   38., ...,   25.,   24.,   23.],
+         ...,
+         [ -46.,  -53.,  -57., ..., -127., -127., -126.],
+         [ -61.,  -58.,  -68., ..., -128., -128., -127.],
+         [ -79.,  -67.,  -79., ..., -128., -128., -127.]],
+
+        [[  -1.,   -1.,   -1., ...,   -3.,   -3.,   -3.],
+         [  -1.,   -1.,   -1., ...,   -3.,   -3.,   -3.],
+         [  -1.,   -1.,   -1., ...,   -3.,   -3.,   -3.],
+         ...,
+         [   0.,    0.,    1., ...,    0.,    0.,    0.],
+         [   2.,    2.,    6., ...,    0.,    0.,    0.],
+         [   2.,    2.,    6., ...,    0.,    0.,    0.]],
+
+        [[   3.,    3.,    3., ...,    3.,    3.,    3.],
+         [   3.,    3.,    3., ...,    3.,    3.,    3.],
+         [   3.,    3.,    3., ...,    3.,    3.,    3.],
+         ...,
+         [   6.,    6.,   -1., ...,    0.,   -1.,   -1.],
+         [  -2.,   -2.,   -1., ...,    0.,   -1.,   -1.],
+         [  -2.,   -2.,   -1., ...,    0.,   -1.,   -1.]]]], dtype=float32), array([[[[ -58.,  -27.,  -27., ..., -117., -115.,  -92.],
+         [ -56.,  -35.,  -34., ...,  -99., -110., -102.],
+         [ -53.,  -46.,  -45., ...,  -70., -102., -116.],
+         ...,
+         [   3.,   -6.,  -14., ...,    3.,  -10.,  -10.],
+         [  -9.,  -10.,  -10., ...,    8.,    3.,   -3.],
+         [ -17.,  -13.,   -7., ...,   11.,   12.,    3.]],
+
+        [[ -11.,  -11.,  -10., ...,   -1.,    0.,    0.],
+         [ -11.,  -11.,  -10., ...,   -1.,    0.,    0.],
+         [ -12.,  -12.,  -11., ...,    0.,    2.,    2.],
+         ...,
+         [  -4.,   -4.,   -3., ...,   18.,   20.,   20.],
+         [  -2.,   -2.,   -2., ...,   18.,   19.,   19.],
+         [  -2.,   -2.,   -2., ...,   18.,   19.,   19.]],
+
+        [[   9.,    9.,    0., ...,   -6.,   -2.,   -2.],
+         [   9.,    9.,    0., ...,   -6.,   -2.,   -2.],
+         [   9.,    9.,    1., ...,  -11.,  -10.,  -10.],
+         ...,
+         [   1.,    1.,    1., ...,  -18.,  -18.,  -18.],
+         [   1.,    1.,    1., ...,  -22.,  -22.,  -22.],
+         [   1.,    1.,    1., ...,  -22.,  -22.,  -22.]]]], dtype=float32), array([[[[ 12.,  11.,  11., ..., -53., -55., -56.],
+         [ 11.,  12.,  12., ..., -54., -55., -56.],
+         [ 10.,  12.,  14., ..., -56., -56., -56.],
+         ...,
+         [ -8.,  -3.,  -1., ..., -39., -39., -40.],
+         [ -8.,  -3.,  -1., ..., -39., -39., -40.],
+         [ -7.,  -2.,  -1., ..., -39., -39., -39.]],
+
+        [[-24., -24., -24., ..., -11., -12., -12.],
+         [-24., -24., -24., ..., -11., -12., -12.],
+         [-24., -24., -24., ..., -11., -12., -12.],
+         ...,
+         [  0.,   0.,   1., ..., -24., -24., -24.],
+         [  0.,   0.,   0., ..., -24., -25., -25.],
+         [  0.,   0.,   0., ..., -24., -25., -25.]],
+
+        [[  8.,   8.,   7., ...,   2.,   6.,   6.],
+         [  8.,   8.,   7., ...,   2.,   6.,   6.],
+         [  8.,   8.,   7., ...,   2.,   4.,   4.],
+         ...,
+         [ -4.,  -4.,  -5., ...,   6.,   4.,   4.],
+         [ -2.,  -2.,  -4., ...,   5.,   5.,   5.],
+         [ -2.,  -2.,  -4., ...,   5.,   5.,   5.]]]], dtype=float32), array([[[[-122., -122., -123., ...,  119.,   64.,  -39.],
+         [-122., -121., -122., ...,  118.,   59.,  -49.],
+         [-121., -118., -120., ...,  115.,   52.,  -63.],
+         ...,
+         [ -49.,  -38.,  -23., ...,   47.,   47.,   64.],
+         [ -41.,  -18.,    0., ...,   47.,   45.,   59.],
+         [ -35.,   -4.,   15., ...,   46.,   44.,   56.]],
+
+        [[   2.,    2.,    0., ...,    0.,   24.,   24.],
+         [   2.,    2.,    0., ...,    0.,   24.,   24.],
+         [   0.,    0.,    2., ...,    0.,   30.,   30.],
+         ...,
+         [ -35.,  -35.,  -29., ...,    0.,   -3.,   -3.],
+         [ -21.,  -21.,  -14., ...,   -3.,   -2.,   -2.],
+         [ -21.,  -21.,  -14., ...,   -3.,   -2.,   -2.]],
+
+        [[  -1.,   -1.,   -2., ...,   -2.,  -25.,  -25.],
+         [  -1.,   -1.,   -2., ...,   -2.,  -25.,  -25.],
+         [  -1.,   -1.,   -1., ...,   -1.,  -29.,  -29.],
+         ...,
+         [  41.,   41.,   38., ...,   -1.,    0.,    0.],
+         [  33.,   33.,   14., ...,    0.,   -1.,   -1.],
+         [  33.,   33.,   14., ...,    0.,   -1.,   -1.]]]], dtype=float32), array([[[[-39., -54., -56., ..., -38., -34., -31.],
+         [-25., -50., -64., ..., -43., -38., -33.],
+         [-13., -43., -64., ..., -43., -35., -25.],
+         ...,
+         [-48., -47., -47., ..., -63., -60., -56.],
+         [-45., -48., -51., ..., -62., -60., -57.],
+         [-42., -35., -25., ..., -53., -52., -50.]],
+
+        [[  0.,   0.,  -7., ...,   1.,   1.,   1.],
+         [  0.,   0.,  -7., ...,   1.,   1.,   1.],
+         [ -5.,  -5.,  -7., ...,   5.,   5.,   5.],
+         ...,
+         [  1.,   1.,  -8., ...,  -4.,  -5.,  -5.],
+         [  2.,   2.,  -2., ...,  -2.,  -2.,  -2.],
+         [  2.,   2.,  -2., ...,  -2.,  -2.,  -2.]],
+
+        [[-17., -17., -17., ..., -21., -22., -22.],
+         [-17., -17., -17., ..., -21., -22., -22.],
+         [-16., -16., -17., ..., -25., -25., -25.],
+         ...,
+         [-15., -15., -13., ...,  -4.,  -4.,  -4.],
+         [-11., -11., -16., ...,  -3.,  -3.,  -3.],
+         [-11., -11., -16., ...,  -3.,  -3.,  -3.]]]], dtype=float32), array([[[[ -86.,  -85.,  -84., ...,  127.,  127.,  127.],
+         [ -85.,  -77.,  -74., ...,  127.,  127.,  127.],
+         [ -83.,  -74.,  -71., ...,  127.,  127.,  127.],
+         ...,
+         [-116., -113., -115., ...,  -88.,  -86.,  -90.],
+         [-124., -117., -115., ...,  -87.,  -91.,  -89.],
+         [-114., -115., -116., ...,  -88.,  -88.,  -91.]],
+
+        [[  14.,   14.,   32., ...,    0.,    0.,    0.],
+         [  14.,   14.,   32., ...,    0.,    0.,    0.],
+         [  21.,   21.,   27., ...,    0.,    0.,    0.],
+         ...,
+         [   6.,    6.,   13., ...,   18.,   23.,   23.],
+         [  10.,   10.,   12., ...,   22.,   29.,   29.],
+         [  10.,   10.,   12., ...,   22.,   29.,   29.]],
+
+        [[ -11.,  -11.,    4., ...,    0.,    0.,    0.],
+         [ -11.,  -11.,    4., ...,    0.,    0.,    0.],
+         [   1.,    1.,   -9., ...,    0.,    0.,    0.],
+         ...,
+         [  -6.,   -6.,   -8., ...,  -17.,  -15.,  -15.],
+         [  -4.,   -4.,   -9., ...,    7.,   -3.,   -3.],
+         [  -4.,   -4.,   -9., ...,    7.,   -3.,   -3.]]]], dtype=float32), array([[[[-117., -116., -117., ..., -112., -115., -115.],
+         [-113., -117., -118., ..., -113., -116., -116.],
+         [-108., -116., -119., ..., -115., -117., -118.],
+         ...,
+         [ -53.,  -54.,  -56., ...,  -72.,  -70.,  -72.],
+         [ -54.,  -55.,  -55., ...,  -77.,  -73.,  -68.],
+         [ -54.,  -55.,  -55., ...,  -80.,  -76.,  -66.]],
+
+        [[   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         ...,
+         [   1.,    1.,    1., ...,   -1.,    0.,    0.],
+         [   1.,    1.,    1., ...,    0.,   -1.,   -1.],
+         [   1.,    1.,    1., ...,    0.,   -1.,   -1.]],
+
+        [[  -3.,   -3.,   -3., ...,   -3.,   -3.,   -3.],
+         [  -3.,   -3.,   -3., ...,   -3.,   -3.,   -3.],
+         [  -1.,   -1.,   -1., ...,   -2.,   -3.,   -3.],
+         ...,
+         [  -7.,   -7.,  -10., ...,  -11.,  -12.,  -12.],
+         [  -7.,   -7.,   -9., ...,  -12.,  -11.,  -11.],
+         [  -7.,   -7.,   -9., ...,  -12.,  -11.,  -11.]]]], dtype=float32), array([[[[-51., -50., -50., ..., -59., -61., -61.],
+         [-48., -51., -52., ..., -59., -58., -56.],
+         [-45., -49., -51., ..., -59., -60., -59.],
+         ...,
+         [  8.,   8.,   7., ...,  17.,  15.,  14.],
+         [  8.,   8.,   7., ...,  15.,  14.,  12.],
+         [  5.,   5.,   4., ...,  16.,  14.,  13.]],
+
+        [[  2.,   2.,   1., ...,   1.,   5.,   5.],
+         [  2.,   2.,   1., ...,   1.,   5.,   5.],
+         [  4.,   4.,   3., ...,   0.,   2.,   2.],
+         ...,
+         [  0.,   0.,  -2., ...,   3.,   4.,   4.],
+         [ -1.,  -1.,  -1., ...,   3.,   4.,   4.],
+         [ -1.,  -1.,  -1., ...,   3.,   4.,   4.]],
+
+        [[ -1.,  -1.,  -2., ...,  -5.,  -2.,  -2.],
+         [ -1.,  -1.,  -2., ...,  -5.,  -2.,  -2.],
+         [ -4.,  -4.,  -5., ...,  -3.,  -2.,  -2.],
+         ...,
+         [  2.,   2.,   2., ...,  -7.,  -6.,  -6.],
+         [  1.,   1.,   0., ...,  -7.,  -6.,  -6.],
+         [  1.,   1.,   0., ...,  -7.,  -6.,  -6.]]]], dtype=float32), array([[[[ 73.,  73.,  73., ...,  80.,  80.,  81.],
+         [ 75.,  74.,  74., ...,  82.,  82.,  82.],
+         [ 74.,  74.,  73., ...,  81.,  81.,  81.],
+         ...,
+         [ 42.,  33.,  37., ...,  70.,  71.,  71.],
+         [ 41.,  42.,  41., ...,  74.,  73.,  73.],
+         [ 59.,  57.,  55., ...,  79.,  79.,  81.]],
+
+        [[-15., -15., -16., ..., -14., -14., -14.],
+         [-15., -15., -16., ..., -14., -14., -14.],
+         [-15., -15., -15., ..., -14., -14., -14.],
+         ...,
+         [ 11.,  11.,  12., ...,  10.,   9.,   9.],
+         [ 14.,  14.,  14., ...,   9.,   8.,   8.],
+         [ 14.,  14.,  14., ...,   9.,   8.,   8.]],
+
+        [[ 12.,  12.,  11., ...,  10.,  10.,  10.],
+         [ 12.,  12.,  11., ...,  10.,  10.,  10.],
+         [ 10.,  10.,  10., ...,  10.,  10.,  10.],
+         ...,
+         [ -8.,  -8., -11., ...,  -9.,  -8.,  -8.],
+         [-10., -10., -14., ...,  -8.,  -7.,  -7.],
+         [-10., -10., -14., ...,  -8.,  -7.,  -7.]]]], dtype=float32), array([[[[-80., -82., -83., ..., -62., -61., -60.],
+         [-78., -83., -82., ..., -61., -63., -60.],
+         [-79., -82., -81., ..., -60., -64., -59.],
+         ...,
+         [-15.,  -9., -10., ..., -29., -28., -28.],
+         [-14., -11., -12., ..., -28., -26., -30.],
+         [-18., -19., -20., ..., -29., -25., -28.]],
+
+        [[ -4.,  -4.,  -1., ...,  19.,  19.,  19.],
+         [ -4.,  -4.,  -1., ...,  19.,  19.,  19.],
+         [ -3.,  -3.,  -2., ...,  19.,  19.,  19.],
+         ...,
+         [ 67.,  67.,  69., ...,  65.,  65.,  65.],
+         [ 71.,  71.,  70., ...,  65.,  65.,  65.],
+         [ 71.,  71.,  70., ...,  65.,  65.,  65.]],
+
+        [[  4.,   4.,   1., ..., -15., -14., -14.],
+         [  4.,   4.,   1., ..., -15., -14., -14.],
+         [  6.,   6.,   3., ..., -14., -14., -14.],
+         ...,
+         [-57., -57., -57., ..., -53., -54., -54.],
+         [-55., -55., -56., ..., -50., -53., -53.],
+         [-55., -55., -56., ..., -50., -53., -53.]]]], dtype=float32), array([[[[-43., -24.,  -9., ..., -11., -23., -35.],
+         [-29., -15.,  -5., ..., -13., -25., -38.],
+         [-14.,  -5.,  -2., ..., -20., -31., -45.],
+         ...,
+         [  4.,  19.,  22., ...,  49.,  51.,  55.],
+         [ 11.,  23.,  22., ...,  46.,  41.,  52.],
+         [ 23.,  28.,  23., ...,  44.,  35.,  47.]],
+
+        [[-47., -47., -65., ..., -69., -60., -60.],
+         [-47., -47., -65., ..., -69., -60., -60.],
+         [-64., -64., -72., ..., -66., -54., -54.],
+         ...,
+         [ -8.,  -8.,  -6., ...,  -5.,  -5.,  -5.],
+         [ -8.,  -8.,  -6., ...,  -5.,  -5.,  -5.],
+         [ -8.,  -8.,  -6., ...,  -5.,  -5.,  -5.]],
+
+        [[  5.,   5.,   8., ...,   5.,   4.,   4.],
+         [  5.,   5.,   8., ...,   5.,   4.,   4.],
+         [  6.,   6.,   4., ...,   5.,   4.,   4.],
+         ...,
+         [  1.,   1.,   1., ...,   0.,  -1.,  -1.],
+         [  1.,   1.,   1., ...,   0.,   0.,   0.],
+         [  1.,   1.,   1., ...,   0.,   0.,   0.]]]], dtype=float32), array([[[[ 104.,  107.,  114., ...,   90.,   90.,   91.],
+         [ 107.,  102.,  106., ...,   86.,   87.,   86.],
+         [ 102.,  101.,  103., ...,   92.,   91.,   90.],
+         ...,
+         [ 106.,  103.,  101., ..., -100., -101., -101.],
+         [ 102.,  103.,  102., ..., -110., -107., -103.],
+         [ 101.,   99.,   99., ...,  -89.,  -87.,  -86.]],
+
+        [[  -3.,   -3.,   -2., ...,  -14.,  -13.,  -13.],
+         [  -3.,   -3.,   -2., ...,  -14.,  -13.,  -13.],
+         [  -1.,   -1.,   -2., ...,  -13.,  -13.,  -13.],
+         ...,
+         [   2.,    2.,    2., ...,   -3.,   -3.,   -3.],
+         [   4.,    4.,    4., ...,   -2.,   -2.,   -2.],
+         [   4.,    4.,    4., ...,   -2.,   -2.,   -2.]],
+
+        [[   1.,    1.,    2., ...,   10.,   10.,   10.],
+         [   1.,    1.,    2., ...,   10.,   10.,   10.],
+         [   2.,    2.,    3., ...,   11.,   11.,   11.],
+         ...,
+         [  -1.,   -1.,   -1., ...,    2.,    2.,    2.],
+         [  -2.,   -2.,   -2., ...,    2.,    2.,    2.],
+         [  -2.,   -2.,   -2., ...,    2.,    2.,    2.]]]], dtype=float32), array([[[[  73.,   71.,   68., ...,   49.,   48.,   41.],
+         [  66.,   65.,   64., ...,   47.,   42.,   33.],
+         [  57.,   59.,   60., ...,   44.,   34.,   23.],
+         ...,
+         [-111., -111., -111., ...,   12.,   13.,   13.],
+         [-112., -112., -111., ...,   12.,   13.,   13.],
+         [-112., -112., -112., ...,   12.,   13.,   14.]],
+
+        [[   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         ...,
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.]],
+
+        [[   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         ...,
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.],
+         [   0.,    0.,    0., ...,    0.,    0.,    0.]]]], dtype=float32)]}}, 'hbdk_dict': {'hbdk_pass_through_params': '--O3 --core-num 1 --fast ', 'input-source': {'images': 'pyramid', '_default_value': 'ddr'}}, 'node_dict': {'/model.10/m/m.0/attn/Softmax': {'ON': 'BPU', 'InputType': 'int16', 'OutputType': 'int16'}}, 'check_mode': False}
+2025-08-25 09:12:47,690 file: model_builder.py func: model_builder line No: 35 Start to Horizon NN Model Convert.
+2025-08-25 09:12:47,788 file: model_debugger.py func: model_debugger line No: 67 Loading horizon_nn debug methods:set()
+2025-08-25 09:12:47,790 file: quantization_config.py func: quantization_config line No: 305 The activation calibration parameters:
+    calibration_type:     ['max', 'kl']
+    max_percentile:       [0.99995, 1.0]
+    per_channel:          [True, False]
+    asymmetric:           [True, False]
+The modelwise search parameters:
+    similarity:           0.995
+    metric:               cosine-similarity
+The input of node /model.10/m/m.0/attn/Softmax are set to : int16
+The output of node /model.10/m/m.0/attn/Softmax are set to : int16
+There are 1 nodes designated to run on the bpu: ['/model.10/m/m.0/attn/Softmax'].
+2025-08-25 09:12:47,793 file: input_dict_parser.py func: input_dict_parser line No: 240 input images is from pyramid. Its layout is set to NHWC
+2025-08-25 09:12:47,793 file: model_builder.py func: model_builder line No: 197 The specified model compilation architecture: bayes-e.
+2025-08-25 09:12:47,793 file: model_builder.py func: model_builder line No: 207 The specified model compilation optimization parameters: [].
+2025-08-25 09:12:47,795 file: model_builder.py func: model_builder line No: 35 Start to prepare the onnx model.
+2025-08-25 09:12:48,096 file: prepare.py func: prepare line No: 106 Input ONNX Model Information:
+ONNX IR version:          6
+Opset version:            ['ai.onnx v11', 'horizon v1']
+Producer:                 pytorch v1.13.1
+Domain:                   None
+Version:                  None
+Graph input:
+    images:               shape=[1, 3, 640, 640], dtype=FLOAT32
+Graph output:
+    output0:              shape=[1, 56, 8400], dtype=FLOAT32
+2025-08-25 09:12:49,479 file: model_builder.py func: model_builder line No: 38 End to prepare the onnx model.
+2025-08-25 09:12:49,630 file: model_builder.py func: model_builder line No: 265 Saving model to: yolo11n_pose_bayese_640x640_nv12_original_float_model.onnx.
+2025-08-25 09:12:49,631 file: model_builder.py func: model_builder line No: 35 Start to optimize the onnx model.
+2025-08-25 09:12:50,608 file: constant_folding.py func: constant_folding line No: 66 Summary info for constant_folding:
+2025-08-25 09:12:50,609 file: constant_folding.py func: constant_folding line No: 67   After constant_folding, the number of nodes has changed from 356 to 356.
+2025-08-25 09:12:50,610 file: constant_folding.py func: constant_folding line No: 71   After constant_folding, the number of parameters has changed from 2933716 to 2933716.
+2025-08-25 09:12:50,611 file: constant_folding.py func: constant_folding line No: 76 Detailed info for constant_folding:
+2025-08-25 09:12:50,613 file: constant_folding.py func: constant_folding line No: 88 
+2025-08-25 09:12:51,984 file: model_builder.py func: model_builder line No: 38 End to optimize the onnx model.
+2025-08-25 09:12:52,140 file: model_builder.py func: model_builder line No: 265 Saving model to: yolo11n_pose_bayese_640x640_nv12_optimized_float_model.onnx.
+2025-08-25 09:12:52,141 file: model_builder.py func: model_builder line No: 35 Start to calibrate the model.
+2025-08-25 09:12:52,814 file: tool_utils.py func: tool_utils line No: 321 The input0 of Node(name:/model.23/dfl/Softmax, type:Softmax) does not support data type: int16
+2025-08-25 09:12:52,839 file: tool_utils.py func: tool_utils line No: 321 The input0 of Node(name:/model.23/dfl/Softmax, type:Softmax) does not support data type: int8
+2025-08-25 09:12:53,068 file: calibration_data_set.py func: calibration_data_set line No: 111 input name: images,  number_of_samples: 100
+2025-08-25 09:12:53,068 file: calibration_data_set.py func: calibration_data_set line No: 123 There are 100 samples in the data set.
+2025-08-25 09:12:53,070 file: infer_thresholds.py func: infer_thresholds line No: 84 Run calibration model with modelwise search method.
+2025-08-25 09:12:54,764 file: base.py func: base line No: 138 Calibration using batch 8
+2025-08-25 09:13:07,206 file: ort.py func: ort line No: 207 Reset batch_size=1 and execute forward again...
+2025-08-25 09:47:57,765 file: modelwise_search.py func: modelwise_search line No: 75 Select max-percentile:percentile=0.99995 method.
+2025-08-25 09:48:01,909 file: model_builder.py func: model_builder line No: 38 End to calibrate the model.
+2025-08-25 09:48:02,374 file: model_builder.py func: model_builder line No: 265 Saving model to: yolo11n_pose_bayese_640x640_nv12_calibrated_model.onnx.
+2025-08-25 09:48:02,375 file: model_builder.py func: model_builder line No: 35 Start to quantize the model.
+2025-08-25 09:48:09,286 file: constant_folding.py func: constant_folding line No: 66 Summary info for constant_folding:
+2025-08-25 09:48:09,287 file: constant_folding.py func: constant_folding line No: 67   After constant_folding, the number of nodes has changed from 324 to 320.
+2025-08-25 09:48:09,288 file: constant_folding.py func: constant_folding line No: 71   After constant_folding, the number of parameters has changed from 2963375 to 2963375.
+2025-08-25 09:48:09,289 file: constant_folding.py func: constant_folding line No: 76 Detailed info for constant_folding:
+2025-08-25 09:48:09,289 file: constant_folding.py func: constant_folding line No: 88   After folding node (op_name: /model.23/Add_3_NCHW2NHWC_LayoutConvert_Input0, op_type: Transpose), the number of increased parameters is 0.
+  After folding node (op_name: /model.23/Mul_4_NCHW2NHWC_LayoutConvert_Input1, op_type: Transpose), the number of increased parameters is 0.
+  After folding node (op_name: /model.23/Sub_NCHW2NHWC_LayoutConvert_Input0, op_type: Transpose), the number of increased parameters is 0.
+  After folding node (op_name: /model.23/Add_1_NCHW2NHWC_LayoutConvert_Input0, op_type: Transpose), the number of increased parameters is 0.
+2025-08-25 09:48:10,412 file: model_builder.py func: model_builder line No: 38 End to quantize the model.
+2025-08-25 09:48:10,790 file: model_builder.py func: model_builder line No: 265 Saving model to: yolo11n_pose_bayese_640x640_nv12_quantized_model.onnx.
+2025-08-25 09:48:10,791 file: model_builder.py func: model_builder line No: 35 Start to compile the model with march bayes-e.
+2025-08-25 09:48:12,859 file: hybrid_build.py func: hybrid_build line No: 111 Compile submodel: torch_jit_subgraph_0
+2025-08-25 09:48:12,958 file: hbdk_cc.py func: hbdk_cc line No: 126 hbdk-cc parameters:['--O3', '--core-num', '1', '--fast', '--input-layout', 'NHWC', '--output-layout', 'NHWC', '--input-source', 'pyramid']
+2025-08-25 09:48:12,964 file: hbdk_cc.py func: hbdk_cc line No: 127 hbdk-cc command used:hbdk-cc -f hbir -m /tmp/tmpyjcqgd88/torch_jit_subgraph_0.hbir -o /tmp/tmpyjcqgd88/torch_jit_subgraph_0.hbm --march bayes-e --progressbar --O3 --core-num 1 --fast --input-layout NHWC --output-layout NHWC --input-source pyramid
+2025-08-25 10:06:53,578 file: tool_utils.py func: tool_utils line No: 326 consumed time 1120.37
+2025-08-25 10:06:53,924 file: tool_utils.py func: tool_utils line No: 326 FPS=98.71, latency = 10130.2 us, DDR = 45517120 bytes   (see torch_jit_subgraph_0.html)
+2025-08-25 10:06:53,955 file: hybrid_build.py func: hybrid_build line No: 111 Compile submodel: torch_jit_subgraph_1
+2025-08-25 10:06:53,982 file: hbdk_cc.py func: hbdk_cc line No: 126 hbdk-cc parameters:['--O3', '--core-num', '1', '--fast', '--input-layout', 'NHWC', '--output-layout', 'NHWC', '--input-source', 'ddr,ddr,ddr']
+2025-08-25 10:06:53,983 file: hbdk_cc.py func: hbdk_cc line No: 127 hbdk-cc command used:hbdk-cc -f hbir -m /tmp/tmpyjcqgd88/torch_jit_subgraph_1.hbir -o /tmp/tmpyjcqgd88/torch_jit_subgraph_1.hbm --march bayes-e --progressbar --O3 --core-num 1 --fast --input-layout NHWC --output-layout NHWC --input-source ddr,ddr,ddr
+2025-08-25 10:09:29,871 file: tool_utils.py func: tool_utils line No: 326 consumed time 155.845
+2025-08-25 10:09:30,018 file: tool_utils.py func: tool_utils line No: 326 FPS=309.47, latency = 3231.3 us, DDR = 17290656 bytes   (see torch_jit_subgraph_1.html)
+2025-08-25 10:09:30,514 file: model_builder.py func: model_builder line No: 38 End to compile the model with march bayes-e.
+2025-08-25 10:09:43,015 file: print_info_dict.py func: print_info_dict line No: 72 The main quantized node information:
+======================================================================================================================================
+Node                                                ON   Subgraph  Type                       Cosine Similarity  Threshold  DataType  
+--------------------------------------------------------------------------------------------------------------------------------------
+HZ_PREPROCESS_FOR_images                            BPU  id(0)     HzSQuantizedPreprocess     0.999954           127.0      int8      
+/model.0/conv/Conv                                  BPU  id(0)     HzSQuantizedConv           0.999576           1.10525    int8      
+/model.0/act/Mul                                    BPU  id(0)     HzLut                      0.999320           29.852     int8      
+/model.1/conv/Conv                                  BPU  id(0)     HzSQuantizedConv           0.996831           27.7688    int8      
+/model.1/act/Mul                                    BPU  id(0)     HzLut                      0.995607           61.3527    int8      
+/model.2/cv1/conv/Conv                              BPU  id(0)     HzSQuantizedConv           0.990482           53.3339    int8      
+/model.2/cv1/act/Mul                                BPU  id(0)     HzLut                      0.991280           45.0191    int8      
+/model.2/Split                                      BPU  id(0)     Split                      0.985565           26.9693    int8      
+/model.2/m.0/cv1/conv/Conv                          BPU  id(0)     HzSQuantizedConv           0.996515           26.9693    int8      
+/model.2/m.0/cv1/act/Mul                            BPU  id(0)     HzLut                      0.996887           14.2725    int8      
+/model.2/m.0/cv2/conv/Conv                          BPU  id(0)     HzSQuantizedConv           0.992888           7.17434    int8      
+/model.2/m.0/cv2/act/Mul                            BPU  id(0)     HzLut                      0.994865           21.2194    int8      
+/model.2/m.0/Add                                    BPU  id(0)     HzSElementwiseAdd          0.996176           26.9693    int8      
+/model.2/Split_output_0_calibrated_Requantize       BPU  id(0)     HzRequantize               --                 --         int8      
+/model.2/Split_output_1_calibrated_Requantize       BPU  id(0)     HzRequantize               --                 --         int8      
+/model.2/Concat                                     BPU  id(0)     Concat                     0.994590           26.9693    int8      
+/model.2/cv2/conv/Conv                              BPU  id(0)     HzSQuantizedConv           0.992504           27.1117    int8      
+/model.2/cv2/act/Mul                                BPU  id(0)     HzLut                      0.985887           28.4556    int8      
+/model.3/conv/Conv                                  BPU  id(0)     HzSQuantizedConv           0.987320           7.32836    int8      
+/model.3/act/Mul                                    BPU  id(0)     HzLut                      0.992386           7.85936    int8      
+/model.4/cv1/conv/Conv                              BPU  id(0)     HzSQuantizedConv           0.990643           4.7946     int8      
+/model.4/cv1/act/Mul                                BPU  id(0)     HzLut                      0.989945           5.63134    int8      
+/model.4/Split                                      BPU  id(0)     Split                      0.989404           3.65142    int8      
+/model.4/m.0/cv1/conv/Conv                          BPU  id(0)     HzSQuantizedConv           0.992287           3.65142    int8      
+/model.4/m.0/cv1/act/Mul                            BPU  id(0)     HzLut                      0.993578           4.06246    int8      
+/model.4/m.0/cv2/conv/Conv                          BPU  id(0)     HzSQuantizedConv           0.995429           3.30834    int8      
+/model.4/m.0/cv2/act/Mul                            BPU  id(0)     HzLut                      0.995358           5.25646    int8      
+/model.4/m.0/Add                                    BPU  id(0)     HzSElementwiseAdd          0.996479           3.65142    int8      
+/model.4/Split_output_0_calibrated_Requantize       BPU  id(0)     HzRequantize               --                 --         int8      
+/model.4/Split_output_1_calibrated_Requantize       BPU  id(0)     HzRequantize               --                 --         int8      
+/model.4/Concat                                     BPU  id(0)     Concat                     0.994982           3.65142    int8      
+/model.4/cv2/conv/Conv                              BPU  id(0)     HzSQuantizedConv           0.992003           5.59928    int8      
+/model.4/cv2/act/Mul                                BPU  id(0)     HzLut                      0.985965           5.6419     int8      
+/model.5/conv/Conv                                  BPU  id(0)     HzSQuantizedConv           0.992838           2.60593    int8      
+/model.5/act/Mul                                    BPU  id(0)     HzLut                      0.990982           5.12328    int8      
+/model.6/cv1/conv/Conv                              BPU  id(0)     HzSQuantizedConv           0.987233           3.07244    int8      
+/model.6/cv1/act/Mul                                BPU  id(0)     HzLut                      0.986395           5.49481    int8      
+/model.6/Split                                      BPU  id(0)     Split                      0.985633           4.23188    int8      
+/model.6/m.0/cv1/conv/Conv                          BPU  id(0)     HzSQuantizedConv           0.993107           4.23188    int8      
+/model.6/m.0/cv2/conv/Conv                          BPU  id(0)     HzSQuantizedConv           0.985621           4.23188    int8      
+/model.6/m.0/cv1/act/Mul                            BPU  id(0)     HzLut                      0.992848           3.75663    int8      
+/model.6/m.0/cv2/act/Mul                            BPU  id(0)     HzLut                      0.984329           6.87619    int8      
+/model.6/m.0/m/m.0/cv1/conv/Conv                    BPU  id(0)     HzSQuantizedConv           0.992811           3.02689    int8      
+/model.6/m.0/m/m.0/cv1/act/Mul                      BPU  id(0)     HzLut                      0.985136           6.12099    int8      
+/model.6/m.0/m/m.0/cv2/conv/Conv                    BPU  id(0)     HzSQuantizedConv           0.990517           4.89642    int8      
+/model.6/m.0/m/m.0/cv2/act/Mul                      BPU  id(0)     HzLut                      0.990334           4.98197    int8      
+/model.6/m.0/m/m.0/Add                              BPU  id(0)     HzSElementwiseAdd          0.993516           3.02689    int8      
+/model.6/m.0/m/m.1/cv1/conv/Conv                    BPU  id(0)     HzSQuantizedConv           0.993470           4.62148    int8      
+/model.6/m.0/m/m.1/cv1/act/Mul                      BPU  id(0)     HzLut                      0.987842           5.77968    int8      
+/model.6/m.0/m/m.1/cv2/conv/Conv                    BPU  id(0)     HzSQuantizedConv           0.995145           4.20074    int8      
+/model.6/m.0/m/m.1/cv2/act/Mul                      BPU  id(0)     HzLut                      0.995173           8.4025     int8      
+/model.6/m.0/m/m.1/Add                              BPU  id(0)     HzSElementwiseAdd          0.996421           4.62148    int8      
+/model.6/m.0/Concat                                 BPU  id(0)     Concat                     0.995234           9.09539    int8      
+/model.6/m.0/cv3/conv/Conv                          BPU  id(0)     HzSQuantizedConv           0.989203           9.09539    int8      
+/model.6/m.0/cv3/act/Mul                            BPU  id(0)     HzLut                      0.986029           6.6778     int8      
+/model.6/Split_output_0_calibrated_Requantize       BPU  id(0)     HzRequantize               --                 --         int8      
+/model.6/Split_output_1_calibrated_Requantize       BPU  id(0)     HzRequantize               --                 --         int8      
+/model.6/Concat                                     BPU  id(0)     Concat                     0.986118           4.23188    int8      
+/model.6/cv2/conv/Conv                              BPU  id(0)     HzSQuantizedConv           0.991036           4.74457    int8      
+/model.6/cv2/act/Mul                                BPU  id(0)     HzLut                      0.984854           5.57396    int8      
+/model.7/conv/Conv                                  BPU  id(0)     HzSQuantizedConv           0.991517           3.485      int8      
+/model.7/act/Mul                                    BPU  id(0)     HzLut                      0.982501           6.25335    int8      
+/model.8/cv1/conv/Conv                              BPU  id(0)     HzSQuantizedConv           0.986686           5.64465    int8      
+/model.8/cv1/act/Mul                                BPU  id(0)     HzLut                      0.981486           7.11008    int8      
+/model.8/Split                                      BPU  id(0)     Split                      0.981975           5.83826    int8      
+/model.8/m.0/cv1/conv/Conv                          BPU  id(0)     HzSQuantizedConv           0.990130           5.83826    int8      
+/model.8/m.0/cv2/conv/Conv                          BPU  id(0)     HzSQuantizedConv           0.979750           5.83826    int8      
+/model.8/m.0/cv1/act/Mul                            BPU  id(0)     HzLut                      0.990290           4.7978     int8      
+/model.8/m.0/cv2/act/Mul                            BPU  id(0)     HzLut                      0.975820           6.18072    int8      
+/model.8/m.0/m/m.0/cv1/conv/Conv                    BPU  id(0)     HzSQuantizedConv           0.992855           4.26588    int8      
+/model.8/m.0/m/m.0/cv1/act/Mul                      BPU  id(0)     HzLut                      0.986371           6.25548    int8      
+/model.8/m.0/m/m.0/cv2/conv/Conv                    BPU  id(0)     HzSQuantizedConv           0.990210           5.32087    int8      
+/model.8/m.0/m/m.0/cv2/act/Mul                      BPU  id(0)     HzLut                      0.986543           6.4769     int8      
+/model.8/m.0/m/m.0/Add                              BPU  id(0)     HzSElementwiseAdd          0.989014           4.26588    int8      
+/model.8/m.0/m/m.1/cv1/conv/Conv                    BPU  id(0)     HzSQuantizedConv           0.992025           6.03356    int8      
+/model.8/m.0/m/m.1/cv1/act/Mul                      BPU  id(0)     HzLut                      0.988746           8.0983     int8      
+/model.8/m.0/m/m.1/cv2/conv/Conv                    BPU  id(0)     HzSQuantizedConv           0.990846           6.76611    int8      
+/model.8/m.0/m/m.1/cv2/act/Mul                      BPU  id(0)     HzLut                      0.990260           12.4117    int8      
+/model.8/m.0/m/m.1/Add                              BPU  id(0)     HzSElementwiseAdd          0.991360           6.03356    int8      
+/model.8/m.0/Concat                                 BPU  id(0)     Concat                     0.990074           11.6816    int8      
+/model.8/m.0/cv3/conv/Conv                          BPU  id(0)     HzSQuantizedConv           0.987733           11.6816    int8      
+/model.8/m.0/cv3/act/Mul                            BPU  id(0)     HzLut                      0.985638           8.06649    int8      
+/model.8/Split_output_0_calibrated_Requantize       BPU  id(0)     HzRequantize               --                 --         int8      
+/model.8/Split_output_1_calibrated_Requantize       BPU  id(0)     HzRequantize               --                 --         int8      
+/model.8/Concat                                     BPU  id(0)     Concat                     0.983072           5.83826    int8      
+/model.8/cv2/conv/Conv                              BPU  id(0)     HzSQuantizedConv           0.987160           6.355      int8      
+/model.8/cv2/act/Mul                                BPU  id(0)     HzLut                      0.984563           7.09121    int8      
+/model.9/cv1/conv/Conv                              BPU  id(0)     HzSQuantizedConv           0.993192           5.27757    int8      
+/model.9/cv1/act/Mul                                BPU  id(0)     HzLut                      0.993065           6.49477    int8      
+/model.9/m/MaxPool                                  BPU  id(0)     HzQuantizedMaxPool         0.996897           8.20549    int8      
+/model.9/m_1/MaxPool                                BPU  id(0)     HzQuantizedMaxPool         0.997778           8.20549    int8      
+/model.9/m_2/MaxPool                                BPU  id(0)     HzQuantizedMaxPool         0.998146           8.20549    int8      
+/model.9/Concat                                     BPU  id(0)     Concat                     0.997386           8.20549    int8      
+/model.9/cv2/conv/Conv                              BPU  id(0)     HzSQuantizedConv           0.991918           8.20549    int8      
+/model.9/cv2/act/Mul                                BPU  id(0)     HzLut                      0.981782           6.16108    int8      
+/model.10/cv1/conv/Conv                             BPU  id(0)     HzSQuantizedConv           0.983690           4.0554     int8      
+/model.10/cv1/act/Mul                               BPU  id(0)     HzLut                      0.981362           7.58651    int8      
+/model.10/Split                                     BPU  id(0)     Split                      0.976939           6.74944    int8      
+/model.10/m/m.0/attn/qkv/conv/Conv                  BPU  id(0)     HzSQuantizedConv           0.987413           6.74944    int8      
+/model.10/m/m.0/attn/Reshape                        BPU  id(0)     Reshape                    0.987413           6.43712    int8      
+/model.10/m/m.0/attn/Split                          BPU  id(0)     Split                      0.990278           6.43712    int8      
+/model.10/m/m.0/attn/Transpose                      BPU  id(0)     Transpose                  0.990278           6.43712    int8      
+/model.10/m/m.0/attn/Reshape_2                      BPU  id(0)     Reshape                    0.986361           6.43712    int8      
+/model.10/m/m.0/attn/MatMul                         BPU  id(0)     HzSQuantizedMatmul         0.989643           6.43712    int8      
+/model.10/m/m.0/attn/Mul                            BPU  id(0)     HzSQuantizedConv           0.989645           77.2152    int8      
+...0/attn/Softmax_reducemax_FROM_QUANTIZED_SOFTMAX  BPU  id(0)     HzQuantizedReduceMax       0.997948           13.6498    int16     
+...0/m/m.0/attn/Softmax_sub_FROM_QUANTIZED_SOFTMAX  BPU  id(0)     HzSElementwiseSub          0.993895           13.6498    int16     
+...0/m/m.0/attn/Softmax_exp_FROM_QUANTIZED_SOFTMAX  BPU  id(0)     HzLut2Layer                0.982266           11.0903    int16     
+...0/attn/Softmax_reducesum_FROM_QUANTIZED_SOFTMAX  BPU  id(0)     HzSQuantizedReduceSum      0.990908           1.0        int16     
+.../attn/Softmax_reciprocal_FROM_QUANTIZED_SOFTMAX  BPU  id(0)     HzLut2Layer                0.960863           347.481    int16     
+...0/m/m.0/attn/Softmax_mul_FROM_QUANTIZED_SOFTMAX  BPU  id(0)     HzSElementwiseMul          0.968599           1.0        int16     
+/model.10/m/m.0/attn/Transpose_1                    BPU  id(0)     Transpose                  0.968601           0.166807   int8      
+/model.10/m/m.0/attn/MatMul_1                       BPU  id(0)     HzSQuantizedMatmul         0.992040           6.43712    int8      
+/model.10/m/m.0/attn/Reshape_1                      BPU  id(0)     Reshape                    0.992040           6.42727    int8      
+/model.10/m/m.0/attn/pe/conv/Conv                   BPU  id(0)     HzSQuantizedConv           0.981119           6.43712    int8      
+/model.10/m/m.0/attn/proj/conv/Conv                 BPU  id(0)     HzSQuantizedConv           0.973197           4.87674    int8      
+/model.10/m/m.0/ffn/ffn.0/conv/Conv                 BPU  id(0)     HzSQuantizedConv           0.981182           6.94558    int8      
+/model.10/m/m.0/ffn/ffn.0/act/Mul                   BPU  id(0)     HzLut                      0.963391           6.15807    int8      
+/model.10/m/m.0/ffn/ffn.1/conv/Conv                 BPU  id(0)     HzSQuantizedConv           0.963239           4.00343    int8      
+/model.10/Split_output_0_calibrated_Requantize      BPU  id(0)     HzRequantize               --                 --         int8      
+/model.10/Concat                                    BPU  id(0)     Concat                     0.974314           6.74944    int8      
+/model.10/cv2/conv/Conv                             BPU  id(0)     HzSQuantizedConv           0.984031           6.70528    int8      
+/model.10/cv2/act/Mul                               BPU  id(0)     HzLut                      0.969570           5.96303    int8      
+/model.11/Resize                                    BPU  id(0)     HzQuantizedResizeUpsample  0.969497           4.85671    int8      
+/model.11/Resize_output_0_calibrated_Requantize     BPU  id(0)     HzRequantize               --                 --         int8      
+...el.6/cv2/act/Mul_output_0_calibrated_Requantize  BPU  id(0)     HzRequantize               --                 --         int8      
+/model.12/Concat                                    BPU  id(0)     Concat                     0.974993           4.85671    int8      
+/model.13/cv1/conv/Conv                             BPU  id(0)     HzSQuantizedConv           0.982216           4.09731    int8      
+/model.13/cv1/act/Mul                               BPU  id(0)     HzLut                      0.980437           6.72031    int8      
+/model.13/Split                                     BPU  id(0)     Split                      0.980478           4.77995    int8      
+/model.13/m.0/cv1/conv/Conv                         BPU  id(0)     HzSQuantizedConv           0.981191           4.77995    int8      
+/model.13/m.0/cv1/act/Mul                           BPU  id(0)     HzLut                      0.975010           5.74873    int8      
+/model.13/m.0/cv2/conv/Conv                         BPU  id(0)     HzSQuantizedConv           0.969810           4.08541    int8      
+/model.13/m.0/cv2/act/Mul                           BPU  id(0)     HzLut                      0.976661           8.66511    int8      
+/model.13/m.0/Add                                   BPU  id(0)     HzSElementwiseAdd          0.976434           4.77995    int8      
+/model.13/Split_output_0_calibrated_Requantize      BPU  id(0)     HzRequantize               --                 --         int8      
+/model.13/Split_output_1_calibrated_Requantize      BPU  id(0)     HzRequantize               --                 --         int8      
+/model.13/Concat                                    BPU  id(0)     Concat                     0.978104           4.77995    int8      
+/model.13/cv2/conv/Conv                             BPU  id(0)     HzSQuantizedConv           0.978637           6.03137    int8      
+/model.13/cv2/act/Mul                               BPU  id(0)     HzLut                      0.971577           5.94888    int8      
+/model.14/Resize                                    BPU  id(0)     HzQuantizedResizeUpsample  0.971562           3.73449    int8      
+/model.14/Resize_output_0_calibrated_Requantize     BPU  id(0)     HzRequantize               --                 --         int8      
+...el.4/cv2/act/Mul_output_0_calibrated_Requantize  BPU  id(0)     HzRequantize               --                 --         int8      
+/model.15/Concat                                    BPU  id(0)     Concat                     0.977327           3.73449    int8      
+/model.16/cv1/conv/Conv                             BPU  id(0)     HzSQuantizedConv           0.988286           3.05039    int8      
+/model.16/cv1/act/Mul                               BPU  id(0)     HzLut                      0.989327           5.59959    int8      
+/model.16/Split                                     BPU  id(0)     Split                      0.988842           3.66248    int8      
+/model.16/m.0/cv1/conv/Conv                         BPU  id(0)     HzSQuantizedConv           0.985510           3.66248    int8      
+/model.16/m.0/cv1/act/Mul                           BPU  id(0)     HzLut                      0.985827           5.72251    int8      
+/model.16/m.0/cv2/conv/Conv                         BPU  id(0)     HzSQuantizedConv           0.978725           4.20067    int8      
+/model.16/m.0/cv2/act/Mul                           BPU  id(0)     HzLut                      0.985223           7.67471    int8      
+/model.16/m.0/Add                                   BPU  id(0)     HzSElementwiseAdd          0.986606           3.66248    int8      
+/model.16/Split_output_0_calibrated_Requantize      BPU  id(0)     HzRequantize               --                 --         int8      
+/model.16/Split_output_1_calibrated_Requantize      BPU  id(0)     HzRequantize               --                 --         int8      
+/model.16/Concat                                    BPU  id(0)     Concat                     0.987726           3.66248    int8      
+/model.16/cv2/conv/Conv                             BPU  id(0)     HzSQuantizedConv           0.980301           5.11313    int8      
+/model.16/cv2/act/Mul                               BPU  id(0)     HzLut                      0.983184           7.70239    int8      
+/model.17/conv/Conv                                 BPU  id(0)     HzSQuantizedConv           0.972014           3.59226    int8      
+/model.23/cv4.0/cv4.0.0/conv/Conv                   BPU  id(0)     HzSQuantizedConv           0.952265           3.59226    int8      
+/model.23/cv2.0/cv2.0.0/conv/Conv                   BPU  id(0)     HzSQuantizedConv           0.983802           3.59226    int8      
+/model.23/cv3.0/cv3.0.0/cv3.0.0.0/conv/Conv         BPU  id(0)     HzSQuantizedConv           0.988699           3.59226    int8      
+/model.17/act/Mul                                   BPU  id(0)     HzLut                      0.961935           5.26813    int8      
+/model.23/cv4.0/cv4.0.0/act/Mul                     BPU  id(0)     HzLut                      0.956092           12.1082    int8      
+/model.23/cv2.0/cv2.0.0/act/Mul                     BPU  id(0)     HzLut                      0.973601           5.99627    int8      
+/model.23/cv3.0/cv3.0.0/cv3.0.0.0/act/Mul           BPU  id(0)     HzLut                      0.988734           3.96273    int8      
+/model.18/Concat                                    BPU  id(0)     Concat                     0.967321           3.73449    int8      
+/model.23/cv4.0/cv4.0.1/conv/Conv                   BPU  id(0)     HzSQuantizedConv           0.959056           8.26731    int8      
+/model.23/cv2.0/cv2.0.1/conv/Conv                   BPU  id(0)     HzSQuantizedConv           0.976295           4.62165    int8      
+/model.23/cv3.0/cv3.0.0/cv3.0.0.1/conv/Conv         BPU  id(0)     HzSQuantizedConv           0.976926           3.77596    int8      
+/model.19/cv1/conv/Conv                             BPU  id(0)     HzSQuantizedConv           0.968760           3.73449    int8      
+/model.23/cv4.0/cv4.0.1/act/Mul                     BPU  id(0)     HzLut                      0.965613           11.0259    int8      
+/model.23/cv2.0/cv2.0.1/act/Mul                     BPU  id(0)     HzLut                      0.980440           24.4012    int8      
+/model.23/cv3.0/cv3.0.0/cv3.0.0.1/act/Mul           BPU  id(0)     HzLut                      0.972418           3.65229    int8      
+/model.19/cv1/act/Mul                               BPU  id(0)     HzLut                      0.965098           6.50192    int8      
+/model.23/cv4.0/cv4.0.2/Conv                        BPU  id(0)     HzSQuantizedConv           0.985305           9.56334    int8      
+/model.23/cv2.0/cv2.0.2/Conv                        BPU  id(0)     HzSQuantizedConv           0.992950           24.4012    int8      
+/model.23/cv3.0/cv3.0.1/cv3.0.1.0/conv/Conv         BPU  id(0)     HzSQuantizedConv           0.970461           3.07099    int8      
+/model.19/Split                                     BPU  id(0)     Split                      0.953310           4.05749    int8      
+/model.23/Reshape                                   BPU  id(0)     Reshape                    0.985305           5.59641    int16     
+/model.19/m.0/cv1/conv/Conv                         BPU  id(0)     HzSQuantizedConv           0.979735           4.05749    int8      
+/model.23/cv3.0/cv3.0.1/cv3.0.1.0/act/Mul           BPU  id(0)     HzLut                      0.970931           5.15094    int8      
+/model.23/cv3.0/cv3.0.1/cv3.0.1.1/conv/Conv         BPU  id(0)     HzSQuantizedConv           0.977968           4.5679     int8      
+/model.19/m.0/cv1/act/Mul                           BPU  id(0)     HzLut                      0.982676           5.3054     int8      
+/model.19/m.0/cv2/conv/Conv                         BPU  id(0)     HzSQuantizedConv           0.960031           4.60826    int8      
+/model.23/cv3.0/cv3.0.1/cv3.0.1.1/act/Mul           BPU  id(0)     HzLut                      0.979215           8.42336    int8      
+/model.23/cv3.0/cv3.0.2/Conv                        BPU  id(0)     HzSQuantizedConv           0.999419           7.4745     int8      
+/model.19/m.0/cv2/act/Mul                           BPU  id(0)     HzLut                      0.958898           7.65045    int8      
+/model.23/Concat_1                                  BPU  id(0)     Concat                     0.996009           16.0474    int16     
+/model.19/m.0/Add                                   BPU  id(0)     HzSElementwiseAdd          0.961033           4.05749    int8      
+/model.23/Reshape_3                                 BPU  id(0)     Reshape                    0.996009           16.0474    int16     
+/model.19/Split_output_0_calibrated_Requantize      BPU  id(0)     HzRequantize               --                 --         int8      
+/model.19/Split_output_1_calibrated_Requantize      BPU  id(0)     HzRequantize               --                 --         int8      
+/model.19/Concat                                    BPU  id(0)     Concat                     0.962268           4.05749    int8      
+/model.19/cv2/conv/Conv                             BPU  id(0)     HzSQuantizedConv           0.962356           5.69611    int8      
+/model.19/cv2/act/Mul                               BPU  id(0)     HzLut                      0.962395           6.31523    int8      
+/model.20/conv/Conv                                 BPU  id(0)     HzSQuantizedConv           0.949014           4.33737    int8      
+/model.23/cv4.1/cv4.1.0/conv/Conv                   BPU  id(0)     HzSQuantizedConv           0.944060           4.33737    int8      
+/model.23/cv2.1/cv2.1.0/conv/Conv                   BPU  id(0)     HzSQuantizedConv           0.975732           4.33737    int8      
+/model.23/cv3.1/cv3.1.0/cv3.1.0.0/conv/Conv         BPU  id(0)     HzSQuantizedConv           0.960348           4.33737    int8      
+/model.20/act/Mul                                   BPU  id(0)     HzLut                      0.935909           6.2482     int8      
+/model.23/cv4.1/cv4.1.0/act/Mul                     BPU  id(0)     HzLut                      0.948357           12.2748    int8      
+/model.23/cv2.1/cv2.1.0/act/Mul                     BPU  id(0)     HzLut                      0.960256           7.38485    int8      
+/model.23/cv3.1/cv3.1.0/cv3.1.0.0/act/Mul           BPU  id(0)     HzLut                      0.962552           6.1949     int8      
+/model.21/Concat                                    BPU  id(0)     Concat                     0.952108           4.85671    int8      
+/model.23/cv4.1/cv4.1.1/conv/Conv                   BPU  id(0)     HzSQuantizedConv           0.957126           6.85062    int8      
+/model.23/cv2.1/cv2.1.1/conv/Conv                   BPU  id(0)     HzSQuantizedConv           0.969648           5.50946    int8      
+/model.23/cv3.1/cv3.1.0/cv3.1.0.1/conv/Conv         BPU  id(0)     HzSQuantizedConv           0.969362           5.03898    int8      
+/model.22/cv1/conv/Conv                             BPU  id(0)     HzSQuantizedConv           0.955376           4.85671    int8      
+/model.23/cv4.1/cv4.1.1/act/Mul                     BPU  id(0)     HzLut                      0.963376           10.0703    int8      
+/model.23/cv2.1/cv2.1.1/act/Mul                     BPU  id(0)     HzLut                      0.973234           29.6067    int8      
+/model.23/cv3.1/cv3.1.0/cv3.1.0.1/act/Mul           BPU  id(0)     HzLut                      0.965280           4.696      int8      
+/model.22/cv1/act/Mul                               BPU  id(0)     HzLut                      0.938003           6.19978    int8      
+/model.23/cv4.1/cv4.1.2/Conv                        BPU  id(0)     HzSQuantizedConv           0.977639           9.88449    int8      
+/model.23/cv2.1/cv2.1.2/Conv                        BPU  id(0)     HzSQuantizedConv           0.989469           29.6067    int8      
+/model.23/cv3.1/cv3.1.1/cv3.1.1.0/conv/Conv         BPU  id(0)     HzSQuantizedConv           0.972774           4.10098    int8      
+/model.22/Split                                     BPU  id(0)     Split                      0.924921           4.21411    int8      
+/model.23/Reshape_1                                 BPU  id(0)     Reshape                    0.977639           5.59641    int16     
+/model.22/m.0/cv1/conv/Conv                         BPU  id(0)     HzSQuantizedConv           0.985684           4.21411    int8      
+/model.22/m.0/cv2/conv/Conv                         BPU  id(0)     HzSQuantizedConv           0.944637           4.21411    int8      
+/model.23/cv3.1/cv3.1.1/cv3.1.1.0/act/Mul           BPU  id(0)     HzLut                      0.974441           6.44653    int8      
+/model.23/cv3.1/cv3.1.1/cv3.1.1.1/conv/Conv         BPU  id(0)     HzSQuantizedConv           0.965445           4.99162    int8      
+/model.22/m.0/cv1/act/Mul                           BPU  id(0)     HzLut                      0.986538           3.36005    int8      
+/model.22/m.0/cv2/act/Mul                           BPU  id(0)     HzLut                      0.940781           5.29511    int8      
+/model.22/m.0/m/m.0/cv1/conv/Conv                   BPU  id(0)     HzSQuantizedConv           0.978194           1.15459    int8      
+/model.23/cv3.1/cv3.1.1/cv3.1.1.1/act/Mul           BPU  id(0)     HzLut                      0.970546           14.5676    int8      
+/model.23/cv3.1/cv3.1.2/Conv                        BPU  id(0)     HzSQuantizedConv           0.998464           12.116     int8      
+/model.22/m.0/m/m.0/cv1/act/Mul                     BPU  id(0)     HzLut                      0.969613           5.42522    int8      
+/model.23/Concat_2                                  BPU  id(0)     Concat                     0.992402           16.0474    int16     
+/model.22/m.0/m/m.0/cv2/conv/Conv                   BPU  id(0)     HzSQuantizedConv           0.974779           3.73447    int8      
+/model.23/Reshape_4                                 BPU  id(0)     Reshape                    0.992402           16.0474    int16     
+/model.22/m.0/m/m.0/cv2/act/Mul                     BPU  id(0)     HzLut                      0.971157           6.9908     int8      
+/model.22/m.0/m/m.0/Add                             BPU  id(0)     HzSElementwiseAdd          0.972021           1.15459    int8      
+/model.22/m.0/m/m.1/cv1/conv/Conv                   BPU  id(0)     HzSQuantizedConv           0.974886           5.41709    int8      
+/model.22/m.0/m/m.1/cv1/act/Mul                     BPU  id(0)     HzLut                      0.959664           6.27408    int8      
+/model.22/m.0/m/m.1/cv2/conv/Conv                   BPU  id(0)     HzSQuantizedConv           0.964866           4.26625    int8      
+/model.22/m.0/m/m.1/cv2/act/Mul                     BPU  id(0)     HzLut                      0.968930           8.7224     int8      
+/model.22/m.0/m/m.1/Add                             BPU  id(0)     HzSElementwiseAdd          0.974866           5.41709    int8      
+/model.22/m.0/Concat                                BPU  id(0)     Concat                     0.971581           8.8336     int8      
+/model.22/m.0/cv3/conv/Conv                         BPU  id(0)     HzSQuantizedConv           0.949687           8.8336     int8      
+/model.22/m.0/cv3/act/Mul                           BPU  id(0)     HzLut                      0.943895           8.99898    int8      
+/model.22/Split_output_0_calibrated_Requantize      BPU  id(0)     HzRequantize               --                 --         int8      
+/model.22/Split_output_1_calibrated_Requantize      BPU  id(0)     HzRequantize               --                 --         int8      
+/model.22/Concat                                    BPU  id(0)     Concat                     0.941158           4.21411    int8      
+/model.22/cv2/conv/Conv                             BPU  id(0)     HzSQuantizedConv           0.958133           5.41768    int8      
+/model.22/cv2/act/Mul                               BPU  id(0)     HzLut                      0.943261           8.58488    int8      
+/model.23/cv4.2/cv4.2.0/conv/Conv                   BPU  id(0)     HzSQuantizedConv           0.964669           5.17008    int8      
+/model.23/cv2.2/cv2.2.0/conv/Conv                   BPU  id(0)     HzSQuantizedConv           0.976083           5.17008    int8      
+/model.23/cv3.2/cv3.2.0/cv3.2.0.0/conv/Conv         BPU  id(0)     HzSQuantizedConv           0.952410           5.17008    int8      
+/model.23/cv4.2/cv4.2.0/act/Mul                     BPU  id(0)     HzLut                      0.968407           8.7718     int8      
+/model.23/cv2.2/cv2.2.0/act/Mul                     BPU  id(0)     HzLut                      0.964996           10.2035    int8      
+/model.23/cv3.2/cv3.2.0/cv3.2.0.0/act/Mul           BPU  id(0)     HzLut                      0.943984           7.17917    int8      
+/model.23/cv4.2/cv4.2.1/conv/Conv                   BPU  id(0)     HzSQuantizedConv           0.968447           8.69764    int8      
+/model.23/cv2.2/cv2.2.1/conv/Conv                   BPU  id(0)     HzSQuantizedConv           0.974346           8.10613    int8      
+/model.23/cv3.2/cv3.2.0/cv3.2.0.1/conv/Conv         BPU  id(0)     HzSQuantizedConv           0.963067           6.54675    int8      
+/model.23/cv4.2/cv4.2.1/act/Mul                     BPU  id(0)     HzLut                      0.972031           12.2324    int8      
+/model.23/cv2.2/cv2.2.1/act/Mul                     BPU  id(0)     HzLut                      0.977099           38.2812    int8      
+/model.23/cv3.2/cv3.2.0/cv3.2.0.1/act/Mul           BPU  id(0)     HzLut                      0.955400           11.1587    int8      
+/model.23/cv4.2/cv4.2.2/Conv                        BPU  id(0)     HzSQuantizedConv           0.971571           12.1765    int8      
+/model.23/cv2.2/cv2.2.2/Conv                        BPU  id(0)     HzSQuantizedConv           0.989895           38.2812    int8      
+/model.23/cv3.2/cv3.2.1/cv3.2.1.0/conv/Conv         BPU  id(0)     HzSQuantizedConv           0.968224           7.66869    int8      
+/model.23/Reshape_2                                 BPU  id(0)     Reshape                    0.971571           5.59641    int16     
+/model.23/Concat                                    BPU  id(0)     Concat                     0.983230           5.59641    int16     
+/model.23/cv3.2/cv3.2.1/cv3.2.1.0/act/Mul           BPU  id(0)     HzLut                      0.955431           9.50982    int8      
+/model.23/cv3.2/cv3.2.1/cv3.2.1.1/conv/Conv         BPU  id(0)     HzSQuantizedConv           0.958007           8.14066    int8      
+/model.23/Reshape_6                                 BPU  id(0)     Reshape                    0.983230           5.59641    int16     
+/model.23/Slice_2                                   BPU  id(0)     Slice                      0.972580           5.59641    int16     
+/model.23/Slice_3                                   BPU  id(0)     Slice                      0.989534           5.59641    int16     
+/model.23/cv3.2/cv3.2.1/cv3.2.1.1/act/Mul           BPU  id(0)     HzLut                      0.959035           17.6151    int8      
+/model.23/Mul_3                                     BPU  id(0)     HzSQuantizedConv           0.972491           5.59641    int16     
+/model.23/Slice_3_output_0_Requantize               BPU  id(0)     HzRequantize               --                 --         int16     
+/model.23/Sigmoid_1                                 BPU  id(0)     HzLut2Layer                0.985142           11.0903    int16     
+/model.23/cv3.2/cv3.2.2/Conv                        BPU  id(0)     HzSQuantizedConv           0.994333           17.1765    int8      
+/model.23/Add_3                                     BPU  id(0)     HzSElementwiseAdd          0.999914           11.1928    int8      
+/model.23/Concat_3                                  BPU  id(0)     Concat                     0.990808           16.0474    int16     
+/model.23/Mul_4                                     BPU  id(0)     HzSElementwiseMul          0.999804           82.1835    int8      
+/model.23/Reshape_5                                 BPU  id(0)     Reshape                    0.990808           16.0474    int16     
+/model.23/Sigmoid_1_output_0_calibrated_Requantize  BPU  id(0)     HzRequantize               --                 --         int16     
+/model.23/Concat_6                                  BPU  id(0)     Concat                     0.999804           666.616    int16     
+/model.23/Concat_4                                  BPU  id(0)     Concat                     0.995017           16.0474    int16     
+/model.23/Reshape_7                                 BPU  id(0)     Reshape                    0.999804           666.616    int16     
+/model.23/Split                                     BPU  id(0)     Split                      0.991846           16.0474    int16     
+/model.23/dfl/Reshape                               BPU  id(0)     Reshape                    0.991846           16.0474    int16     
+/model.23/Sigmoid                                   BPU  id(0)     HzLut2Layer                0.705254           16.0474    int16     
+/model.23/dfl/Transpose                             BPU  id(0)     Transpose                  0.991842           16.0474    int16     
+/model.23/dfl/Softmax                               CPU  --        Softmax                    0.987105           16.0474    float     
+/model.23/dfl/conv/Conv                             BPU  id(1)     HzSQuantizedConv           0.997296           0.813927   int8      
+/model.23/Slice                                     BPU  id(1)     Slice                      0.997737           14.3154    int16     
+/model.23/Slice_1                                   BPU  id(1)     Slice                      0.996803           14.3154    int16     
+/model.23/Sub                                       BPU  id(1)     HzSElementwiseSub          0.999925           79.5       int16     
+/model.23/Add_1                                     BPU  id(1)     HzSElementwiseAdd          0.999941           79.5       int16     
+/model.23/Add_2                                     BPU  id(1)     HzSElementwiseAdd          0.999963           79.2245    int8      
+/model.23/Sub_1                                     BPU  id(1)     HzSElementwiseSub          0.997568           83.8584    int8      
+/model.23/Div_1_mul                                 BPU  id(1)     HzSQuantizedConv           0.999963           159.392    int8      
+/model.23/Concat_5                                  BPU  id(1)     Concat                     0.999805           79.6672    int8      
+/model.23/Mul_2                                     BPU  id(1)     HzSElementwiseMul          0.999637           79.6672    int8      
+/model.23/Mul_2_output_0_calibrated_Requantize      BPU  id(1)     HzRequantize               --                 --         int16     
+/model.23/Sigmoid_output_0_calibrated_Requantize    BPU  id(0)     HzRequantize               --                 --         int16     
+/model.23/Concat_7                                  BPU  id(1)     Concat                     0.999794           639.555    int16
+2025-08-25 10:09:43,023 file: print_info_dict.py func: print_info_dict line No: 72 The quantized model output:
+=============================================================================
+Output      Cosine Similarity  L1 Distance  L2 Distance  Chebyshev Distance  
+-----------------------------------------------------------------------------
+output0     0.999794           3.456999     0.009300     186.532074
+2025-08-25 10:09:43,042 file: model_builder.py func: model_builder line No: 38 End to Horizon NN Model Convert.
+2025-08-25 10:09:43,094 file: hb_mapper_makertbin.py func: hb_mapper_makertbin line No: 601 start convert to *.bin file....
+2025-08-25 10:09:43,189 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4326 ONNX model output num : 1
+2025-08-25 10:09:43,198 file: layout_util.py func: layout_util line No: 15 set_featuremap_layout start
+2025-08-25 10:09:43,199 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4060 model_deps_info: {'hb_mapper_version': '1.24.3', 'hbdk_version': '3.49.15', 'hbdk_runtime_version': ' 3.15.55.0', 'horizon_nn_version': '1.1.0', 'onnx_model': '/open_explorer/yolo11n-pose.onnx', 'march': 'bayes-e', 'layer_out_dump': False, 'log_level': 'DEBUG', 'working_dir': '/open_explorer/yolo11n_pose_bayese_640x640_nv12', 'model_prefix': 'yolo11n_pose_bayese_640x640_nv12', 'node_info': {'/model.10/m/m.0/attn/Softmax': {'ON': 'BPU', 'InputType': 'int16', 'OutputType': 'int16'}}, 'input_names': ['images'], 'input_type_rt': ['nv12'], 'input_space_and_range': ['regular'], 'input_type_train': ['rgb'], 'input_layout_rt': [''], 'input_layout_train': ['NCHW'], 'norm_type': ['data_scale'], 'scale_value': ['0.003921568627451,'], 'mean_value': [''], 'input_shape': ['1x3x640x640'], 'input_batch': [], 'cal_dir': ['/open_explorer/calibration_data_rgb_f32_640'], 'cal_data_type': ['float32'], 'preprocess_on': False, 'calibration_type': 'default', 'per_channel': 'False', 'hbdk_params': {'hbdk_pass_through_params': '--O3 --core-num 1 --fast ', 'input-source': {'images': 'pyramid', '_default_value': 'ddr'}}, 'debug': False, 'compile_mode': 'latency'}
+2025-08-25 10:09:43,204 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4183 ############# model deps info #############
+2025-08-25 10:09:43,209 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4184 hb_mapper version   : 1.24.3
+2025-08-25 10:09:43,209 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4187 hbdk version        : 3.49.15
+2025-08-25 10:09:43,209 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4189 hbdk runtime version: 3.15.55.0
+2025-08-25 10:09:43,210 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4192 horizon_nn version  : 1.1.0
+2025-08-25 10:09:43,211 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4196 ############# model_parameters info #############
+2025-08-25 10:09:43,212 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4202 onnx_model          : /open_explorer/yolo11n-pose.onnx
+2025-08-25 10:09:43,213 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4203 BPU march           : bayes-e
+2025-08-25 10:09:43,213 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4204 layer_out_dump      : False
+2025-08-25 10:09:43,214 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4205 log_level           : DEBUG
+2025-08-25 10:09:43,214 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4206 working dir         : /open_explorer/yolo11n_pose_bayese_640x640_nv12
+2025-08-25 10:09:43,214 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4207 output_model_file_prefix: yolo11n_pose_bayese_640x640_nv12
+2025-08-25 10:09:43,214 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4226 node info  : {'/model.10/m/m.0/attn/Softmax': {'ON': 'BPU', 'InputType': 'int16', 'OutputType': 'int16'}}
+2025-08-25 10:09:43,214 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4228 ############# input_parameters info #############
+2025-08-25 10:09:43,214 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4246 ------------------------------------------
+2025-08-25 10:09:43,215 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4248 ---------input info : images ---------
+2025-08-25 10:09:43,216 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4249 input_name          : images
+2025-08-25 10:09:43,216 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4250 input_type_rt       : nv12
+2025-08-25 10:09:43,217 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4252 input_space&range   : regular
+2025-08-25 10:09:43,217 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4254 input_layout_rt     : None
+2025-08-25 10:09:43,217 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4255 input_type_train    : rgb
+2025-08-25 10:09:43,218 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4256 input_layout_train  : NCHW
+2025-08-25 10:09:43,218 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4257 norm_type           : data_scale
+2025-08-25 10:09:43,219 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4258 input_shape         : 1x3x640x640
+2025-08-25 10:09:43,219 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4266 scale_value         : 0.003921568627451,
+2025-08-25 10:09:43,220 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4268 cal_data_dir        : /open_explorer/calibration_data_rgb_f32_640
+2025-08-25 10:09:43,220 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4270 cal_data_type       : float32
+2025-08-25 10:09:43,220 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4271 ---------input info : images end -------
+2025-08-25 10:09:43,221 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4272 ------------------------------------------
+2025-08-25 10:09:43,221 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4274 ############# calibration_parameters info #############
+2025-08-25 10:09:43,222 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4275 preprocess_on       : False
+2025-08-25 10:09:43,222 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4276 calibration_type:   : default
+2025-08-25 10:09:43,224 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4284 per_channel         : False
+2025-08-25 10:09:43,224 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4303 ############# compiler_parameters info #############
+2025-08-25 10:09:43,224 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4305 debug               : False
+2025-08-25 10:09:43,225 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4307 compile_mode        : latency
+2025-08-25 10:09:43,225 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4310 hbdk_pass_through_params: --O3 --core-num 1 --fast
+2025-08-25 10:09:43,225 file: onnx2horizonrt.py func: onnx2horizonrt line No: 4310 input-source        : {'images': 'pyramid', '_default_value': 'ddr'}
+2025-08-25 10:09:43,240 file: hb_mapper_makertbin.py func: hb_mapper_makertbin line No: 783 Convert to runtime bin file successfully!
+2025-08-25 10:09:43,241 file: hb_mapper_makertbin.py func: hb_mapper_makertbin line No: 784 End Model Convert

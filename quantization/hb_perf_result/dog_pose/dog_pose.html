@@ -1,0 +1,46 @@
+
+<meta http-equiv="Content-Type"content="text/html;charset=utf-8">
+<html align='left'>
+<h1>Model Perf Report</h1>
+    <body>
+    <h2>Model Performance Summary</h2>
+    <p>Model Name : dog_pose.bin</p>
+    <p>BPU Model Latency(ms) : 13.14</p>
+    <p>Total DDR (loaded + stored) bytes per frame(MB per frame) : 55.11 </p>
+    <p>Loaded Bytes per Frame : 34093232 </p>
+    <p>Stored Bytes per Frame : 23697792 </p>
+    <p style="color:orange">Note : There are CPU nodes in the model, this part of the time consumption cannot be estimated, so only the time consumption on the BPU is shown </p>
+    <h2>Details</h2>
+    
+    <h3>Model Subgraph Item</h3>
+    <p>Model Subgraph Name : torch_jit_subgraph_0</p>
+    <p>Model Subgraph Calculation Load (OPpf) : 8178816000</p>
+    <p>Model Subgraph DDR Occupation(Mbpf) : 31.876</p>
+    <p>Model Subgraph Latency(ms) : 9.21 </p>
+    <p>Model Subgraph Info Files : <a href=torch_jit_subgraph_0.html> torch_jit_subgraph_0 Detail</a> </p>
+    
+    <h3>Model Subgraph Item</h3>
+    <p>Model Subgraph Name : torch_jit_subgraph_1</p>
+    <p>Model Subgraph Calculation Load (OPpf) : 0</p>
+    <p>Model Subgraph DDR Occupation(Mbpf) : 2.296</p>
+    <p>Model Subgraph Latency(ms) : 0.34 </p>
+    <p>Model Subgraph Info Files : <a href=torch_jit_subgraph_1.html> torch_jit_subgraph_1 Detail</a> </p>
+    
+    <h3>Model Subgraph Item</h3>
+    <p>Model Subgraph Name : torch_jit_subgraph_2</p>
+    <p>Model Subgraph Calculation Load (OPpf) : 0</p>
+    <p>Model Subgraph DDR Occupation(Mbpf) : 2.296</p>
+    <p>Model Subgraph Latency(ms) : 0.34 </p>
+    <p>Model Subgraph Info Files : <a href=torch_jit_subgraph_2.html> torch_jit_subgraph_2 Detail</a> </p>
+    
+    <h3>Model Subgraph Item</h3>
+    <p>Model Subgraph Name : torch_jit_subgraph_3</p>
+    <p>Model Subgraph Calculation Load (OPpf) : 1108800</p>
+    <p>Model Subgraph DDR Occupation(Mbpf) : 18.646</p>
+    <p>Model Subgraph Latency(ms) : 3.25 </p>
+    <p>Model Subgraph Info Files : <a href=torch_jit_subgraph_3.html> torch_jit_subgraph_3 Detail</a> </p>
+    
+    <h2>BIN Model Structure</h2>
+    <a name="bin model structure"> <img src="dog_pose.png" width="640"></a>
+    </body>
+</html>

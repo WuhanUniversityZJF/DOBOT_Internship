@@ -1,0 +1,14 @@
+2025-08-25 10:30:18,897 file: tool_utils.py func: tool_utils line No: 77 log will be stored in /open_explorer/yolo11n_pose_bayese_640x640_nv12/hb_perf.log
+2025-08-25 10:30:18,906 file: hb_perf.py func: hb_perf line No: 63 Start hb_perf....
+2025-08-25 10:30:18,907 file: hb_perf.py func: hb_perf line No: 64 hb_perf version 1.24.3
+2025-08-25 10:30:18,907 file: tool_utils.py func: tool_utils line No: 135 exception in command: cmd_main
+2025-08-25 10:30:18,911 file: tool_utils.py func: tool_utils line No: 136 Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/horizon_tc_ui/utils/tool_utils.py", line 133, in __decorator
+    func(*args, **kargs)
+  File "/usr/local/lib/python3.10/dist-packages/horizon_tc_ui/hb_perf.py", line 46, in cmd_main
+    cmd_wrapper(bin_file, m, internal_detail)
+  File "/usr/local/lib/python3.10/dist-packages/horizon_tc_ui/hb_perf.py", line 65, in cmd_wrapper
+    with open(bin_file, 'rb') as f:
+FileNotFoundError: [Errno 2] No such file or directory: '/open_explorer/yolo11n_pose_bayese_640x640_nv12/yolo11n_detect_bayese_640x640_nv12_modified.bin'
+
+2025-08-25 10:30:18,911 file: tool_utils.py func: tool_utils line No: 137 [Errno 2] No such file or directory: '/open_explorer/yolo11n_pose_bayese_640x640_nv12/yolo11n_detect_bayese_640x640_nv12_modified.bin'

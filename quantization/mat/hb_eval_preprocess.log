@@ -1,0 +1,5 @@
+2025-08-18 16:13:44,617 file: tool_utils.py func: tool_utils line No: 77 log will be stored in /open_explorer/hb_eval_preprocess.log
+2025-08-18 16:13:44,617 file: eval_preprocess.py func: eval_preprocess line No: 57 make sure your numpy version is "1.16.5"
+2025-08-18 16:13:44,618 file: eval_preprocess.py func: eval_preprocess line No: 44 yolov5 will be abandoned. Please use the new name yolov5s
+2025-08-18 16:13:44,618 file: eval_preprocess.py func: eval_preprocess line No: 71 input single image
+2025-08-18 16:13:45,092 file: eval_preprocess.py func: eval_preprocess line No: 115 generated: affected/2dogs.jpeg_459_640_672_672.bin

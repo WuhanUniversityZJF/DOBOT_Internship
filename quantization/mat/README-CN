@@ -1,0 +1,23 @@
+Horizon OpenExplorer
+├── package  # 目录下包含了发布物运行的一些基础库和组件
+│   ├── board
+│   │   ├── hrt_tools  # 包含 hrt_model_exec 和 hrt_bin_dump 的源码和可执行文件
+│   │   └── install.sh # 一键安装脚本，可以一键将hrt工具安装到指定的开发板
+│   └── host
+│       ├── ai_toolchain
+│       ├── host_package
+│       ├── hrt_tools
+│       ├── install.sh
+│       └── resolve.sh  # 用于下载交叉编译工具、torch等依赖
+├── README-CN
+├── README-EN
+├── resolve_all.sh # 一键下载OE包内所有可下载的依赖项
+├── run_docker.sh # Docker 镜像启动脚本
+└── samples
+    ├── ai_benchmark  # 提供了常见的分类、检测和分割模型的评测示例，包括性能评测和精度评测两部分
+    ├── ai_toolchain # 提供了一系列模型算法的相关示例
+    │   ├── horizon_model_convert_sample
+    │   ├── horizon_model_train_sample
+    │   ├── horizon_runtime_sample
+    │   └── model_zoo
+    └── model_zoo -> ai_toolchain/model_zoo

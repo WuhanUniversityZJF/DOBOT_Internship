@@ -1,0 +1,74 @@
+// the test
+digraph model {
+	images [label=images color=black]
+	NV12TOYUV444 [label="name: NV12TOYUV444
+type: BPU" color=black fillcolor=cadetblue shape=box style=filled]
+	torch_jit_subgraph_0 [label="name: torch_jit_subgraph_0
+type: BPU" color=black fillcolor=cadetblue shape=box style=filled]
+	kpt_HzDequantize [label="name: kpt_HzDequantize
+type: Dequantize" color=black fillcolor=lightgrey shape=box style=filled]
+	"model.23dflSoftmax_output_0_exp_calibrated_HzDequantize" [label="name: model.23dflSoftmax_output_0_exp_calibrated_HzDequantize
+type: Dequantize" color=black fillcolor=lightgrey shape=box style=filled]
+	"model.23dflSoftmax_reducesum_FROM_QUANTIZED_SOFTMAX" [label="name: model.23dflSoftmax_reducesum_FROM_QUANTIZED_SOFTMAX
+type: Reduction" color=black fillcolor=lightgrey shape=box style=filled]
+	"model.23dflSoftmax_output_0_reducesum_model.23dflSoftmax_output_0_reducesum_HzCalibration_HzQuantize" [label="name: model.23dflSoftmax_output_0_reducesum_model.23dflSoftmax_output_0_reducesum_HzCalibration_HzQuantize
+type: Quantize" color=black fillcolor=lightgrey shape=box style=filled]
+	"model.23Sigmoid_1_output_0_calibrated_HzDequantize" [label="name: model.23Sigmoid_1_output_0_calibrated_HzDequantize
+type: Dequantize" color=black fillcolor=lightgrey shape=box style=filled]
+	"model.23ScatterND" [label="name: model.23ScatterND
+type: ScatterND" color=black fillcolor=lightgrey shape=box style=filled]
+	"model.23Slice_6_output_0_model.23Slice_6_output_0_HzCalibration_HzQuantize" [label="name: model.23Slice_6_output_0_model.23Slice_6_output_0_HzCalibration_HzQuantize
+type: Quantize" color=black fillcolor=lightgrey shape=box style=filled]
+	torch_jit_subgraph_1 [label="name: torch_jit_subgraph_1
+type: BPU" color=black fillcolor=cadetblue shape=box style=filled]
+	"model.23Mul_9_output_0_calibrated_HzDequantize" [label="name: model.23Mul_9_output_0_calibrated_HzDequantize
+type: Dequantize" color=black fillcolor=lightgrey shape=box style=filled]
+	"model.23ScatterND_1" [label="name: model.23ScatterND_1
+type: ScatterND" color=black fillcolor=lightgrey shape=box style=filled]
+	"model.23Slice_10_output_0_model.23Slice_10_output_0_HzCalibration_HzQuantize" [label="name: model.23Slice_10_output_0_model.23Slice_10_output_0_HzCalibration_HzQuantize
+type: Quantize" color=black fillcolor=lightgrey shape=box style=filled]
+	torch_jit_subgraph_2 [label="name: torch_jit_subgraph_2
+type: BPU" color=black fillcolor=cadetblue shape=box style=filled]
+	"model.23Mul_13_output_0_calibrated_HzDequantize" [label="name: model.23Mul_13_output_0_calibrated_HzDequantize
+type: Dequantize" color=black fillcolor=lightgrey shape=box style=filled]
+	"model.23ScatterND_2" [label="name: model.23ScatterND_2
+type: ScatterND" color=black fillcolor=lightgrey shape=box style=filled]
+	"model.23ScatterND_2_output_0_model.23ScatterND_2_output_0_HzCalibration_HzQuantize" [label="name: model.23ScatterND_2_output_0_model.23ScatterND_2_output_0_HzCalibration_HzQuantize
+type: Quantize" color=black fillcolor=lightgrey shape=box style=filled]
+	torch_jit_subgraph_3 [label="name: torch_jit_subgraph_3
+type: BPU" color=black fillcolor=cadetblue shape=box style=filled]
+	output0 [label=output0 color=black]
+	onnxShape_640 [label=onnxShape_640 color=black]
+	onnxReshape_661 [label=onnxReshape_661 color=black]
+	onnxReshape_682 [label=onnxReshape_682 color=black]
+	kpt [label=kpt color=black]
+	images -> NV12TOYUV444 [label="1x640x640x3 / 2, NV12, UINT8" color=red]
+	NV12TOYUV444 -> torch_jit_subgraph_0 [label="1x640x640x3, YUV444, NHWC, INT8" color=red]
+	torch_jit_subgraph_0 -> kpt_HzDequantize [label="1x72x8400, INT8" color=red]
+	torch_jit_subgraph_0 -> onnxShape_640 [label="1x65x80x80, INT8, " color=red]
+	torch_jit_subgraph_0 -> onnxReshape_661 [label="1x65x40x40, INT8, " color=red]
+	torch_jit_subgraph_0 -> onnxReshape_682 [label="1x65x20x20, INT8, " color=red]
+	torch_jit_subgraph_0 -> torch_jit_subgraph_3 [label="1x4x16x8400, INT8" color=red]
+	torch_jit_subgraph_0 -> "model.23dflSoftmax_output_0_exp_calibrated_HzDequantize" [label="1x8400x4x16, INT8" color=red]
+	torch_jit_subgraph_0 -> "model.23Sigmoid_1_output_0_calibrated_HzDequantize" [label="1x24x8400, INT8" color=red]
+	torch_jit_subgraph_0 -> torch_jit_subgraph_3 [label="1x1x8400, INT8" color=red]
+	kpt_HzDequantize -> "model.23ScatterND" [label="1x72x8400, FLOAT32" color=red]
+	kpt_HzDequantize -> kpt [label="1x72x8400, FLOAT32" color=red]
+	"model.23dflSoftmax_output_0_exp_calibrated_HzDequantize" -> "model.23dflSoftmax_reducesum_FROM_QUANTIZED_SOFTMAX" [label="1x8400x4x16, FLOAT32" color=red]
+	"model.23dflSoftmax_reducesum_FROM_QUANTIZED_SOFTMAX" -> "model.23dflSoftmax_output_0_reducesum_model.23dflSoftmax_output_0_reducesum_HzCalibration_HzQuantize" [label="1x8400x4x1, FLOAT32" color=red]
+	"model.23dflSoftmax_output_0_reducesum_model.23dflSoftmax_output_0_reducesum_HzCalibration_HzQuantize" -> torch_jit_subgraph_3 [label="1x8400x4x1, INT8" color=red]
+	"model.23Sigmoid_1_output_0_calibrated_HzDequantize" -> "model.23ScatterND" [label="1x24x8400, FLOAT32" color=red]
+	"model.23ScatterND" -> "model.23Slice_6_output_0_model.23Slice_6_output_0_HzCalibration_HzQuantize" [label="1x72x8400, FLOAT32" color=red]
+	"model.23ScatterND" -> "model.23ScatterND_1" [label="1x72x8400, FLOAT32" color=red]
+	"model.23Slice_6_output_0_model.23Slice_6_output_0_HzCalibration_HzQuantize" -> torch_jit_subgraph_1 [label="1x72x8400, INT8" color=red]
+	torch_jit_subgraph_1 -> "model.23Mul_9_output_0_calibrated_HzDequantize" [label="1x24x8400, INT8" color=red]
+	"model.23Mul_9_output_0_calibrated_HzDequantize" -> "model.23ScatterND_1" [label="1x24x8400, FLOAT32" color=red]
+	"model.23ScatterND_1" -> "model.23Slice_10_output_0_model.23Slice_10_output_0_HzCalibration_HzQuantize" [label="1x72x8400, FLOAT32" color=red]
+	"model.23ScatterND_1" -> "model.23ScatterND_2" [label="1x72x8400, FLOAT32" color=red]
+	"model.23Slice_10_output_0_model.23Slice_10_output_0_HzCalibration_HzQuantize" -> torch_jit_subgraph_2 [label="1x72x8400, INT8" color=red]
+	torch_jit_subgraph_2 -> "model.23Mul_13_output_0_calibrated_HzDequantize" [label="1x24x8400, INT8" color=red]
+	"model.23Mul_13_output_0_calibrated_HzDequantize" -> "model.23ScatterND_2" [label="1x24x8400, FLOAT32" color=red]
+	"model.23ScatterND_2" -> "model.23ScatterND_2_output_0_model.23ScatterND_2_output_0_HzCalibration_HzQuantize" [label="1x72x8400, FLOAT32" color=red]
+	"model.23ScatterND_2_output_0_model.23ScatterND_2_output_0_HzCalibration_HzQuantize" -> torch_jit_subgraph_3 [label="1x72x8400, INT8" color=red]
+	torch_jit_subgraph_3 -> output0 [label="1x77x8400, INT8" color=red]
+}
